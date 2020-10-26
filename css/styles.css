@@ -1,0 +1,400 @@
+body {
+  font-size: 16px;
+  color: black;
+  background-color: #e0e0e0;
+  font-family: 'Oxygen', sans-serif;}
+
+/** HEADER **/
+#header-nav {
+  border-radius: 0;
+  border: 0;
+}
+.navbar-brand {
+  padding-top: 10px;
+}
+.navbar-brand a img {
+  width: 200px;
+  heigt: 100px;
+  margin: auto;
+}
+#header-items li { /* navbar header items padding btwn words. no wrap. */
+  white-space: nowrap;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+#header-items li > a { /* navbar header items*/
+  color: #5ebf9c;
+  text-align: center;
+}
+#header-items li > a:hover { /* navbar header items*/
+  text-decoration: none;
+  color: #15ade2;
+}
+#header-items li > div > a { /* dropdown menu items */
+  color: #5ebf9c;
+}
+#header-items li > div > a:hover { /* dropdown menu items */
+  text-decoration: none;
+  color: #15ade2;
+}
+#toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(94, 191, 156)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+#toggler {
+  border: 2px solid #5ebf9c;
+}
+#toggler:hover, #toggler:focus {
+  outline: none;
+  background-color: #15ade2;
+}
+/* END HEADER */
+
+/* HOME PAGE */
+.carousel-inner img {
+  height: 500px;
+  object-fit: cover;
+}
+.carousel-caption {
+  bottom: 40px;
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #15ade2;
+}
+.home-page-headings {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  background-color: #5ebf9c;
+}
+#identify-tile, #understand-tile, #empower-tile {
+  height: 250px;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  border: 2px solid white;
+  background-color: #15ade2;
+  overflow: hidden;
+}
+#identify-tile span, #understand-tile span, #empower-tile span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  background-color: #5ebf9c;
+  color: #fff;
+}
+#identify-tile p, #understand-tile p, #empower-tile p {
+  position: absolute;
+  padding-top: 45px;
+  padding-right: 8px;
+  padding-left: 8px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.3em;
+  color: #fff;
+}
+#identify-tile:hover, #understand-tile:hover, #empower-tile:hover {
+  box-shadow: 0 1px 5px 1px #5ebf9c;
+}
+#what-we-do-tile {
+  height: 250px;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  border: 2px solid white;
+  background-color: #15ade2;
+  overflow: hidden;
+}
+#what-we-do-tile p {
+  position: absolute;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-right: 8px;
+  padding-left: 8px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.3em;
+  color: #fff;
+}
+#what-we-do-tile:hover {
+  box-shadow: 0 1px 5px 1px #5ebf9c;
+}
+/* END HOME PAGE */
+
+/* FOOTER */
+.panel-footer {
+  margin-top: 30px;
+  padding-top: 35px;
+  padding-bottom: 30px;
+  background-color: #88898b;
+  border-top: 0;
+  color: white;
+}
+.panel-footer div.row {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 35px;
+  text-align: center;
+}
+.panel-footer hr {
+  background-color: white;
+}
+#contact-info a {
+  text-decoration: none;
+  font-style: italic;
+  color: #5ebf9c;
+}
+#contact-info svg{
+  color: #343a40;
+}
+#contact-info a:hover {
+  color: #15ade2;
+}
+#social-media-images img {
+  width: 50px;
+  height: 50px;
+}
+#social-media-images a:hover {
+  opacity: .5;
+}
+#copyright {
+  margin-top: 15px;
+  font-size: .8em;
+  text-align: center;
+  color: #343a40;
+}
+#copyright a {
+  color: #5ebf9c;
+}
+#copyright a:hover {
+  text-decoration: none;
+  color: #15ade2;
+}
+#privacy-policy {
+  margin-top: 15px;
+  font-size: .8em;
+}
+#privacy-policy a {
+  color: #5ebf9c;
+}
+#privacy-policy a:hover {
+  text-decoration: none;
+  color: #15ade2;
+}
+/* END FOOTER */
+
+
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+  .container .jumbotron {
+    background: url('../images/stock_photo1.jpg') no-repeat;
+    background-size: cover;
+    height: 600px;
+  }
+  /* HOME PAGE*/
+  #identify-tile p, #understand-tile p, #empower-tile p {
+    font-size: 1.7em;
+  }
+  #what-we-do-tile p {
+    font-size: 1.7em;
+  }
+  /*END HOME PAGE*/
+
+  /* FOOTER */
+  .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
+  border-right: 1px solid white;
+  }
+  /* END FOOTER*/
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Header */
+  #logo-img {
+    background: url('../images/restaurant-logo_medium.png') no-repeat;
+    width: 100px;
+    height: 100px;
+    margin: 5px 5px 5px 0;
+  }
+  /* End Header */
+
+  /* Home Page */
+  .container .jumbotron {
+    background: url('../images/stock_photo1.jpg') no-repeat;
+    background-size: cover;
+    height: 500px;
+  }
+  #identify-tile p, #understand-tile p, #empower-tile p {
+    font-size: 1.4em;
+  }
+  #what-we-do-tile p {
+    font-size: 1.5em;
+  }
+  /* End Home Page */
+
+    /* FOOTER */
+  .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
+  border-right: 1px solid white;
+  }
+  /* END FOOTER*/
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Home Page */
+  .container .jumbotron {
+    background: url('../images/stock_photo1.jpg') no-repeat;
+    background-size: cover;
+    height: 400px;
+  }
+  /* End Home Page */
+
+  /* FOOTER */
+  .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
+  border-right: 1px solid white;
+  }
+  /* END FOOTER*/
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 480px) and (max-width: 767px) {
+  /* Header */
+  .navbar-brand {
+    padding-top: 10px;
+    height: 100px;
+  }
+  #collapsable-nav a { /* Collapsed nav menu text */
+    font-size: 1.2em;
+  }
+  #collapsable-nav a span { /* Collapsed nav menu glyph */
+    font-size: 1em;
+    margin-right: 5px;
+  }
+
+  #call-btn > a {
+    font-size: 1.5em;
+    display: block;
+    margin: 0 20px;
+    padding: 10px;
+    border: 2px solid #fff;
+    background-color: #f6b319;
+    color: #951c49;
+  }
+  #xs-deliver {
+    margin-top: 5px;
+    font-size: .7em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  /* End Header */
+
+  /* Footer */
+  .panel-footer section {
+    margin-bottom: 0 30px;
+    text-align: center;
+  }
+  .panel-footer section hr {
+    width: 70%;
+  }
+  #social-media-images img {
+  width: 30px;
+  height: 30px;
+  }
+  /* End Footer */
+
+  /* Home Page */
+  .container .jumbotron {
+    background: url('../images/stock_photo1.jpg') no-repeat;
+    background-size: cover;
+    height: 300px;
+  }
+  #identify-tile p, #understand-tile p, #empower-tile p {
+    font-size: 2.1em;
+  } 
+  #what-we-do-tile p {
+    font-size: 1.3em;
+  }
+  .menu-item-photo {
+    margin-right: auto;
+  }
+  .menu-item-tile .menu-item-price {
+    text-align: center;
+  }
+  .menu-item-description {
+    text-align: center;;
+  }
+}
+
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+  /* Header */
+  .navbar-brand h1 { /* Restaurant name */
+    padding-top: 5px;
+    font-size: 6vw;
+  }
+  #call-btn > a {
+  font-size: 1.5em;
+  display: block;
+  margin: 0 20px;
+  padding: 10px;
+  border: 2px solid #fff;
+  background-color: #f6b319;
+  color: #951c49;
+  }
+  #xs-deliver {
+    margin-top: 5px;
+    font-size: .7em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  /* End Header */
+  
+  /* Home page */
+  body {
+    font-size: 4vw;
+  }
+  #identify-tile p, #understand-tile p, #empower-tile p {
+    font-size: 1.7em;
+  } 
+  #what-we-do-tile p {
+    font-size: 1em;
+  }
+  .jumbotron  div {
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  }
+  .col-xxs-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+    width: 100%;
+  }
+
+  /* FOOTER */
+  .panel-footer section {
+  margin-bottom: 0 30px;
+  text-align: center;
+  }
+  #social-media-images img {
+  width: 30px;
+  height: 30px;
+}
+  /*END FOOTER*/
+}
