@@ -1,15 +1,29 @@
+// Functionality for navigation bar & directions for dropdown inside toggle button. Clicking anywhere in window when "resources" dropdown is open closes dropdown. If "resourses" is open, clicking anywhere in window collapses entire navbar. Also adds slide effect to dropdown instead of abrupt appearance. 
 $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
-  // Same as document.querySelector("#navbarToggle").addEventListener("blur",...
+  $(function() {
 
-  $("#toggler").blur(function (event) {
-    var screenWidth = window.innerWidth;
-    if (screenWidth < 992) {
-      $("#header-items").collapse('hide');
-    }
+    $('#navbarDropdown').on('click', function(event) {
+    $('.dropdown-menu').slideToggle();
+    event.stopPropagation();
+    });
+
+    $('.dropdown-menu').on('click', function(event) {
+      event.stopPropagation();
+    });
+ 
+    $(window).on('click', function() {
+      if ($("#header-items").is(":visible")) {
+        $("#toggler").blur();
+        $('.dropdown-menu').slideUp();
+      } 
+      if ($('.dropdown-menu').is(":hidden")) {
+        $('#header-items').collapse("hide");
+        $("#toggler").blur();
+      }
+    }); 
+
   });
-
-  
 
   // In Firefox and Safari, the click event doesn't retain the focus
   // on the clicked button. Therefore, the blur event will not fire on
@@ -17,9 +31,33 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
   // which is set up above will not be called.
   // Refer to issue #28 in the repo.
   // Solution: force focus on the element that the click event fired on
+  //
+  // DO NOT NEED TO USE. FOUND SOLUTION ABOVE.
+  //
   // $("#toggler").click(function (event) {
   //   $(event.targetElem).focus();
   // });
+});
+
+// fading "home-tiles" images and text on home page
+// can be used on other tiles in different function. 
+// just change ".home-tiles" to another class & change "find('')" calls for appropriate html markup.
+$(function () {
+  $(".home-tiles").hover(function () {
+    var img_id = $(this).find('img').attr("id"); //finds img id attribute
+    var img_class = $(this).find('img').attr("class"); //finds img class attribute
+    var div_id = $(this).find('div:eq(1)').attr("id"); //second "div" under "home-tiles" id attribute
+    var div_class = $(this).find('div:eq(1)').attr("class"); //second "div" under "home-tiles" class attribute
+    $("." + img_class + "#" + img_id).fadeOut(); //fades out image 
+    $("." + div_class + "#" + div_id).fadeIn(); //fades in text
+  }, function () {
+    var img_id = $(this).find('img').attr("id");//finds img id attribute
+    var img_class = $(this).find('img').attr("class");//finds img class attribute
+    var div_id = $(this).find('div:eq(1)').attr("id");//second "div" under "home-tiles" id attribute
+    var div_class = $(this).find('div:eq(1)').attr("class");//second "div" under "home-tiles" class attribute
+    $("." + img_class + "#" + img_id).fadeIn(); //fades in image
+    $("." + div_class + "#" + div_id).fadeOut(); //fades out text
+  });
 });
 
 

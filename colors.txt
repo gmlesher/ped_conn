@@ -1,0 +1,6 @@
+Dark Grey (header, text in footer, social media icons, background color for about me page):
+hex: #343a40
+
+Pediatric Connections light blue:
+
+Pediatric Connections light green:

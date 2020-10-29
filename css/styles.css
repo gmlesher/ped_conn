@@ -47,10 +47,23 @@ body {
   outline: none;
   background-color: #15ade2;
 }
+.dropdown-menu { 
+  background-color: #343a40;
+  border-color: #5ebf9c;
+}
+.dropdown-divider {
+  border-color: #15ade2;
+}
 /* END HEADER */
 
 /* HOME PAGE */
+.carousel-inner {
+  overflow: hidden;
+  border-radius: 10px;
+}
 .carousel-inner img {
+/*  border-radius: 10px;
+  overflow: hidden;*/
   height: 500px;
   object-fit: cover;
 }
@@ -65,6 +78,8 @@ body {
   background-color: #15ade2;
 }
 .home-page-headings {
+  font-family: Georgia italic;
+  font-style: italic;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 5px;
@@ -73,16 +88,18 @@ body {
   border-radius: 10px;
   background-color: #5ebf9c;
 }
-#identify-tile, #understand-tile, #empower-tile {
+.home-tiles {
   height: 250px;
   width: 100%;
   margin-bottom: 15px;
   position: relative;
   border: 2px solid white;
-  background-color: #15ade2;
+  border-radius: 10px;
+  background-color: #343a40;
   overflow: hidden;
+  transition: .4s ease-out;
 }
-#identify-tile span, #understand-tile span, #empower-tile span {
+.home-tiles span {
   position: absolute;
   top: 0;
   left: 0;
@@ -93,30 +110,46 @@ body {
   background-color: #5ebf9c;
   color: #fff;
 }
-#identify-tile p, #understand-tile p, #empower-tile p {
+.home-tiles:hover {
+  transition: .3s ease-in;
+  background-color: #15ade2;
+  box-shadow: 0 1px 5px 1px #5ebf9c;
+}
+.overlay {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.overlay img{
+  width: 175px;
+  height: 175px;
+  margin: 55px 85px;
+  object-fit: cover;
+}
+.overlay-text {
+  display: none;
   position: absolute;
-  padding-top: 45px;
+  padding-top: 65px;
   padding-right: 8px;
   padding-left: 8px;
   width: 100%;
   margin: auto;
-  text-align: center;
-  font-size: 1.3em;
-  color: #fff;
+  line-height: 1.5;
+  font-size: 1.5em;
+  top: 0;
+  left: 0;
 }
-#identify-tile:hover, #understand-tile:hover, #empower-tile:hover {
-  box-shadow: 0 1px 5px 1px #5ebf9c;
-}
-#what-we-do-tile {
+.what-we-do-tile {
   height: 250px;
   width: 100%;
   margin-bottom: 15px;
   position: relative;
   border: 2px solid white;
+  border-radius: 10px;
   background-color: #15ade2;
   overflow: hidden;
 }
-#what-we-do-tile p {
+.what-we-do-tile p {
   position: absolute;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -128,10 +161,160 @@ body {
   font-size: 1.3em;
   color: #fff;
 }
-#what-we-do-tile:hover {
+.what-we-do-tile:hover {
   box-shadow: 0 1px 5px 1px #5ebf9c;
 }
 /* END HOME PAGE */
+
+/* ABOUT US PAGE */
+#about_us_description {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  text-align: left;
+  color: white;
+  border-radius: 10px;
+  background-color: #15ade2;
+}
+#staff-tiles {
+  height: 250px;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  border: 2px solid white;
+  background-color: #343a40;
+  overflow: hidden;
+}
+#staff-tiles span {
+  font-family: Georgia italic;
+  font-style: italic;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  text-align: center;
+  font-size: 1.6em;
+  background-color: #5ebf9c;
+  color: #fff;
+}
+#staff-tiles #title {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.2em;
+  color: #fff;
+}
+#staff-photo > img {
+  width: 200px;
+  height: 200px;
+  margin: 25px 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #5ebf9c;
+  top: 50px;
+  left: 50px;
+}
+#staff-tiles #email a {
+  text-decoration: none;
+  position: absolute;
+  top: 110px;
+  right: 0;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.1em;
+  color: #5ebf9c;
+}
+#staff-tiles #email a:hover {
+  color: #15ade2;
+}
+#staff-tiles #phone_num a {
+  text-decoration: none;
+  position: absolute;
+  top: 175px;
+  right: 0;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.1em;
+  color: #5ebf9c;
+}
+#staff-tiles #phone_num a:hover {
+  color: #15ade2;
+}
+#staff-tiles #voicemail {
+  position: absolute;
+  top: 200px;
+  right: 0;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  font-size: .9em;
+  color: #fff;
+}
+#staff-tiles:hover {
+  box-shadow: 0 1px 5px 1px #5ebf9c;
+}
+/* END ABOUT US PAGE */
+
+/* SERVICES PAGE */
+#services-tiles {
+  height: 700px;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  border: 2px solid white;
+  background-color: #15ade2;
+}
+#services-tiles span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  background-color: #5ebf9c;
+  color: #fff;
+}
+#services-tiles p {
+  position: absolute;
+  padding-top: 45px;
+  padding-right: 8px;
+  padding-left: 8px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 1.3em;
+  color: #fff;
+}
+#services-tiles:hover {
+  box-shadow: 0 1px 5px 1px #5ebf9c;
+}
+
+/* END SERVICES PAGE */
+
+/* PRIVACY POLICY PAGE */
+.privacy_policy {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  text-align: left;
+  color: white;
+  border-radius: 10px;
+  background-color: #15ade2;
+}
+.privacy_policy p > a {
+  font-style: italic;
+  color: #343a40;
+}
+.privacy_policy p > a:hover {
+  color: white;
+}
+/* END PRIVACY POLICY PAGE */
 
 /* FOOTER */
 .panel-footer {
@@ -205,13 +388,31 @@ body {
     height: 600px;
   }
   /* HOME PAGE*/
-  #identify-tile p, #understand-tile p, #empower-tile p {
-    font-size: 1.7em;
-  }
-  #what-we-do-tile p {
+  .what-we-do-tile p {
     font-size: 1.7em;
   }
   /*END HOME PAGE*/
+
+  #staff-photo > img {
+    margin: 25px 35px;
+  }
+  #staff-tiles #title {
+    font-size: 1.1em;
+  }
+  #staff-tiles #email a {
+    font-size: .85em;
+    color: #5ebf9c;
+  }
+  #staff-tiles #phone_num a {
+    font-size: 1.3em;
+  }
+  #staff-tiles #voicemail {
+    font-size: 1.1em;
+  }
+  #staff-tiles .last-staff-tile > img {
+    margin: 25px 175px;
+  }
+  /* END ABOUT US PAGE */
 
   /* FOOTER */
   .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
@@ -237,13 +438,26 @@ body {
     background-size: cover;
     height: 500px;
   }
-  #identify-tile p, #understand-tile p, #empower-tile p {
+  .overlay img{
+    width: 150px;
+    height: 150px;
+    margin: 65px 70px;
+  }
+  .overlay-text {
+    padding-top: 60px;
+    line-height: 1.4;
     font-size: 1.4em;
   }
-  #what-we-do-tile p {
+  .what-we-do-tile p {
     font-size: 1.5em;
   }
   /* End Home Page */
+
+  /* ABOUT US PAGE */
+  #staff-photo > img {
+    margin: 25px 130px;
+  }
+  /* END ABOUT US PAGE */
 
     /* FOOTER */
   .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
@@ -259,6 +473,16 @@ body {
     background: url('../images/stock_photo1.jpg') no-repeat;
     background-size: cover;
     height: 400px;
+  }
+  .overlay img{
+    width: 130px;
+    height: 130px;
+    margin: 75px 40px;
+  }
+  .overlay-text {
+    padding-top: 60px;
+    line-height: 1.4;
+    font-size: 1.2em;
   }
   /* End Home Page */
 
@@ -301,6 +525,32 @@ body {
   }
   /* End Header */
 
+  /* ABOUT US PAGE */
+  #staff-tiles span {
+    font-size: 1.4em;
+  }
+  #staff-tiles #title {
+    font-size: 1em;
+  }
+  #staff-photo > img {
+    width: 160px;
+    height: 160px;
+    margin: 45px 45px;
+  }
+  #staff-tiles #email a {
+    font-size: .7em;
+  }
+  #staff-tiles #phone_num a {
+    font-size: .9em;
+  }
+  #staff-tiles #phone_num a:hover {
+    color: #15ade2;
+  }
+  #staff-tiles #voicemail {
+    font-size: .7em;
+  }
+  /* END ABOUT US PAGE */
+
   /* Footer */
   .panel-footer section {
     margin-bottom: 0 30px;
@@ -321,10 +571,17 @@ body {
     background-size: cover;
     height: 300px;
   }
-  #identify-tile p, #understand-tile p, #empower-tile p {
-    font-size: 2.1em;
-  } 
-  #what-we-do-tile p {
+  .overlay img{
+    width: 130px;
+    height: 130px;
+    margin: 75px 40px;
+  }
+  .overlay-text {
+    padding-top: 60px;
+    line-height: 1.4;
+    font-size: 1.9em;
+  }
+  .what-we-do-tile p {
     font-size: 1.3em;
   }
   .menu-item-photo {
@@ -367,10 +624,17 @@ body {
   body {
     font-size: 4vw;
   }
-  #identify-tile p, #understand-tile p, #empower-tile p {
+  .overlay img{
+    width: 120px;
+    height: 120px;
+    margin: 75px 40px;
+  }
+  .overlay-text {
+    padding-top: 50px;
+    line-height: 1.4;
     font-size: 1.7em;
-  } 
-  #what-we-do-tile p {
+  }
+  .what-we-do-tile p {
     font-size: 1em;
   }
   .jumbotron  div {
@@ -386,6 +650,40 @@ body {
     float: left;
     width: 100%;
   }
+  /* END HOME PAGE */
+
+  /* ABOUT US PAGE */
+  #staff-tiles span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    background-color: #5ebf9c;
+    color: #fff;
+  }
+  #staff-tiles #title {
+    width: 100%;
+    font-size: 1.1em;
+  }
+  #staff-photo > img {
+    display: none;
+  }
+  #staff-tiles #email a {
+    width: 100%;
+    font-size: 1em;
+  }
+  #staff-tiles #phone_num a {
+    width: 100%;
+    font-size: 1.2em;
+  }
+  #staff-tiles #voicemail {
+    width: 100%;
+    font-size: .9em;
+  }
+  /* END ABOUT US PAGE */
 
   /* FOOTER */
   .panel-footer section {
