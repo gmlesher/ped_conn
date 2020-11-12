@@ -61,11 +61,20 @@ body {
   overflow: hidden;
   border-radius: 10px;
 }
-.carousel-inner img {
-/*  border-radius: 10px;
-  overflow: hidden;*/
+.carousel-inner img.photo_1 {
   height: 500px;
   object-fit: cover;
+  object-position: 50% 15%; 
+}
+.carousel-inner img.photo_2 {
+  height: 500px;
+  object-fit: cover;
+  object-position: 80% 60%; 
+}
+.carousel-inner img.photo_3 {
+  height: 500px;
+  object-fit: cover;
+  object-position: 40% 40%; 
 }
 .carousel-caption {
   bottom: 40px;
@@ -113,7 +122,6 @@ body {
 .home-tiles:hover {
   transition: .3s ease-in;
   background-color: #15ade2;
-  box-shadow: 0 1px 5px 1px #5ebf9c;
 }
 .overlay {
   position: relative;
@@ -162,9 +170,21 @@ body {
   color: #fff;
 }
 .what-we-do-tile:hover {
-  box-shadow: 0 1px 5px 1px #5ebf9c;
 }
 /* END HOME PAGE */
+
+/* PAGE HEADINGS */
+.pageHeading {
+  text-transform: uppercase;
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(21, 173, 226, 0.5),rgba(94, 191, 156, 0.5));
+  background-size: cover;
+  color: white;
+}
+/* END PAGE HEADINGS*/
 
 /* ABOUT US PAGE */
 #about_us_description {
@@ -260,42 +280,392 @@ body {
 }
 /* END ABOUT US PAGE */
 
-/* SERVICES PAGE */
-#services-tiles {
-  height: 700px;
-  width: 100%;
-  margin-bottom: 15px;
-  position: relative;
-  border: 2px solid white;
+/* INDIVIDUAL ABOUT ME PAGE */
+.about {
+  height: 300vh;
+  display: flex;
+}
+.aboutPicture {
+  margin: 0 !important;
+  background-color: #343a40;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: center;
+  object-position: cover;
+}
+.aboutPicture img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.aboutPages {
+  color: white;
+  width: 50%;
+}
+.aboutPages div {
+  padding-top: 30px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+}
+.aboutPages div > p {
+  margin-top: 50px;
+  width: 80%;
+  font-size: 16px;
+  line-height: 30px;
+}
+.aboutPages div:nth-child(1) {
+  background-color: #343a40;
+}
+.aboutPages div:nth-child(2) {
+  background-color: #5ebf9c;
+}
+.aboutPages div:nth-child(3) {
   background-color: #15ade2;
 }
-#services-tiles span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 1.1em;
-  text-transform: uppercase;
-  background-color: #5ebf9c;
-  color: #fff;
+.aboutOtherInfo {
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(94, 191, 156, 0.5), rgba(21, 173, 226, 0.5));
 }
-#services-tiles p {
-  position: absolute;
-  padding-top: 45px;
-  padding-right: 8px;
-  padding-left: 8px;
-  width: 100%;
-  margin: auto;
-  text-align: center;
-  font-size: 1.3em;
-  color: #fff;
+.aboutOtherInfo a {
+  text-decoration: none;
+  color: white;
 }
-#services-tiles:hover {
-  box-shadow: 0 1px 5px 1px #5ebf9c;
-}
+.aboutOtherInfo a:hover {
+  color: #343a40;
 
+}
+.deanaAward {
+  width: 45%;
+}
+.deanaAward img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.deanaFamily {
+  width: 45%;
+}
+.deanaFamily img {
+  max-width: 100%;
+  max-height: 100%;
+  padding-bottom: 30px;
+}
+.awardsh5 {
+  padding: 15px;
+  margin-top: 20px;
+  text-align: center;
+}
+.lesherh5 {
+  padding-top: 30px;
+  text-align: center;
+}
+/* END INDIVIDUAL ABOUT ME PAGE */
+
+/* SERVICES PAGE */
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+  position: relative;
+  opacity: 0.8;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1; /* z-index must be here for links to be clicked. otherwise, image covers links and they are un-clickable */
+}
+.bgimg-1 {
+  background-image: url("/images/cute_baby.jpg");
+  height: 100vh;
+}
+.bgimg-2 {
+  background-image: url("/images/baby_foot.jpg");
+  height: 75vh;
+}
+.bgimg-3 {
+  background-image: url("/images/red_shirt_kid.jpg");
+  height: 75vh;
+}
+.bgimg-4 {
+  background-image: url("/images/cute_baby.jpg");
+  height: 75vh;
+}
+.caption {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.caption span.border {
+  border-radius: 10px;
+  background-color: #343a40;
+  color: #5ebf9c;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 8px;
+}
+.arrow {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.down_arrow {
+  height: 50px;
+  width: auto;
+}
+.arrow img{
+  margin: 0px 0 0 -20px;
+  position: absolute;
+  left: 50%;
+  bottom: 18%;
+}
+.bounce {
+  animation-iteration-count: infinite;
+  animation: bounce 2.75s ease infinite;
+  transform-origin: 50% 50%;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  5.55556% {
+    transform: translateY(0);
+  }
+  11.11111% {
+    transform: translateY(0);
+  }
+  22.22222% {
+    transform: translateY(-15px);
+  }
+  27.77778% {
+    transform: translateY(0);
+  }
+  33.33333% {
+    transform: translateY(-15px);
+  }
+  44.44444% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.services_h3 {
+  padding-bottom: 20px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px;
+  color: #15ade2;;
+}
+.below-img1, .below-img2, .below-img3 {
+  color: #343a40;
+  background-color: white;
+  text-align: center;
+  padding: 50px 80px;
+}
+.below-img2 p a {
+  text-decoration: none;
+  font-style: italic;
+  color: #5ebf9c;
+}
+.below-img2 p a:hover {
+  color: #15ade2;
+}
+#services_carousel {
+  padding: 30px 100px 10px;
+  height: 820px;
+  margin: 0 auto;
+  width: 90%;
+  overflow: hidden;
+}
+.bg_tv_shape {
+  font-family: Georgia italic;
+  font-style: italic;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  color: white;
+  border-radius: 10px;
+  width: 90%;
+  height: 950px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 50% / 15%;
+  background-color: #343a40;
+}
+.bg_tv_shape h2 {
+  padding-top:30px;
+  text-align: center;
+  color: white;
+}
+.testimonial_div {
+  text-align: center;
+  margin: 50px;
+}
+.testimonial_link {
+  font-size: 1.8em;
+  color: #5ebf9c;
+  position: relative;
+  font-style: italic;
+}
+.testimonial_link:hover {
+  text-decoration: none;
+  color: #15ade2;
+}
+.testimonial_vid {
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 90%;
+}
 /* END SERVICES PAGE */
+
+/* FORMS PAGE */
+.formsImg {
+  background-color: white;
+  position: relative;
+  height: 75vh;
+  background-image: url("/images/documents.jpg");
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 75%;
+  z-index: -1; /* z-index must be here for links to be clicked. otherwise, image covers links and they are un-clickable */
+}
+.formLinksMopContainer {
+  color: white;
+}
+.formLinks, .mop {
+  padding: 20px;
+}
+.formLinks {
+  background-color: #343a40;
+}
+.formLinks h5, .mop h5 {
+  padding-top: 30px;
+}
+.formLinks h3 {
+  color: #5ebf9c;
+}
+.formLinks ul {
+  list-style-type: none;
+}
+.formLinks li > a {
+  font-style: italic;
+  color: #5ebf9c;
+  text-decoration: none;
+}
+.formLinks li > a:hover {
+  color: #15ade2;
+}
+.mop {
+  background-color: #5ebf9c;
+}
+.mop h3, .mop h5 {
+  color: #343a40;
+}
+/* END FORMS PAGE */
+
+/* CLIENT INFO FORM PAGE */
+.clientInfoForm {
+  border: 2px solid blue;
+  height: 200px;
+}
+/* END CLIENT INFO FORM PAGE */
+
+/* LOCAL PROFESSIONALS, HELPFUL LINKS, REC PROD PAGE */
+.LHRContent {
+  background-color: white;
+  color: black;
+  text-align: center;
+  display: block;
+}
+.LHRContent a {
+  color: #5ebf9c;
+  font-style: italic;
+}
+.LHRContent a:hover {
+  text-decoration: none;
+  color: #15ade2;
+}
+.itemContent span {
+  font-size: 1.8em;
+  color: #5ebf9c;
+}
+.itemContent img, .itemContent img {
+  padding-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70%;
+  max-height: 70%;  
+}
+.itemContent {
+  /*background: linear-gradient(to bottom, rgba(52, 58, 64, 1), rgba(52, 58, 64, 1)); */
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.itemContent p, .itemContent p {
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-top: 30px;
+}
+/* END LOCAL PROFESSIONALS, HELPFUL LINKS, REC PROD PAGE */
+
+/* CONTACT PAGE */
+.contact {
+  padding: 30px;
+}
+.contact h3, .contact h5 {
+  text-align: center;
+  color: #5ebf9c;
+}
+.contactForm p {
+  text-align: center;
+}
+.contactForm button {
+  border: none;
+  background-color: #5ebf9c;
+}
+.contactForm button:hover {
+  background-color: #15ade2;
+}
+.contactInfo {
+ text-align: center;
+}
+.contactInfo a {
+  text-decoration: none;
+  font-style: italic;
+  color: #5ebf9c;
+}
+.contactInfo svg{
+  color: #343a40;
+}
+.contactInfo a:hover {
+  color: #15ade2;
+}
+.contactInfo hr {
+  width: 70%;
+}
+.contactSocialMediaImages img {
+  width: 40px;
+  height: 40px;
+}
+.contactSocialMediaImages a:hover {
+  opacity: .5;
+}
+.map {
+  text-align: center;
+}
+.map iframe {
+  width: 90%;
+  padding-bottom: 30px;
+}
+/* END CONTACT PAGE */
 
 /* PRIVACY POLICY PAGE */
 .privacy_policy {
@@ -318,7 +688,6 @@ body {
 
 /* FOOTER */
 .panel-footer {
-  margin-top: 30px;
   padding-top: 35px;
   padding-bottom: 30px;
   background-color: #88898b;
@@ -459,6 +828,15 @@ body {
   }
   /* END ABOUT US PAGE */
 
+  /* SERVICES PAGE */
+  #services_carousel {
+    height: 1000px;
+  }
+  .bg_tv_shape {
+    height: 1150px;
+  }
+  /* END SERVICES PAGE */
+
     /* FOOTER */
   .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
   border-right: 1px solid white;
@@ -485,6 +863,45 @@ body {
     font-size: 1.2em;
   }
   /* End Home Page */
+
+  /* SERVICES PAGE */
+  #services_carousel {
+    display: none;
+  }
+  .bg_tv_shape {
+    display: none;
+  }
+  /* END SERVICES PAGE */
+
+  /* INDIVIDUAL ABOUT ME PAGE */
+  .about {
+    height: auto; /**/
+    display: block; /**/
+  }
+  .aboutPicture {
+    padding-top: 15px;
+    height: 50vh;
+    width: 100%; 
+    display: block;
+    text-align: center;
+  }
+  .aboutPages {
+    width: 100%;
+  }
+  .aboutPages div > p {
+    margin-top: 50px;
+    width: 80%;
+    font-size: 15px;
+    line-height: 30px;
+    overflow: scroll; 
+  }
+  .deanaAward {
+    width: 20%;
+  }
+  .deanaFamily {
+    width: 30%;
+  }
+  /* END INDIVIDUAL ABOUT ME PAGE */
 
   /* FOOTER */
   .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
@@ -593,6 +1010,63 @@ body {
   .menu-item-description {
     text-align: center;;
   }
+  /* END  HOME PAGE */
+
+  /* SERVICES PAGE */
+  #services_carousel {
+    display: none;
+  }
+  .bg_tv_shape {
+    display: none;
+  }
+  /* END SERVICES PAGE */
+
+  /* INDIVIDUAL ABOUT ME PAGE */
+  .about {
+    height: auto; /**/
+    display: block; /**/
+  }
+  .aboutPicture {
+    padding-top: 15px;
+    height: 50vh;
+    width: 100%; 
+    display: block;
+    text-align: center;
+  }
+  .aboutPages {
+    width: 100%;
+  }
+  .aboutPages div > p {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .deanaAward {
+    width: 25%;
+  }
+  .deanaFamily {
+    width: 40%;
+  }
+  /* END INDIVIDUAL ABOUT ME PAGE */
+
+  /* FORMS PAGE*/
+  .formsImg {
+    height: 50vh;
+  }
+  .formLinksMopContainer {
+    text-align: center;
+  }
+  .formLinks ul, .mop ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  /* END FORMS PAGE*/
+
+  /* CONTACT PAGE*/
+  .contactForm {
+    padding-bottom: 30px;
+  }
+  /* END CONTACT PAGE*/
 }
 
 
@@ -619,6 +1093,12 @@ body {
     text-transform: uppercase;
   }
   /* End Header */
+
+  /* PAGE HEADINGS */
+  .pageHeading h1 {
+    font-size: 1.6em;
+  }
+  /* END PAGE HEADINGS*/
   
   /* Home page */
   body {
@@ -684,6 +1164,88 @@ body {
     font-size: .9em;
   }
   /* END ABOUT US PAGE */
+
+  /* INDIVIDUAL ABOUT ME PAGE */
+  .aboutName h1 {
+    font-size: 20px;
+  }
+  .about {
+    height: auto; 
+    display: block; 
+  }
+  .aboutPicture {
+    padding-top: 15px;
+    height: 50vh;
+    width: 100%; 
+    display: block;
+    text-align: center;
+  }
+  .aboutPages {
+    width: 100%;
+  }
+  .aboutPages div > p {
+    font-size: 14px;
+    line-height: 20px;
+    overflow: scroll;
+  }
+  .deanaAward {
+    width: 50%;
+  }
+  .deanaFamily {
+    width: 50%;
+  }
+  .aboutOtherInfo h3 {
+    font-size: 20px;
+  }
+  /* END INDIVIDUAL ABOUT ME PAGE */  
+
+    /* SERVICES PAGE */
+  .bgimg-1 {
+    background-position: 30%;
+  }
+  .bgimg-2 {
+    background-position: 80%;
+  }
+  .bgimg-3 {
+    background-position: 40%;
+  }
+  .bgimg-4 {
+    background-position: 30%;
+  }
+  .services_h3 {
+    padding-bottom: 20px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #15ade2;;
+  }
+  #services_carousel {
+    display: none;
+  }
+  .bg_tv_shape {
+    display: none;
+  }
+  /* END SERVICES PAGE */
+
+  /* FORMS PAGE*/
+  .formsImg {
+    height: 50vh;
+  }
+  .formLinksMopContainer {
+    text-align: center;
+  }
+  .formLinks ul, .mop ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  /* END FORMS PAGE*/
+
+  /* CONTACT PAGE*/
+  .contactForm {
+    padding-bottom: 30px;
+  }
+  /* END CONTACT PAGE*/
 
   /* FOOTER */
   .panel-footer section {

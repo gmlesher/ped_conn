@@ -1,6 +1,9 @@
 Dark Grey (header, text in footer, social media icons, background color for about me page):
 hex: #343a40
 
+Very light grey (background color of body):
+hex: #e0e0e0
+
 Light Grey (footer background color):
 hex: #88898b
 
