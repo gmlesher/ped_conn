@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>Pediatric Connections</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+  </head>
+<body>
+  <header class="header">
+    <nav id="header-nav" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+
+        <!--Navbar header-->
+      <a href="index.html" class="navbar-brand d-flex w-25 mr-auto"><img src="images/logo.png" alt="logo">
+      </a>
+
+      <!--Build collapsible button for small screen size-->
+      <button id="toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-items" aria-controls="header-items" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!--Populate collapsible button with information-->
+      <div class="navbar-collapse collapse w-50" id="header-items">
+        <ul class="navbar-nav w-100 justify-content-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a><hr class="d-block d-lg-none d-xl-none">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link aboutus" href="about_us.html">About Us</a><hr class="d-block d-lg-none d-xl-none">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a><hr class="d-block d-lg-none d-xl-none">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a><hr class="d-block d-lg-none d-xl-none">
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Resources
+            </a><hr class="d-block d-lg-none d-xl-none">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="forms.html">New Clients Start Here &rarr;</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="local_professionals.html">Local Professionals</a>
+              <a class="dropdown-item" href="helpful_links.html">Helpful Links</a>
+              <a class="dropdown-item" href="recommended_products.html">Recommended Products</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a><hr class="d-block d-lg-none d-xl-none">
+          </li>
+        </ul>
+
+        <!--Hidden search bar in header (for now)-->
+        <!--<form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>-->
+      </div><!-- .collapse .navbar-collapse -->
+      <div class="w-25 d-none d-lg-block">
+        
+      </div>
+    </nav><!-- #header-nav -->
+  </header>
+
+  <div>
+    <!--Client Info form-->
+    <form class="roiForm form needs-validation" novalidate>
+      <div>
+        <img class="formsLogo d-flex mx-auto" src="images/logo_small.png">
+      </div>
+      <div>
+        <h3>Authorization to Release Information</h3>
+      </div>
+      <section class="directions">
+        <p>
+          Use this form if you want Pediatric Connections to communicate information to your child's school or other health care professionals (excluding your doctor who writes the script for services), social workers, etc.<br><br>
+
+          One authorization per person/agency.<br>
+          Please list anyone who may bring your child to therapy so that we can communicate OT sessions with them.
+        </p>
+      </section>
+      <div class="form-row required">
+        <div class="form-group col-md-6">
+          <label for="cfname">Client First Name</label>
+          <input type="text" class="form-control" id="cfname" placeholder="First Name" required>
+          <div class="invalid-feedback">
+            Please fill out client first name
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="clname">Client Last Name</label>
+          <input type="text" class="form-control" id="clname" placeholder="Last Name" required>
+          <div class="invalid-feedback">
+            Please fill out client last name
+          </div>
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-4">
+          <label for="dob">Date of Birth</label>
+          <input type="date" class="form-control" id="dob" placeholder="MM/DD/YYY" required>
+          <div class="invalid-feedback">
+            Please fill out DOB
+          </div>
+        </div>
+      </div>
+      <section>
+        <p>
+          I hereby authorize the person/agency (allows information exchange with anyone representing that agency) below to use or disclose, request, and/or exchange my protected health information as indicated below to <strong>Pediatric Connections OT</strong>.
+        </p>
+      </section>
+      <div class="form-row required">
+        <div class="form-group col-md-6">
+          <label for="paname">Name of person/agency</label>
+          <input type="text" class="form-control" id="paname" placeholder="Name" required>
+          <div class="invalid-feedback">
+            Please fill out name of person/agency
+          </div>
+        </div>
+      </div>
+      <div class="form-group required">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+        <div class="invalid-feedback">Please fill out address</div>
+      </div>
+      <div class="form-group">
+        <label for="address2">Address 2</label>
+        <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor">
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-6">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" placeholder="City" required>
+          <div class="invalid-feedback">
+            Please fill out city
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="state">State</label>
+          <select id="state" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a state
+          </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="zip">Zip</label>
+          <input type="text" class="form-control" id="zip" placeholder="12345" required>
+          <div class="invalid-feedback">
+            Please fill out a zip code
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4 required">
+          <label for="phone">Phone</label>
+          <input type="tel" class="form-control" id="phone" placeholder="(123) 456-7890" required>
+          <div class="invalid-feedback">
+            Please provide a phone number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="fax">Fax</label>
+          <input type="text" class="form-control" id="fax" placeholder="(123) 456-7890">
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <strong>Information to be released/exchanged. Check all that apply</strong>:
+          <label required></label>
+        </p>
+      </section>
+        <div class="form-row">
+          <div class="roiCheckbox1 custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="roiCheckboxNum1" required>
+            <label class="custom-control-label" for="roiCheckboxNum1">Medical Records: including evaluations, history & physical, diagnosis codes, progress notes, consultations, medications (previous and current), lab and s-ray reports, MRI results, CT scan results, surgical reports, radiology reports</label>
+          </div>
+          <div class="roiCheckbox1 custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="roiCheckboxNum2" required>
+            <label class="custom-control-label" for="roiCheckboxNum2">Physical/Occupational Therapy: including evaluations, treatment plans & therapy notes‎</label>
+          </div>
+          <div class="roiCheckbox1 custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="roiCheckboxNum3" required>
+            <label class="custom-control-label" for="roiCheckboxNum3">Speech: including evaluations, treatment plans & therapy notes‎</label>
+          </div>
+          <div class="roiCheckbox1 custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="roiCheckboxNum4" required>
+            <label class="custom-control-label" for="roiCheckboxNum4">School Records: including IFSP, IEP, progress notes, behavior notes, educational testing‎</label>
+          </div>
+          <div class="roiCheckbox1 custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="roiCheckboxNum5" required>
+            <label class="custom-control-label" for="roiCheckboxNum5">Other and/or specific people within an agency such as a teacher:‎</label>
+          </div>
+        </div>
+      <div class="form-group">
+        <label for="other">Other (specifics)</label>
+        <input type="text" class="form-control" id="other" placeholder="Other">
+      </div>
+      <section>
+        <p>
+          <strong>Terms</strong>: This release will last for 12 months from date of signature or upon discharge of OT services.
+        </p>
+      </section>
+      <section>
+        <p>
+          <strong>Purpose</strong>: Pediatric Connections will exchange/release information for purposes of evaluation, treatment, case coordination, caregiver training, and follow-up care and for payment via phone, fax, and/or email.
+        </p>
+      </section>
+      <section>
+        <p>
+          <strong>I have read the above and authorize the request or disclosure of Protected Heath Information. I understand I may revoke this right at any time by providing verbal or written notice to Pediatric Connections except to the extent that action has been taken in reliance and on the authorization or as otherwise stated in Pediatric Connections' Notice of Privacy Practices.</strong>
+        </p>
+      </section>
+      <div class="form-row required">
+        <div class="form-group col-md-6">
+          <label for="pfname">Printed Client/Legal Guardian First Name</label>
+          <input type="text" class="form-control" id="pfname" placeholder="First Name" required>
+          <div class="invalid-feedback">
+            Please fill out first name
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="plname">Printed Client/Legal Guardian Last Name</label>
+          <input type="text" class="form-control" id="plname" placeholder="Last Name" required>
+          <div class="invalid-feedback">
+            Please fill out last name
+          </div>
+        </div>
+      </div>
+
+      <!-- Signature field -->
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <label required>Signature of Client/Legal Guardian</label>
+          <small class="form-text text-muted pb-2">If signing on a computer, use mouse for your signature.</small>
+          <div id="signature-pad" class="signature-pad">
+            <div class="signature-pad--body">
+              <canvas></canvas>
+              <div class="invalid-feedback">
+                Please sign document
+              </div>
+            </div>
+            <div class="signature-pad--footer">
+              <div class="signature-pad--actions">
+                <div>
+                  <button type="button" class="btn btn-dark clear" data-action="clear">Clear Signature</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-4">
+          <label for="date">Date</label>
+          <input type="date" class="form-control" id="date" placeholder="MM/DD/YYY" required>
+          <div class="invalid-feedback">
+            Please fill out date
+          </div>
+        </div>
+      </div>
+      <div class="form-group required">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+        <div class="invalid-feedback">Please fill out address</div>
+      </div>
+      <div class="form-group">
+        <label for="address2">Address 2</label>
+        <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor">
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-6">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" placeholder="City" required>
+          <div class="invalid-feedback">
+            Please fill out city
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="state">State</label>
+          <select id="state" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a state
+          </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="zip">Zip</label>
+          <input type="text" class="form-control" id="zip" placeholder="12345" required>
+          <div class="invalid-feedback">
+            Please fill out a zip code
+          </div>
+        </div>
+      </div>
+      <!-- Add reCAPTHA later -->
+      <div class="g-recaptcha brochure__form__captcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-theme="dark"></div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form> <!--End Client Info form-->
+  </div>
+
+
+
+  <!-- Begin footer content under header-->
+  <footer class="panel-footer footer">
+    <div class="container">
+      <div class="row">
+        <section id="hours" class="col-md-4 col-sm-12">
+          Mon - Thurs: 8:00am-6:30pm<br>
+          Fri: 8:00am-2:00pm<br>
+          Sat & Sun: closed<br>
+          <hr class="d-block d-md-none d-lg-none d-xl-none">
+        </section>
+        <section id="address" class="col-md-4 col-sm-12">
+          7235 W 162nd Ter<br>
+          Stilwell, KS 66085<br>
+          <hr class="d-block d-md-none d-lg-none d-xl-none">
+        </section>
+        <section id="contact-info" class="col-md-4 col-sm-12">
+          <a href="tel: 913-257-5808">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+            </svg>&nbsp; 913-257-5808<br>
+          </a>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-printer-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5z"/>
+              <path fill-rule="evenodd" d="M11 9H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
+              <path fill-rule="evenodd" d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+            </svg> 
+            &nbsp; 844-270-5788<br>
+             <a href="mailto: info@pediatricconnectionsot.com">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+              </svg>
+               &nbsp;info@pediatricconnectionsot.com<br></a> 
+          <hr class="d-block d-md-none d-lg-none d-xl-none">
+        </section>
+      </div>
+      <div id="social-media-images" class="text-center">
+        <a href="https://www.facebook.com/pediatricconnections" target="_blank"><img src="images/facebook_icon.png"></a>
+        <a href="https://twitter.com/pedconnections1" target="_blank"><img src="images/twitter_icon.png"></a> 
+        <a href="https://www.pinterest.com/pedconnectionso/" target="_blank"><img src="images/pinterest_icon.png"></a> 
+        <a href="https://www.instagram.com/pediatricconnectionsot/" target="_blank"><img src="images/instagram_icon.png"></a> 
+        <a href="https://www.youtube.com/channel/UC3h0muLW7GSxBr_DdtaLOCg" target="_blank"><img src="images/youtube_icon.png"></a>  
+      </div>
+      <div id="copyright" class="text-center">&copy; Copyright Pediatric Connections 2020.<br>
+        Proudly made by<a href="images/garrett.jpeg"> Lesher Designs</a>, LLC.</div>
+      <div id="privacy-policy" class="text-center"><a href="privacy_policy.html">Privacy Policy</a></div>
+    </div>
+  </footer>
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- <script src="js/ajax-utils.js"></script> -->
+  <script src="js/script.js"></script>
+  <script src="js/signature_pad.umd.js"></script>
+  <script src="js/app.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  
+</body>
+</html>

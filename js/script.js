@@ -56,6 +56,80 @@ if (ua.indexOf('safari') != -1) {
   }
 };
 
+// validation for forms before submission
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+// Conditional logic for IEP file upload option on client info form
+$(".clientInfoForm").ready(function(){
+  $(".IEPUpload").hide();
+  $("#patientIEP").on('change',function(){
+    var selectedValue = $("#patientIEP").val();
+    if (selectedValue == "Yes") {
+      $(".IEPUpload").slideDown();
+    }
+    else {
+      $(".IEPUpload").slideUp();
+    }
+  });  
+});
+
+// Displays the user file input name when selected for the client info form in the IEP file upload section
+$('.custom-file-input').change(function(){
+  var fileName = $(this).val().replace("C:\\fakepath\\", "");
+  $(this).next('.custom-file-label').html(fileName);
+});
+
+// Conditional logic for Pediatric History Form child relationship to parent/guardian
+$(".pediatricHxForm").ready(function(){
+  $(".childInfo").hide();
+  $("#childIs").on('change',function(){
+    var selectedValue = $("#childIs").val();
+    if (selectedValue == "adopted") {
+      $(".adoptedInfo").slideDown();
+    } else {
+      $(".adoptedInfo").slideUp();
+    }
+    if (selectedValue == "fosterChild") {
+      $(".fosterInfo").slideDown();
+    } else {
+      $(".fosterInfo").slideUp()
+    }
+  });  
+});
+
+// Conditional logic for Pediatric History Form client born premature relationship to gestational week section
+$(".pediatricHxForm").ready(function(){
+  $(".gestWeek").hide();
+  $("#premature").on('change',function(){
+    var selectedValue = $("#premature").val();
+    if (selectedValue == "yes") {
+      $(".gestWeek").slideDown();
+    }
+    else {
+      $(".gestWeek").slideUp();
+    }
+  });  
+});
+
+
+// 
+
 // (function (global) {
 
 // var dc = {};

@@ -1,8 +1,58 @@
+/* GLOBAL STYLES */
 body {
   font-size: 16px;
   color: black;
   background-color: #e0e0e0;
-  font-family: 'Oxygen', sans-serif;}
+  font-family: 'Oxygen', sans-serif;
+}
+
+/* global forms */
+.form {
+  background-color: white;
+  padding: 30px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 70%;
+}
+.form h3 {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  text-align: center;
+  color: #5ebf9c;
+}
+.form h5 {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  color: #5ebf9c;
+}
+.form-row.required label:after, .form-group.required label:after {
+  content: "*";
+  color: red;
+}
+form button.btn { /* All forms have these styles on buttons */
+  border: none;
+  background-color: #5ebf9c;
+}
+form button.btn:hover { /* All forms have these styles on buttons */
+  background-color: #15ade2;
+}
+.formsLogo {
+  padding-bottom: 15px;
+  height: auto;
+  width: 50%;
+}
+/*Google reCAPTCHA*/
+.g-recaptcha {
+  padding-bottom: 30px;
+}
+/*Highlight text*/
+#textHighlight  mark {
+  background-color: #FFFF00;
+}
+/* end global forms */
+
+/* END GLOBAL STYLES */
 
 /** HEADER **/
 #header-nav {
@@ -572,11 +622,63 @@ body {
 /* END FORMS PAGE */
 
 /* CLIENT INFO FORM PAGE */
-.clientInfoForm {
-  border: 2px solid blue;
-  height: 200px;
-}
 /* END CLIENT INFO FORM PAGE */
+
+/* ROI FORM PAGE */
+.roiForm section {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.roiForm section.directions > p {
+  font-style: italic;
+  text-align: center;
+}
+.roiCheckbox1 {
+  padding-bottom: 15px;
+}
+.signature-pad--body canvas {
+  max-height: 100%;
+  width: 100%;
+  border: 2px dotted grey;
+  border-radius: 10px;
+}
+/* END ROI FORM PAGE */
+
+/* PAYMENT POLICY FORM */
+.paymentPolicyForm section {
+  padding-top: 15px;
+}
+.paymentPolicyForm > section:nth-child(5) {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.paymentPolicyForm .paymentAuthInfo {
+  text-align: center;
+}
+.paymentPolicyForm a {
+  text-decoration: none;
+  font-style: italic;
+  color: #5ebf9c;
+}
+.paymentPolicyForm a:hover {
+  color: #15ade2;
+}
+/* END PAYMENT POLICY FORM */
+
+/* CANCELLATION POLICY FORM */
+.cancellationPolicyForm .cancellationFormHeadings {
+  text-align: center;
+}
+.cancellationPolicyForm .cancellationFormHeadings small {
+  font-style: italic;
+}
+.cancellationPolicyForm li {
+  padding-bottom: 10px;
+}
+/* END CANCELLATION POLICY FORM */
+
+/* PEDIATRIC HISTORY FORM */
+/* END PEDIATRIC HISTORY FORM */
 
 /* LOCAL PROFESSIONALS, HELPFUL LINKS, REC PROD PAGE */
 .LHRContent {
@@ -626,13 +728,6 @@ body {
 }
 .contactForm p {
   text-align: center;
-}
-.contactForm button {
-  border: none;
-  background-color: #5ebf9c;
-}
-.contactForm button:hover {
-  background-color: #15ade2;
 }
 .contactInfo {
  text-align: center;

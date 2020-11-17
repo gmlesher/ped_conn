@@ -1,0 +1,2938 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>Pediatric Connections</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+  </head>
+<body>
+  <header class="header">
+    <nav id="header-nav" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+
+        <!--Navbar header-->
+      <a href="index.html" class="navbar-brand d-flex w-25 mr-auto"><img src="images/logo.png" alt="logo">
+      </a>
+
+      <!--Build collapsible button for small screen size-->
+      <button id="toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-items" aria-controls="header-items" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!--Populate collapsible button with information-->
+      <div class="navbar-collapse collapse w-50" id="header-items">
+        <ul class="navbar-nav w-100 justify-content-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a><hr class="d-block d-lg-none d-xl-none">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link aboutus" href="about_us.html">About Us</a><hr class="d-block d-lg-none d-xl-none">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a><hr class="d-block d-lg-none d-xl-none">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a><hr class="d-block d-lg-none d-xl-none">
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Resources
+            </a><hr class="d-block d-lg-none d-xl-none">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="forms.html">New Clients Start Here &rarr;</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="local_professionals.html">Local Professionals</a>
+              <a class="dropdown-item" href="helpful_links.html">Helpful Links</a>
+              <a class="dropdown-item" href="recommended_products.html">Recommended Products</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a><hr class="d-block d-lg-none d-xl-none">
+          </li>
+        </ul>
+
+        <!--Hidden search bar in header (for now)-->
+        <!--<form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>-->
+      </div><!-- .collapse .navbar-collapse -->
+      <div class="w-25 d-none d-lg-block">
+        
+      </div>
+    </nav><!-- #header-nav -->
+  </header>
+
+  <div>
+    <!--Pediatric History form-->
+    <form class="pediatricHxForm form needs-validation" novalidate>
+      <div>
+        <img class="formsLogo d-flex mx-auto" src="images/logo_small.png">
+      </div>
+      <div>
+        <h3>Pediatric History</h3>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-6">
+          <label for="cfname">Client First Name</label>
+          <input type="text" class="form-control" id="cfname" placeholder="First Name" required>
+          <div class="invalid-feedback">
+            Please fill out client first name
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="clname">Client Last Name</label>
+          <input type="text" class="form-control" id="clname" placeholder="Last Name" required>
+          <div class="invalid-feedback">
+            Please fill out client last name
+          </div>
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-8">
+          <label for="email">Parent/Guardian Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Email" required>
+          <div class="invalid-feedback">
+            Please provide email
+          </div>
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-4">
+          <label for="dob">Date of Birth</label>
+          <input type="date" class="form-control" id="dob" placeholder="MM/DD/YYY" required>
+          <div class="invalid-feedback">
+            Please fill out DOB
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="gender">Gender</label>
+          <select id="gender" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="boy">Boy</option>
+            <option value="girl">Girl</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select gender
+          </div>
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-6">
+          <label for="childIs">Child is...</label>
+          <select id="childIs" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="adopted">Adopted</option>
+            <option value="biologicalChild">Biological Child</option>
+            <option value="fosterChild">Foster Child</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select adopted, biological, or foster child
+          </div>
+        </div>
+      </div>
+      <div class="form-row fosterInfo childInfo">
+        <div class="form-group col-md-6">
+          <label for="fcHowLong">How long in foster care?</label>
+          <input type="text" class="form-control" id="fcHowLong" placeholder="Foster Care Info">
+        </div>
+      </div>
+      <div class="form-row adoptedInfo childInfo">
+        <div class="form-group col-md-6">
+          <label for="adopted">Adopted at what age?</label>
+          <input type="text" class="form-control" id="adopted" placeholder="Adoption Info">
+        </div>
+      </div>
+      <div class="form-row adoptedInfo childInfo">
+        <div class="form-group col-md-12">
+          <label for="preadoptionHx">If international adoption, explain setting of pre-adoption history.</label>
+          <textarea class="form-control" id="preadoptionHx" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="traumaHx">Please give a brief explanation of known trauma history (abuse, neglect, sexual trauma, etc.):</label>
+          <small class="form-text text-muted">If this information is better explained via phone or email please let us know. It's imperative that your therapist be informed PRIOR to the evaluation.</small>
+          <textarea class="form-control" id="traumaHx" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="referralSource">Who referred you to Pediatric Connections?</label>
+          <input type="text" class="form-control" id="referralSource" placeholder="Referral Source">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="reasonReferred">Why were you referred?</label>
+          <input type="text" class="form-control" id="reasonReferred" placeholder="Reason Referred">
+        </div>
+      </div>
+      <h5>Family Information</h5>
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <label for="clientLivesWith">Client Lives With:</label>
+          <small class="form-text text-muted">Please list all persons living in the home with names and relationship to client - including ages of all children in home.</small>
+          <textarea class="form-control" id="clientLivesWith" rows="3" required></textarea>
+          <div class="invalid-feedback">
+            Please fill out information about persons living with client
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="parentOcc1">Parent #1 Occupation</label>
+          <input type="text" class="form-control" id="parentOcc1" placeholder="Occupation">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="parentOcc2">Parent #2 Occupation</label>
+          <input type="text" class="form-control" id="parentOcc2" placeholder="Occupation">
+        </div>
+      </div>
+      <h5>Medical History</h5>
+      <div class="form-row required">
+        <div class="form-group col-md-6">
+          <label for="premature">Was client born premature?</label>
+          <select id="premature" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="unknown">Unknown</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select yes, no or unknown
+          </div>
+        </div>
+      </div>
+      <div class="form-row gestWeek">
+        <div class="form-group col-md-6">
+          <label for="gestWeek">Gestational week</label>
+          <input type="text" class="form-control" id="gestWeek" placeholder="Gestation">
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <label for="birthHx">Describe birth history, including complications:</label>
+          <small class="form-text text-muted">If client is under 18</small>
+          <textarea class="form-control" id="birthHx" rows="3" required></textarea>
+          <div class="invalid-feedback">
+            Please fill out birth history
+          </div>
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <label for="medConditions">Medical Conditions/Allergies</label>
+          <textarea class="form-control" id="medConditions" rows="3" required></textarea>
+          <div class="invalid-feedback">
+            Please fill out medical conditions/allergies
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="diagnosis">Diagnosis (as given by MD)</label>
+          <input type="text" class="form-control" id="diagnosis" placeholder="Diagnosis">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="meds">Medications</label>
+          <input type="text" class="form-control" id="meds" placeholder="Medications">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="hear/visCon">Hearing/Vision Concerns</label>
+          <input type="text" class="form-control" id="hear/visCon" placeholder="Hearing/Vision Concerns">
+        </div>
+      </div>
+      <h5>School/Home/Community</h5>
+      <div class="form-row">
+        <div class="form-group col-md-5">
+          <label for="schoolName">School Name</label>
+          <small class="form-text text-muted">If client is under 18</small>
+          <input type="text" class="form-control" id="schoolName" placeholder="School Name">
+        </div>
+        <div class="form-group col-md-5">
+          <label for="schoolDist">School District</label>
+          <small class="form-text text-muted">If client is under 18</small>
+          <input type="text" class="form-control" id="schoolDist" placeholder="School District">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="grade">Grade</label>
+          <small class="form-text text-muted">If client is under 18</small>
+          <input type="text" class="form-control" id="grade" placeholder="Grade">
+        </div>
+      </div>
+      <section class="form-row">
+        <p>
+          Services Received at School:
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <div class="servicesRec custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="servicesRec1">
+            <label class="custom-control-label" for="servicesRec1">Speech</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="servicesRec custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="servicesRec2">
+            <label class="custom-control-label" for="servicesRec2">Physical Therapy</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="servicesRec custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="servicesRec3">
+            <label class="custom-control-label" for="servicesRec3">Occupational Therapy</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="servicesRec custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="servicesRec4">
+            <label class="custom-control-label" for="servicesRec4">Counseling</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="servicesRec custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="servicesRec5">
+            <label class="custom-control-label" for="servicesRec5">Specialized Instruction</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="servicesRec custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="servicesRec6">
+            <label class="custom-control-label" for="servicesRec6">Other</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="servicesRec custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="servicesRec7">
+            <label class="custom-control-label" for="servicesRec7">None</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="schoolDifficulties">Is client having difficulties at school? Please list areas of concern.</label>
+          <textarea class="form-control" id="schoolDifficulties" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="homeDifficulties">Is client having difficulties at home? Please list areas of concern.</label>
+          <textarea class="form-control" id="homeDifficulties" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row">
+        <p>
+          Type of discipline used at home. Check all that Apply:
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <div class="disciplineUsed custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="disciplineUsed1">
+            <label class="custom-control-label" for="disciplineUsed1">Love and Logic</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="disciplineUsed custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="disciplineUsed2">
+            <label class="custom-control-label" for="disciplineUsed2">123 Magic</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="disciplineUsed custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="disciplineUsed3">
+            <label class="custom-control-label" for="disciplineUsed3">Connected Parenting</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="disciplineUsed custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="disciplineUsed4">
+            <label class="custom-control-label" for="disciplineUsed4">Time Out</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="disciplineUsed custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="disciplineUsed5">
+            <label class="custom-control-label" for="disciplineUsed5">Other</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="communityDifficulties">Is client having difficulties within the community (stores, unfamiliar places, etc)? Please list concerns.</label>
+          <textarea class="form-control" id="communityDifficulties" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row">
+        <p>
+          <strong>Please place a check by those characteristics you observe with your child. Please add comments or additional concerns</strong>:
+          <small class="form-text text-muted">Select items of concern for each category. Depending on your child's age, some items may not be age appropriate yet.</small>
+        </p>
+      </section>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Muscle Tone</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone1">
+            <label class="custom-control-label" for="muscleTone1">Difficulty achieving & maintaining stability in sitting, standing, & during movement‎
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone2">
+            <label class="custom-control-label" for="muscleTone2">Frequently "W" sits</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone3">
+            <label class="custom-control-label" for="muscleTone3">Joints present as tight (limbs lack mobility)‎‎
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone4">
+            <label class="custom-control-label" for="muscleTone4">Limbs lack mobility</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone5">
+            <label class="custom-control-label" for="muscleTone5">Joints are extremely flexible (limbs very mobile)‎‎
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone6">
+            <label class="custom-control-label" for="muscleTone6">Limbs are hyper mobile‎‎
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone7">
+            <label class="custom-control-label" for="muscleTone7">Muscle tone appears typical to peers‎‎
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone8">
+            <label class="custom-control-label" for="muscleTone8">Seeks sedentary play
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone9">
+            <label class="custom-control-label" for="muscleTone9">Difficulty grading movement actions (i.e. uses couch or parent to stop movement)‎‎
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone10">
+            <label class="custom-control-label" for="muscleTone10">Tends to seek support when sitting or standing‎‎</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone11">
+            <label class="custom-control-label" for="muscleTone11">Tends to be fixed or "stuck" in posture‎‎
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="muscleTone custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="muscleTone12">
+            <label class="custom-control-label" for="muscleTone12">None noted‎‎
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Babinski</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski1">
+            <label class="custom-control-label" for="babinski1">Always on the go, fidgety
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski2">
+            <label class="custom-control-label" for="babinski2">
+              Poor balance
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski3">
+            <label class="custom-control-label" for="babinski3">
+              Poor balance on uneven surfaces
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski4">
+            <label class="custom-control-label" for="babinski4">
+              Trips easily
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski5">
+            <label class="custom-control-label" for="babinski5">
+              Presents as clumsy
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski6">
+            <label class="custom-control-label" for="babinski6">
+              Poor lower body coordination
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski7">
+            <label class="custom-control-label" for="babinski7">
+              Poor galloping
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski8">
+            <label class="custom-control-label" for="babinski8">
+              Poor jumping jacks
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski9">
+            <label class="custom-control-label" for="babinski9">
+              Poor skipping
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski10">
+            <label class="custom-control-label" for="babinski10">
+              Poor running
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski11">
+            <label class="custom-control-label" for="babinski11">
+              Poor gait pattern
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski12">
+            <label class="custom-control-label" for="babinski12">
+              Walks on inside of feet
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski13">
+            <label class="custom-control-label" for="babinski13">
+              Walks on outside of feet
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski14">
+            <label class="custom-control-label" for="babinski14">
+              Walks on toes
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski15">
+            <label class="custom-control-label" for="babinski15">
+              Walks with toes inward
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski16">
+            <label class="custom-control-label" for="babinski16">
+              Walks with toes outward
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski17">
+            <label class="custom-control-label" for="babinski17">
+              Flat arches
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski18">
+            <label class="custom-control-label" for="babinski18">
+              Hip and knee problems
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski19">
+            <label class="custom-control-label" for="babinski19">
+              Unable to stand still; lacks grounding and stability
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski20">
+            <label class="custom-control-label" for="babinski20">
+              Issues with feet
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski21">
+            <label class="custom-control-label" for="babinski21">
+              Socks have to be just right
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski22">
+            <label class="custom-control-label" for="babinski22">
+              Prefers to go barefoot
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski23">
+            <label class="custom-control-label" for="babinski23">
+              Grinds teeth
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski24">
+            <label class="custom-control-label" for="babinski24">
+              Does not notice a mess on face when eating
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski25">
+            <label class="custom-control-label" for="babinski25">
+              Issues with fine motor coordination
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski26">
+            <label class="custom-control-label" for="babinski26">
+              Difficulties with gross motor coordination
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski27">
+            <label class="custom-control-label" for="babinski27">
+              Language delays
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski28">
+            <label class="custom-control-label" for="babinski28">
+              Timidity
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski29">
+            <label class="custom-control-label" for="babinski29">
+              Poor crawling patterns
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babinski custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babinski30">
+            <label class="custom-control-label" for="babinski30">
+              None noted
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Foot Tendon Guard</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG1">
+            <label class="custom-control-label" for="FTG1">
+              Difficulty standing; poor grounding and stability
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG2">
+            <label class="custom-control-label" for="FTG2">
+              Uneven support of body weight on foot arches
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG3">
+            <label class="custom-control-label" for="FTG3">
+              Poor coordination for climbing
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG4">
+            <label class="custom-control-label" for="FTG4">
+              Poor coordination for jumping
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG5">
+            <label class="custom-control-label" for="FTG5">
+              Poor coordination for running
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG6">
+            <label class="custom-control-label" for="FTG6">
+              Poor coordination for swimming
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG7">
+            <label class="custom-control-label" for="FTG7">
+              Emotional instability and lack of self-confidence
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG8">
+            <label class="custom-control-label" for="FTG8">
+              Lack of ability to adapt for focus and change perspective, rigidity in thinking
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG9">
+            <label class="custom-control-label" for="FTG9">
+              Lack of flexibility
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG10">
+            <label class="custom-control-label" for="FTG10">
+              Difficulty letting go of stress and fears
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG11">
+            <label class="custom-control-label" for="FTG11">
+              Poor walking patterns 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG12">
+            <label class="custom-control-label" for="FTG12">
+              Unable to walk a straight line 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG13">
+            <label class="custom-control-label" for="FTG13">
+              Loses focus in walking  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG14">
+            <label class="custom-control-label" for="FTG14">
+              Unable to use a heel toe gait  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG15">
+            <label class="custom-control-label" for="FTG15">
+              Delay in articulation and speech development  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG16">
+            <label class="custom-control-label" for="FTG16">
+              Lack of self confidence in making choices  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="FTG custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="FTG17">
+            <label class="custom-control-label" for="FTG17">
+              None noted  
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Leg Cross Flexion Extension</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="LCFE custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="LCFE1">
+            <label class="custom-control-label" for="LCFE1">
+              Difficulty coordinating legs to ride a bicycle
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="LCFE custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="LCFE2">
+            <label class="custom-control-label" for="LCFE2">
+              Hesitant when descending/climbing stairs
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="LCFE custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="LCFE3">
+            <label class="custom-control-label" for="LCFE3">
+              Hyperactivity
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="LCFE custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="LCFE4">
+            <label class="custom-control-label" for="LCFE4">
+              Poor coordination across the body mid-line/poor ability to cross crawl
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="LCFE custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="LCFE5">
+            <label class="custom-control-label" for="LCFE5">
+              Postural problems in general
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="LCFE custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="LCFE6">
+            <label class="custom-control-label" for="LCFE6">
+              None noted
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>ATNR</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR1">
+            <label class="custom-control-label" for="ATNR1">
+              Difficulty following verbal directions 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR2">
+            <label class="custom-control-label" for="ATNR2">
+              Frequently asks for repetition of directions: Says "what" a lot  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR3">
+            <label class="custom-control-label" for="ATNR3">
+              Slowed or delayed responses to auditory information  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR4">
+            <label class="custom-control-label" for="ATNR4">
+              Frequently misunderstands  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR5">
+            <label class="custom-control-label" for="ATNR5">
+              Does not consistently respond to their name  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR6">
+            <label class="custom-control-label" for="ATNR6">
+              Difficulty sequencing events  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR7">
+            <label class="custom-control-label" for="ATNR7">
+              Difficulty with attention, focus, and memory  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR8">
+            <label class="custom-control-label" for="ATNR8">
+              Imbalance between focus and peripheral vision; does not get the big picture, focus tied to arms length  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR9">
+            <label class="custom-control-label" for="ATNR9">
+              Disorganized approach to brushing teeth  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR10">
+            <label class="custom-control-label" for="ATNR10">
+              Disorganized approach to preparing simple food  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR11">
+            <label class="custom-control-label" for="ATNR11">
+              Disorganized approach to getting dressed  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR12">
+            <label class="custom-control-label" for="ATNR12">
+              Letter and number reversals  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR13">
+            <label class="custom-control-label" for="ATNR13">
+              Preferred hand is undetermined  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR14">
+            <label class="custom-control-label" for="ATNR14">
+              Uncoordinated cross body movement: difficulty turning/rotating, twisting  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR15">
+            <label class="custom-control-label" for="ATNR15">
+              Does not care for puzzles  
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="ATNR custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="ATNR16">
+            <label class="custom-control-label" for="ATNR16">
+              None noted  
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Trunk Extension</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="trunkExt custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="trunkExt1">
+            <label class="custom-control-label" for="trunkExt1">
+              Posture tends to bend forward or backwards; don't seem to have mid-line 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="trunkExt custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="trunkExt2">
+            <label class="custom-control-label" for="trunkExt2">
+              Tendency to toe walk 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="trunkExt custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="trunkExt3">
+            <label class="custom-control-label" for="trunkExt3">
+              Difficulty pushing up on toes and coming back down as when needing to reach something that is high up‎‎ 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="trunkExt custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="trunkExt4">
+            <label class="custom-control-label" for="trunkExt4">
+              Over focused on details, missing the big picture; "can't see the elephant in the room"‎‎ 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="trunkExt custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="trunkExt5">
+            <label class="custom-control-label" for="trunkExt5">
+              Emotional or irrational issues; talks without making emotional connections‎‎ 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="trunkExt custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="trunkExt6">
+            <label class="custom-control-label" for="trunkExt6">
+              Limited imagination 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="trunkExt custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="trunkExt7">
+            <label class="custom-control-label" for="trunkExt7">
+              Timing of jumping is not there 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="trunkExt custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="trunkExt8">
+            <label class="custom-control-label" for="trunkExt8">
+              Leans against external supports when sitting or standing 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="trunkExt custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="trunkExt9">
+            <label class="custom-control-label" for="trunkExt9">
+              None noted 
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Hands Grasp</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp1">
+            <label class="custom-control-label" for="handsGrasp1">
+              Difficulty dressing self (without fasteners) including socks/shoes due to lack of hand strength to pinch and pull up 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp2">
+            <label class="custom-control-label" for="handsGrasp2">
+              Difficulty picking up small items 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp3">
+            <label class="custom-control-label" for="handsGrasp3">
+              Difficulty with fasteners 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp4">
+            <label class="custom-control-label" for="handsGrasp4">
+              Difficulty with buttons 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp5">
+            <label class="custom-control-label" for="handsGrasp5">
+              Difficulty with snaps 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp6">
+            <label class="custom-control-label" for="handsGrasp6">
+              Difficulty with zippers 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp7">
+            <label class="custom-control-label" for="handsGrasp7">
+              Difficulty with tying shoes 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp8">
+            <label class="custom-control-label" for="handsGrasp8">
+              Inefficient grasp of writing tools (pen/pencil)
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp9">
+            <label class="custom-control-label" for="handsGrasp9">
+              Difficulty experiencing excessive pressure
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp10">
+            <label class="custom-control-label" for="handsGrasp10">
+              Difficulty experiencing light pressure
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp11">
+            <label class="custom-control-label" for="handsGrasp11">
+              Poor handwriting or written expression
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp12">
+            <label class="custom-control-label" for="handsGrasp12">
+              Breaks pencils often
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp13">
+            <label class="custom-control-label" for="handsGrasp13">
+              Difficulty with school tool for coloring
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp14">
+            <label class="custom-control-label" for="handsGrasp14">
+              Difficulty with school tool for cutting
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp15">
+            <label class="custom-control-label" for="handsGrasp15">
+              Difficulty with school tool for drawing
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp16">
+            <label class="custom-control-label" for="handsGrasp16">
+              Difficulty with school tool for gluing
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp17">
+            <label class="custom-control-label" for="handsGrasp17">
+              Inefficient grasp of scissors
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp18">
+            <label class="custom-control-label" for="handsGrasp18">
+              Inefficient grasp of spoon
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp19">
+            <label class="custom-control-label" for="handsGrasp19">
+              Inefficient grasp of fork
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp20">
+            <label class="custom-control-label" for="handsGrasp20">
+              Inefficient grasp of knife
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp21">
+            <label class="custom-control-label" for="handsGrasp21">
+              Prefers to eat with fingers
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp22">
+            <label class="custom-control-label" for="handsGrasp22">
+              Unable to spread toppings with a knife
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp23">
+            <label class="custom-control-label" for="handsGrasp23">
+              Poor speech and communication
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsGrasp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsGrasp24">
+            <label class="custom-control-label" for="handsGrasp24">
+              None noted
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Hands Supporting</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="handsSupp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsSupp1">
+            <label class="custom-control-label" for="handsSupp1">
+              Frequent Injuries with falls (does not put hands out to protect self) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsSupp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsSupp2">
+            <label class="custom-control-label" for="handsSupp2">
+              Lack of arm, hand, eye coordination 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsSupp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsSupp3">
+            <label class="custom-control-label" for="handsSupp3">
+              Lack of body and space awareness/boundaries 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsSupp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsSupp4">
+            <label class="custom-control-label" for="handsSupp4">
+              Poor safety awareness 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsSupp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsSupp5">
+            <label class="custom-control-label" for="handsSupp5">
+              Poor social boundaries (aggressive, standoffish, isolated, easily becoming a victim, bully or being bullied) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsSupp custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsSupp6">
+            <label class="custom-control-label" for="handsSupp6">
+              None noted 
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Hands Pulling</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling1">
+            <label class="custom-control-label" for="handsPulling1">
+              Poor socialization; giving and taking 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling2">
+            <label class="custom-control-label" for="handsPulling2">
+              Difficulty with ball skills (i.e. catch/throw) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling3">
+            <label class="custom-control-label" for="handsPulling3">
+              Occulomotor control challenges (convergence & divergence i.e. copying from the board - far away to near.)‎‎ 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling4">
+            <label class="custom-control-label" for="handsPulling4">
+              Difficulty with eye hand coordination activities 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling5">
+            <label class="custom-control-label" for="handsPulling5">
+              Difficulty with bilateral hand skills (both hands) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling6">
+            <label class="custom-control-label" for="handsPulling6">
+              Difficulty buckling pants/belt 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling7">
+            <label class="custom-control-label" for="handsPulling7">
+              Difficulty putting on pants/belt 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling8">
+            <label class="custom-control-label" for="handsPulling8">
+              Difficulty buckling seat belt 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling9">
+            <label class="custom-control-label" for="handsPulling9">
+              Difficulty pouring liquids 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling10">
+            <label class="custom-control-label" for="handsPulling10">
+              Difficulty with snaps 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling11">
+            <label class="custom-control-label" for="handsPulling11">
+              Difficulty climbing 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling12">
+            <label class="custom-control-label" for="handsPulling12">
+              Difficulty brushing teeth 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling13">
+            <label class="custom-control-label" for="handsPulling13">
+              Difficulty self feeding with utensils 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling14">
+            <label class="custom-control-label" for="handsPulling14">
+              Difficulty picking up small items 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling15">
+            <label class="custom-control-label" for="handsPulling15">
+              Difficulty lifting, pushing, pulling heavy objects
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling16">
+            <label class="custom-control-label" for="handsPulling16">
+              Head righting and vestibular issues (i.e. maintaining good postural alignment with head when body is off center‎‎)
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling17">
+            <label class="custom-control-label" for="handsPulling17">
+              Poorly regulated muscle tone in the arms (i.e. difficulty maintaining strength to hold something‎‎)
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling18">
+            <label class="custom-control-label" for="handsPulling18">
+              Poor fine motor coordination, difficulty with handwriting
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling19">
+            <label class="custom-control-label" for="handsPulling19">
+              Speech and communication delays
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="handsPulling custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="handsPulling20">
+            <label class="custom-control-label" for="handsPulling20">
+              None noted
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Babkin</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="babkin custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babkin1">
+            <label class="custom-control-label" for="babkin1">
+              Associated oral reactions with hand utilization (i.e. tongue movements, lip movements or tightening of the lips. Tongue moves when cutting with scissors‎‎) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babkin custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babkin2">
+            <label class="custom-control-label" for="babkin2">
+              Biting/chewing on clothing/objects 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babkin custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babkin3">
+            <label class="custom-control-label" for="babkin3">
+              Clenched fists 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babkin custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babkin4">
+            <label class="custom-control-label" for="babkin4">
+              Eating challenges 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babkin custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babkin5">
+            <label class="custom-control-label" for="babkin5">
+              Nail biting 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babkin custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babkin6">
+            <label class="custom-control-label" for="babkin6">
+              Digestive issues 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babkin custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babkin7">
+            <label class="custom-control-label" for="babkin7">
+              Difficulty blowing nose to clear 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="babkin custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="babkin8">
+            <label class="custom-control-label" for="babkin8">
+              None noted
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Moro</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro1">
+            <label class="custom-control-label" for="moro1">
+              Becomes overly excited after movement activities 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro2">
+            <label class="custom-control-label" for="moro2">
+              Seeks intense movement experiences 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro3">
+            <label class="custom-control-label" for="moro3">
+              Motion sickness 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro4">
+            <label class="custom-control-label" for="moro4">
+              Thrill seeker with little regard for safety 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro5">
+            <label class="custom-control-label" for="moro5">
+              Breath holding with effort 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro6">
+            <label class="custom-control-label" for="moro6">
+              Breath holding without effort 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro7">
+            <label class="custom-control-label" for="moro7">
+              Rarely yawns 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro8">
+            <label class="custom-control-label" for="moro8">
+              Yawns excessively/frequently 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro9">
+            <label class="custom-control-label" for="moro9">
+              Shallow breath pattern 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro10">
+            <label class="custom-control-label" for="moro10">
+              Mouth breather 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro11">
+            <label class="custom-control-label" for="moro11">
+              Difficulty falling asleep
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro12">
+            <label class="custom-control-label" for="moro12">
+              Difficulty staying asleep
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro13">
+            <label class="custom-control-label" for="moro13">
+              Difficulty waking up
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro14">
+            <label class="custom-control-label" for="moro14">
+              Excessive anxiety
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro15">
+            <label class="custom-control-label" for="moro15">
+              Timidity
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro16">
+            <label class="custom-control-label" for="moro16">
+              Maladaptive patterns of self protection
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro17">
+            <label class="custom-control-label" for="moro17">
+              Lack of trust
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro18">
+            <label class="custom-control-label" for="moro18">
+              Fear of taking risks required for learning
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro19">
+            <label class="custom-control-label" for="moro19">
+              Fearful of feet leaving the ground when in control of the activity
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro20">
+            <label class="custom-control-label" for="moro20">
+              Fearful of feet leaving the ground when out of control of the activity
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro21">
+            <label class="custom-control-label" for="moro21">
+              Hypersensitivity to vestibular stimulation; does not like his head tipped back (hair washing in bathtub)‎‎
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro22">
+            <label class="custom-control-label" for="moro22">
+              Motion sickness
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro23">
+            <label class="custom-control-label" for="moro23">
+              Poor adaptability
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro24">
+            <label class="custom-control-label" for="moro24">
+              Poor balance
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro25">
+            <label class="custom-control-label" for="moro25">
+              Problems with choice making
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro26">
+            <label class="custom-control-label" for="moro26">
+              Weakened immune system
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="moro custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="moro27">
+            <label class="custom-control-label" for="moro27">
+              None noted
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Fear Paralysis</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis1">
+            <label class="custom-control-label" for="fearParalysis1">
+              Fearful of or startles to touch stimuli 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis2">
+            <label class="custom-control-label" for="fearParalysis2">
+              Fearful of or startles to visual stimuli 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis3">
+            <label class="custom-control-label" for="fearParalysis3">
+              Fearful of or startles to auditory stimuli 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis4">
+            <label class="custom-control-label" for="fearParalysis4">
+              Overly sensitive to loud noises 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis5">
+            <label class="custom-control-label" for="fearParalysis5">
+              Overly sensitive to visual stimuli 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis6">
+            <label class="custom-control-label" for="fearParalysis6">
+              Dislikes having their vision occluded 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis7">
+            <label class="custom-control-label" for="fearParalysis7">
+              Difficulty completing tasks when sounds are nearby 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis8">
+            <label class="custom-control-label" for="fearParalysis8">
+              Hears sounds that other do not hear 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis9">
+            <label class="custom-control-label" for="fearParalysis9">
+              Excessive anxiety, timidity, maladaptive patterns of self protection, lack of trust 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis10">
+            <label class="custom-control-label" for="fearParalysis10">
+              Fails to read visual cues in the environment 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis11">
+            <label class="custom-control-label" for="fearParalysis11">
+              Holds body stiffly 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis12">
+            <label class="custom-control-label" for="fearParalysis12">
+              Hyperactive gag responses 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis13">
+            <label class="custom-control-label" for="fearParalysis13">
+              Hyperactivity in general 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis14">
+            <label class="custom-control-label" for="fearParalysis14">
+              Resistive to brushing teeth 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis15">
+            <label class="custom-control-label" for="fearParalysis15">
+              Resistive to dentist 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis16">
+            <label class="custom-control-label" for="fearParalysis16">
+              Resistive to haircuts 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis17">
+            <label class="custom-control-label" for="fearParalysis17">
+              Resistive to nail trimming 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis18">
+            <label class="custom-control-label" for="fearParalysis18">
+              Visually distracted 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis19">
+            <label class="custom-control-label" for="fearParalysis19">
+              Difficulty with ball skills 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fearParalysis custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fearParalysis20">
+            <label class="custom-control-label" for="fearParalysis20">
+              None noted 
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Spinal Perez</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez1">
+            <label class="custom-control-label" for="spinalPerez1">
+              Leans on people/objects for stability 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez2">
+            <label class="custom-control-label" for="spinalPerez2">
+              Poor differentiation of pelvis from spine (i.e. hips and spine move together) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez3">
+            <label class="custom-control-label" for="spinalPerez3">
+              Low back tends to be stuck in extension 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez4">
+            <label class="custom-control-label" for="spinalPerez4">
+              Unable to assume superman position on their belly 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez5">
+            <label class="custom-control-label" for="spinalPerez5">
+              Delayed crawling in developmental history 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez6">
+            <label class="custom-control-label" for="spinalPerez6">
+              Delayed walking in developmental history 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez7">
+            <label class="custom-control-label" for="spinalPerez7">
+              Atypical walking pattern (stiff) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez8">
+            <label class="custom-control-label" for="spinalPerez8">
+              Atypical walking pattern (lacks reciprocal arm movement) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez9">
+            <label class="custom-control-label" for="spinalPerez9">
+              Atypical walking pattern (waddles) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez10">
+            <label class="custom-control-label" for="spinalPerez10">
+              Atypical walking pattern (leans forward) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez11">
+            <label class="custom-control-label" for="spinalPerez11">
+              Spinal deformities 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez12">
+            <label class="custom-control-label" for="spinalPerez12">
+              Tactile hypersensitivity 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez13">
+            <label class="custom-control-label" for="spinalPerez13">
+              Auditory hypersensitivity 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez14">
+            <label class="custom-control-label" for="spinalPerez14">
+              Short and long term memory difficulties 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez15">
+            <label class="custom-control-label" for="spinalPerez15">
+              Plays rough with people and objects 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez16">
+            <label class="custom-control-label" for="spinalPerez16">
+              Has difficulties grading their actions; too fast/slow, too hard/soft 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez17">
+            <label class="custom-control-label" for="spinalPerez17">
+              Bladder issues (bed wetting) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez18">
+            <label class="custom-control-label" for="spinalPerez18">
+              Bladder issues (potty training) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez19">
+            <label class="custom-control-label" for="spinalPerez19">
+              Complains of stomach pains 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez20">
+            <label class="custom-control-label" for="spinalPerez20">
+              Picky eater 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez21">
+            <label class="custom-control-label" for="spinalPerez21">
+              Breath holding with effort or novel activity 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalPerez custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalPerez22">
+            <label class="custom-control-label" for="spinalPerez22">
+              None noted 
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>TLR</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr1">
+            <label class="custom-control-label" for="tlr1">
+              Poor sequencing skills: challenges with space and time 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr2">
+            <label class="custom-control-label" for="tlr2">
+              Poor cause and effect awareness 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr3">
+            <label class="custom-control-label" for="tlr3">
+              Gets car sick: vestibular problems 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr4">
+            <label class="custom-control-label" for="tlr4">
+              Did not crawl as an infant 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr5">
+            <label class="custom-control-label" for="tlr5">
+              Locks legs in standing to maintain posture 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr6">
+            <label class="custom-control-label" for="tlr6">
+              Hyper muscle tone (high) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr7">
+            <label class="custom-control-label" for="tlr7">
+              Hypo muscle tone (low) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr8">
+            <label class="custom-control-label" for="tlr8">
+              Avoids sports 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr9">
+            <label class="custom-control-label" for="tlr9">
+              Trouble throwing a ball 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr10">
+            <label class="custom-control-label" for="tlr10">
+              Tends to slide out of their chair and under the table or desk 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr11">
+            <label class="custom-control-label" for="tlr11">
+              Seeks head banging 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr12">
+            <label class="custom-control-label" for="tlr12">
+              Visual issues with focus and tracking 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="tlr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tlr13">
+            <label class="custom-control-label" for="tlr13">
+              None noted 
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Landau</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="landau custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="landau1">
+            <label class="custom-control-label" for="landau1">
+              Poor muscle tone 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="landau custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="landau2">
+            <label class="custom-control-label" for="landau2">
+              Difficulty concentrating 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="landau custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="landau3">
+            <label class="custom-control-label" for="landau3">
+              Clumsy in movements 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="landau custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="landau4">
+            <label class="custom-control-label" for="landau4">
+              Stands with locked knees 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="landau custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="landau5">
+            <label class="custom-control-label" for="landau5">
+              Hard to understand new things 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="landau custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="landau6">
+            <label class="custom-control-label" for="landau6">
+              None noted 
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Bauer Crawling</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="bauerCrawl custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="bauerCrawl1">
+            <label class="custom-control-label" for="bauerCrawl1">
+              Asymmetrical gait pattern (i.e. arms/legs do not swing in a cross body pattern) 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="bauerCrawl custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="bauerCrawl2">
+            <label class="custom-control-label" for="bauerCrawl2">
+              Poor orientation in space 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="bauerCrawl custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="bauerCrawl3">
+            <label class="custom-control-label" for="bauerCrawl3">
+              Poorly developed perspective, vision 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="bauerCrawl custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="bauerCrawl4">
+            <label class="custom-control-label" for="bauerCrawl4">
+              Slow study pace 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="bauerCrawl custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="bauerCrawl5">
+            <label class="custom-control-label" for="bauerCrawl5">
+              None noted 
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Spinal Gallant</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant1">
+            <label class="custom-control-label" for="spinalGallant1">
+              Deficits in auditory processing 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant2">
+            <label class="custom-control-label" for="spinalGallant2">
+              Discomfort in auditory processing 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant3">
+            <label class="custom-control-label" for="spinalGallant3">
+              Hyperactivity 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant4">
+            <label class="custom-control-label" for="spinalGallant4">
+              Difficulty with control of bowel and/or bladder, bed-wetting, irritable bowel syndrome 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant5">
+            <label class="custom-control-label" for="spinalGallant5">
+              Abnormal gait with incorrect hip rotation 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant6">
+            <label class="custom-control-label" for="spinalGallant6">
+              Poor concentration 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant7">
+            <label class="custom-control-label" for="spinalGallant7">
+              Poor gross motor coordination 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant8">
+            <label class="custom-control-label" for="spinalGallant8">
+              Scoliosis 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant9">
+            <label class="custom-control-label" for="spinalGallant9">
+              Tendency to adjust body/forget frequently when sitting in a chair 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant10">
+            <label class="custom-control-label" for="spinalGallant10">
+              Falls out of their chair
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="spinalGallant custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="spinalGallant11">
+            <label class="custom-control-label" for="spinalGallant11">
+              None noted
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>STNR</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr1">
+            <label class="custom-control-label" for="stnr1">
+              Wears glasses 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr2">
+            <label class="custom-control-label" for="stnr2">
+              Difficulty visually tracking 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr3">
+            <label class="custom-control-label" for="stnr3">
+              Poor eye tracking 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr4">
+            <label class="custom-control-label" for="stnr4">
+              Keeps eyes close to paper 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr5">
+            <label class="custom-control-label" for="stnr5">
+              Poor visual monitoring of hand during fine motor tasks 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr6">
+            <label class="custom-control-label" for="stnr6">
+              Difficulty finding objects in competing backgrounds 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr7">
+            <label class="custom-control-label" for="stnr7">
+              Difficulty moving hands, arms, head separately; tends to move as one unit 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr8">
+            <label class="custom-control-label" for="stnr8">
+              Reactivity between head and muscles of the arms 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr9">
+            <label class="custom-control-label" for="stnr9">
+              Puts head down excessively when drawing
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr10">
+            <label class="custom-control-label" for="stnr10">
+              Puts head down excessively when reading
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr11">
+            <label class="custom-control-label" for="stnr11">
+              Puts head down excessively when writing
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr12">
+            <label class="custom-control-label" for="stnr12">
+              Prefers to stand to engage in had activities 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr13">
+            <label class="custom-control-label" for="stnr13">
+              Poor balance, spatial or temporal awareness 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr14">
+            <label class="custom-control-label" for="stnr14">
+              Prefers sedentary play 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr15">
+            <label class="custom-control-label" for="stnr15">
+              Problems with athletics/avoids new physical challenges 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr16">
+            <label class="custom-control-label" for="stnr16">
+              Social issues; under achievement, frustration, avoidance   
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr17">
+            <label class="custom-control-label" for="stnr17">
+              Wraps feet around front legs of chair   
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="stnr custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="stnr18">
+            <label class="custom-control-label" for="stnr18">
+              None noted   
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row required">
+        <p>
+          <label required><strong>Flying and Landing</strong></label>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="fly&Land custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fly&Land1">
+            <label class="custom-control-label" for="fly&Land1">
+              Phobias of heights 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fly&Land custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fly&Land2">
+            <label class="custom-control-label" for="fly&Land2">
+              Gravitational insecurity: does not like their feet to leave the ground 
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fly&Land custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fly&Land3">
+            <label class="custom-control-label" for="fly&Land3">
+              Unable to jump effectively
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fly&Land custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fly&Land4">
+            <label class="custom-control-label" for="fly&Land4">
+              Impulsive jumping; jump all the time
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fly&Land custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fly&Land5">
+            <label class="custom-control-label" for="fly&Land5">
+              Challenged to judge height and depth
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fly&Land custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fly&Land6">
+            <label class="custom-control-label" for="fly&Land6">
+              Lacks control in dangerous situations
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="fly&Land custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="fly&Land7">
+            <label class="custom-control-label" for="fly&Land7">
+              None noted
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Comments</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <h5>Goals</h5>
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <p>It is important that we partner in establishing goals for therapeutic intervention. Please list the top priorities we can address first:</p>
+          <label for="goal1">Goal #1</label>
+          <input type="text" class="form-control" id="goal1" placeholder="Goal #1" required>
+          <div class="invalid-feedback">
+            Please fill out at least one goal
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="goal2">Goal #2</label>
+          <input type="text" class="form-control" id="goal2" placeholder="Goal #2">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="goal3">Goal #3</label>
+          <input type="text" class="form-control" id="goal3" placeholder="Goal #3">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="goal4">Goal #4</label>
+          <input type="text" class="form-control" id="goal4" placeholder="Goal #4">
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <label for="childStrength">Your Child's Strengths:</label>
+          <textarea class="form-control" id="childStrength" rows="3" required></textarea>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="childChallenges">Your Child's Challenges:</label>
+          <textarea class="form-control" id="childChallenges" rows="3" required></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Any other comments/concerns not addressed above?</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <!-- Add reCAPTHA later -->
+      <div class="g-recaptcha brochure__form__captcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-theme="dark"></div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form> <!-- End Pediatric History form-->
+  </div>
+
+
+
+  <!-- Begin footer content under header-->
+  <footer class="panel-footer footer">
+    <div class="container">
+      <div class="row">
+        <section id="hours" class="col-md-4 col-sm-12">
+          Mon - Thurs: 8:00am-6:30pm<br>
+          Fri: 8:00am-2:00pm<br>
+          Sat & Sun: closed<br>
+          <hr class="d-block d-md-none d-lg-none d-xl-none">
+        </section>
+        <section id="address" class="col-md-4 col-sm-12">
+          7235 W 162nd Ter<br>
+          Stilwell, KS 66085<br>
+          <hr class="d-block d-md-none d-lg-none d-xl-none">
+        </section>
+        <section id="contact-info" class="col-md-4 col-sm-12">
+          <a href="tel: 913-257-5808">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+            </svg>&nbsp; 913-257-5808<br>
+          </a>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-printer-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5z"/>
+              <path fill-rule="evenodd" d="M11 9H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
+              <path fill-rule="evenodd" d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+            </svg> 
+            &nbsp; 844-270-5788<br>
+             <a href="mailto: info@pediatricconnectionsot.com">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+              </svg>
+               &nbsp;info@pediatricconnectionsot.com<br></a> 
+          <hr class="d-block d-md-none d-lg-none d-xl-none">
+        </section>
+      </div>
+      <div id="social-media-images" class="text-center">
+        <a href="https://www.facebook.com/pediatricconnections" target="_blank"><img src="images/facebook_icon.png"></a>
+        <a href="https://twitter.com/pedconnections1" target="_blank"><img src="images/twitter_icon.png"></a> 
+        <a href="https://www.pinterest.com/pedconnectionso/" target="_blank"><img src="images/pinterest_icon.png"></a> 
+        <a href="https://www.instagram.com/pediatricconnectionsot/" target="_blank"><img src="images/instagram_icon.png"></a> 
+        <a href="https://www.youtube.com/channel/UC3h0muLW7GSxBr_DdtaLOCg" target="_blank"><img src="images/youtube_icon.png"></a>  
+      </div>
+      <div id="copyright" class="text-center">&copy; Copyright Pediatric Connections 2020.<br>
+        Proudly made by<a href="images/garrett.jpeg"> Lesher Designs</a>, LLC.</div>
+      <div id="privacy-policy" class="text-center"><a href="privacy_policy.html">Privacy Policy</a></div>
+    </div>
+  </footer>
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- <script src="js/ajax-utils.js"></script> -->
+  <script src="js/script.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+
+
+</body>
+</html>
