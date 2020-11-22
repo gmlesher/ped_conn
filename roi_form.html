@@ -228,7 +228,7 @@
           <label required></label>
         </p>
       </section>
-        <div class="form-row">
+        <div class="form-row atLeastOneReq" id="one">
           <div class="roiCheckbox1 custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="roiCheckboxNum1" required>
             <label class="custom-control-label" for="roiCheckboxNum1">Medical Records: including evaluations, history & physical, diagnosis codes, progress notes, consultations, medications (previous and current), lab and s-ray reports, MRI results, CT scan results, surgical reports, radiology reports</label>
@@ -248,6 +248,9 @@
           <div class="roiCheckbox1 custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="roiCheckboxNum5" required>
             <label class="custom-control-label" for="roiCheckboxNum5">Other and/or specific people within an agency such as a teacher:‎</label>
+            <div class="invalid-feedback">
+            Please select at least one checkbox
+            </div>
           </div>
         </div>
       <div class="form-group">
@@ -293,10 +296,7 @@
           <small class="form-text text-muted pb-2">If signing on a computer, use mouse for your signature.</small>
           <div id="signature-pad" class="signature-pad">
             <div class="signature-pad--body">
-              <canvas></canvas>
-              <div class="invalid-feedback">
-                Please sign document
-              </div>
+              <canvas required></canvas>
             </div>
             <div class="signature-pad--footer">
               <div class="signature-pad--actions">

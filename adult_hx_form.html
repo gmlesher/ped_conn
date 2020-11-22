@@ -68,6 +68,618 @@
     </nav><!-- #header-nav -->
   </header>
 
+  <div>
+    <!--Pediatric History form-->
+    <form class="adultHxForm form needs-validation" novalidate>
+      <div>
+        <img class="formsLogo d-flex mx-auto" src="images/logo_small.png">
+      </div>
+      <div>
+        <h3>Adult History</h3>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-6">
+          <label for="cfname">Client First Name</label>
+          <input type="text" class="form-control" id="cfname" placeholder="First Name" required>
+          <div class="invalid-feedback">
+            Please fill out client first name
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="clname">Client Last Name</label>
+          <input type="text" class="form-control" id="clname" placeholder="Last Name" required>
+          <div class="invalid-feedback">
+            Please fill out client last name
+          </div>
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-8">
+          <label for="email">Client Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Email" required>
+          <div class="invalid-feedback">
+            Please provide email
+          </div>
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-4">
+          <label for="dob">Date of Birth</label>
+          <input type="date" class="form-control" id="dob" placeholder="MM/DD/YYY" required>
+          <div class="invalid-feedback">
+            Please fill out DOB
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="gender">Gender</label>
+          <select id="gender" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select gender
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="referralSource">Who referred you to Pediatric Connections?</label>
+          <input type="text" class="form-control" id="referralSource" placeholder="Referral Source">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="reasonReferred">Why were you referred?</label>
+          <small class="form-text text-muted">Explain why you're seeking services (i.e. Childhood trauma, recent car accident, debilitating anxiety, etc.)</small>
+          <input type="text" class="form-control" id="reasonReferred" placeholder="Reason Referred">
+        </div>
+      </div>
+      <h5>Family Information</h5>
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <label for="clientLivesWith">Client Lives With:</label>
+          <small class="form-text text-muted">Please list all persons living in the home with names and relationship to client</small>
+          <textarea class="form-control" id="clientLivesWith" rows="3" required></textarea>
+          <div class="invalid-feedback">
+            Please fill out information about persons living with client
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="clientOcc1">Client Occupation</label>
+          <input type="text" class="form-control" id="clientOcc1" placeholder="Occupation">
+        </div>
+      </div>
+      <h5>Medical History</h5>
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <label for="medicalHx">Describe medical history</label>
+          <small class="form-text text-muted">Include diagnosis and explain any significant factors resulting in the need to seek further care</small>
+          <textarea class="form-control" id="medicalHx" rows="3" required></textarea>
+          <div class="invalid-feedback">
+            Please fill out medical history
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="medications">Medications</label>
+          <input type="text" class="form-control" id="medications" placeholder="Medications">
+        </div>
+      </div>
+      <h5>Emotional</h5>
+      <section class="form-row">
+        <p>
+          Emotional health is expressing your emotions in a positive, non-destructive way.<br>
+          <small class="form-text text-muted">Please rate each on a scale from 1-10</small>
+        </p>
+      </section>
+      <div class="form-row required">
+        <div class="form-group col-md-4">
+          <label for="calm">Calm</label>
+          <select id="calm" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Calm</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Anger</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="happy">Happy</label>
+          <select id="happy" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Happy</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Sad</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="safe">Safe</label>
+          <select id="safe" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Safe</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Fearful</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="hopeful">Hopeful</label>
+          <select id="hopeful" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Hopeful</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Hopeless</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="peaceful">Peaceful</label>
+          <select id="peaceful" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Peaceful</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Frustrated</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="emotionalComments">Comments</label>
+          <small class="form-text text-muted">Please specify recent environmental stressors (i.e. Increase work demands, challenging living situation, etc.)</small>
+          <textarea class="form-control" id="emotionalComments" rows="3"></textarea>
+        </div>
+      </div>
+      <h5>Physical</h5>
+      <section class="form-row">
+        <p>
+          Physical health refers to the way that your body is functioning. This includes eating habits, sleep patterns, getting regular exercise, and being at your recommended body weight. Physical health could also be impacted by pain, sickness, disease, medications, drugs, and/or alcohol.<br>
+          <small class="form-text text-muted">Please rate each on a scale from 1-10</small>
+        </p>
+      </section>
+      <div class="form-row required">
+        <div class="form-group col-md-4">
+          <label for="appetitie">Appetite</label>
+          <select id="appetitie" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Healthy</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Irregular</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="sleepQual">Sleep Quality</label>
+          <select id="sleepQual" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Restful</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Restless</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="sleepQuan">Sleep Quantity</label>
+          <select id="sleepQuan" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Ideal</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Irregular</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="pain">Pain</label>
+          <select id="pain" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - No Discomfort</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Extreme Pain</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="health">Health</label>
+          <select id="health" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Healthy</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Unhealthy</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="physicalComments">Comments</label>
+          <small class="form-text text-muted">Please include any medication changes, new illnesses, or anything related to physical health</small>
+          <textarea class="form-control" id="physicalComments" rows="3"></textarea>
+        </div>
+      </div>
+      <h5>Social</h5>
+      <section class="form-row">
+        <p>
+          Social Health is the quality of your relationships with friends, family, teachers and others you are in contact with.<br>
+          <small class="form-text text-muted">Please rate each on a scale from 1-10</small>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="relW/SigOther">Relationship with significant other</label>
+          <select id="relW/SigOther" class="form-control">
+            <option value="">Select...</option>
+            <option value="1">1 - Thriving</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Stressful</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="relW/Children">Relationship with children</label>
+          <select id="relW/Children" class="form-control">
+            <option value="">Select...</option>
+            <option value="1">1 - Thriving</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Stressful</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4 required">
+          <label for="relW/Peers">Relationship with peers</label>
+          <select id="relW/Peers" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Thriving</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Stressful</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4 required">
+          <label for="relW/Coll">Relationship with colleagues</label>
+          <select id="relW/Coll" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Thriving</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Stressful</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="socialComments">Comments</label>
+          <small class="form-text text-muted">Please include your typical response to stressors</small>
+          <textarea class="form-control" id="socialComments" rows="3"></textarea>
+        </div>
+      </div>
+      <h5>Intellectual/Mental Health</h5>
+      <section class="form-row">
+        <p>
+          Mental Health is the ability to think clearly and critically, problem solving abilities, learning abilities, and knowledge learned throughout life. Example: Reading books, taking classes, learning a new language or trade, or working on a art project.<br>
+          <small class="form-text text-muted">Please rate each on a scale from 1-10</small>
+        </p>
+      </section>
+      <div class="form-row required">
+        <div class="form-group col-md-4">
+          <label for="thoughClarity">Clarity of thought</label>
+          <select id="thoughClarity" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Clear</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Brain Fog</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="speechClarity">Clarity of speech</label>
+          <select id="speechClarity" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - I make total sense</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - I make no sense</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="focusAbility">Ability to focus</label>
+          <select id="focusAbility" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Laser Focus</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Distracted</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="taskComp">Completion of task</label>
+          <select id="taskComp" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Completed all tasks</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Completed no tasks</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="mentalComments">Comments</label>
+          <small class="form-text text-muted">Please include your typical response to stressors</small>
+          <textarea class="form-control" id="mentalComments" rows="3"></textarea>
+        </div>
+      </div>
+      <h5>Daily Functioning</h5>
+      <section class="form-row">
+        <p>
+          How does stress effect your daily functioning? Are you able to complete daily tasks? (Includes taking care of personal needs, completing daily routine of eating)<br>
+          <small class="form-text text-muted">Please rate each on a scale from 1-10</small>
+        </p>
+      </section>
+      <div class="form-row required">
+        <div class="form-group col-md-4">
+          <label for="dailyFunctioning">Daily Tasks</label>
+          <select id="dailyFunctioning" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Completes all daily tasks with ease</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Unable to do any daily tasks</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="dailyFunctComments">Comments</label>
+          <small class="form-text text-muted">Please include your typical response to stressors</small>
+          <textarea class="form-control" id="dailyFunctComments" rows="3"></textarea>
+        </div>
+      </div>
+      <h5>Stress Resiliency</h5>
+      <section class="form-row">
+        <p>
+          As typical stressful events occur in daily life, are you able to address and move forward?<br>
+          <small class="form-text text-muted">Please rate each on a scale from 1-10</small>
+        </p>
+      </section>
+      <div class="form-row required">
+        <div class="form-group col-md-4">
+          <label for="stressResiliency">Response to stress</label>
+          <select id="stressResiliency" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="1">1 - Able to address and move on</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 - Stressors derail</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a number
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="stressResComments">Comments</label>
+          <small class="form-text text-muted">Please include your typical response to stressors</small>
+          <textarea class="form-control" id="stressResComments" rows="3"></textarea>
+        </div>
+      </div>
+
+
+      <h5>Goals</h5>
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <p>It is important that we partner in establishing goals for therapeutic intervention. Please list the top priorities we can address first:</p>
+          <label for="goal1">Goal #1</label>
+          <input type="text" class="form-control" id="goal1" placeholder="Goal #1" required>
+          <div class="invalid-feedback">
+            Please fill out at least one goal
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="goal2">Goal #2</label>
+          <input type="text" class="form-control" id="goal2" placeholder="Goal #2">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="goal3">Goal #3</label>
+          <input type="text" class="form-control" id="goal3" placeholder="Goal #3">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="goal4">Goal #4</label>
+          <input type="text" class="form-control" id="goal4" placeholder="Goal #4">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="comments">Any other comments/concerns not addressed above?</label>
+          <textarea class="form-control" id="comments" rows="3"></textarea>
+        </div>
+      </div>
+      <!-- Add reCAPTHA later -->
+      <div class="g-recaptcha brochure__form__captcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-theme="dark"></div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form> <!-- End Pediatric History form-->
+  </div>
+
 
   <!-- Begin footer content under header-->
   <footer class="panel-footer footer">

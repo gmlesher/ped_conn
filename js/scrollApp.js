@@ -1,3 +1,4 @@
+// individual "about me pages"
 if ($(window).innerWidth() > 991) {
 
     function splitScroll (){
@@ -12,6 +13,4 @@ if ($(window).innerWidth() > 991) {
     }
 
     splitScroll();
-} 
-
-
+}; 

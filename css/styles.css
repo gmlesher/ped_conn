@@ -42,6 +42,13 @@ form button.btn:hover { /* All forms have these styles on buttons */
   height: auto;
   width: 50%;
 }
+/* All Signature Fields */
+.signature-pad--body canvas {
+  max-height: 100%;
+  width: 100%;
+  border: 2px dotted grey;
+  border-radius: 10px;
+}
 /*Google reCAPTCHA*/
 .g-recaptcha {
   padding-bottom: 30px;
@@ -107,6 +114,247 @@ form button.btn:hover { /* All forms have these styles on buttons */
 /* END HEADER */
 
 /* HOME PAGE */
+.vidSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.homeTitle {
+  text-align: center;
+  font-size: 6em;
+  font-family: "Amatic SC", cursive;
+  text-transform: uppercase;
+  color: white;
+  padding: 20px;
+  margin: 15px;
+  z-index: 1;
+/*  animation: fadeIn ease 7s;
+  -webkit-animation: fadeIn ease 7s;*/
+}
+/*@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  5.55556% {
+    transform: translateY(-40px);
+  }
+  11.11111% {
+    transform: translateY(-30px);
+  }
+  22.22222% {
+    transform: translateY(-20px);
+  }
+  27.77778% {
+    transform: translateY(-15px);
+  }
+  33.33333% {
+    transform: translateY(-10px);
+  }
+  44.44444% {
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}*/
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%
+}
+.color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #343a40;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.75;
+}
+.identify {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  background-color: #343a40;
+  margin: 0 !important;  
+}
+.identify_img {
+  margin: 0 !important;
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: center;
+  object-position: cover;
+  overflow: hidden;
+}
+.identify_img img {
+  transform: scale(0.5);
+  display: flex;
+  object-fit: cover;
+}
+.identify_text {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 50%;
+  height: 50vh;
+  overflow: hidden;
+}
+.identify_text h3 {
+  padding: 5px;
+  font-size: 5em;
+  background: -webkit-linear-gradient(45deg, #15ade2, #5ebf9c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.identify_text p {
+  text-align: center;
+  margin-top: 10px;
+  width: 80%;
+  font-size: 1.5em;
+  line-height: 30px;
+}
+.lightbulb {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  background-color: #343a40;
+  margin: 0 !important;
+}
+.lightbulb_img {
+  margin: 0 !important;
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: center;
+  object-position: cover;
+  overflow: hidden;
+}
+.lightbulb_img img {
+  transform: scale(0.5);
+  display: flex;
+  object-fit: cover;
+}
+.lightbulb_text {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 50%;
+  height: 50vh;
+  overflow: hidden;
+}
+.lightbulb_text h3 {
+  padding: 5px;
+  font-size: 5em;
+  background: -webkit-linear-gradient(45deg, #15ade2, #5ebf9c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.lightbulb_text p {
+  text-align: center;
+  margin-top: 10px;
+  width: 80%;
+  font-size: 1.5em;
+  line-height: 30px;
+}
+.empower {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  background-color: #343a40;
+  margin: 0 !important;
+}
+.empower_img {
+  margin: 0 !important;
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: center;
+  object-position: cover;
+  overflow: hidden;
+}
+.empower_img img {
+  transform: scale(0.5);
+  display: flex;
+  object-fit: cover;
+}
+.empower_text {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 50%;
+  height: 50vh;
+  overflow: hidden;
+}
+.empower_text h3 {
+  padding: 5px;
+  font-size: 5em;
+  background: -webkit-linear-gradient(45deg, #15ade2, #5ebf9c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.empower_text p {
+  text-align: center;
+  margin-top: 10px;
+  width: 80%;
+  font-size: 1.5em;
+  line-height: 30px;
+}
+.wwd {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  background-color: #343a40;
+}
+.wwd_text {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  height: 50vh;
+  overflow: hidden;
+}
+.wwd_text h3 {
+  padding: 5px;
+  font-size: 5em;
+  background: -webkit-linear-gradient(45deg, #15ade2, #5ebf9c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.wwd_text p {
+  text-align: center;
+  margin-top: 10px;
+  width: 80%;
+  font-size: 1.5em;
+  line-height: 30px;
+  padding-bottom: 30px;
+}
+
+/* below is old home page*/
 .carousel-inner {
   overflow: hidden;
   border-radius: 10px;
@@ -242,9 +490,7 @@ form button.btn:hover { /* All forms have these styles on buttons */
   margin-bottom: 20px;
   padding: 15px;
   text-align: left;
-  color: white;
-  border-radius: 10px;
-  background-color: #15ade2;
+  color: #343a40;
 }
 #staff-tiles {
   height: 250px;
@@ -621,8 +867,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
 }
 /* END FORMS PAGE */
 
-/* CLIENT INFO FORM PAGE */
-/* END CLIENT INFO FORM PAGE */
 
 /* ROI FORM PAGE */
 .roiForm section {
@@ -635,12 +879,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
 }
 .roiCheckbox1 {
   padding-bottom: 15px;
-}
-.signature-pad--body canvas {
-  max-height: 100%;
-  width: 100%;
-  border: 2px dotted grey;
-  border-radius: 10px;
 }
 /* END ROI FORM PAGE */
 
@@ -676,9 +914,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
   padding-bottom: 10px;
 }
 /* END CANCELLATION POLICY FORM */
-
-/* PEDIATRIC HISTORY FORM */
-/* END PEDIATRIC HISTORY FORM */
 
 /* LOCAL PROFESSIONALS, HELPFUL LINKS, REC PROD PAGE */
 .LHRContent {
@@ -887,15 +1122,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* Header */
-  #logo-img {
-    background: url('../images/restaurant-logo_medium.png') no-repeat;
-    width: 100px;
-    height: 100px;
-    margin: 5px 5px 5px 0;
-  }
-  /* End Header */
-
   /* Home Page */
   .container .jumbotron {
     background: url('../images/stock_photo1.jpg') no-repeat;
@@ -942,6 +1168,9 @@ form button.btn:hover { /* All forms have these styles on buttons */
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   /* Home Page */
+  .identify_text h3, .lightbulb_text h3, .empower_text h3 {
+    font-size: 3.5em;
+  }
   .container .jumbotron {
     background: url('../images/stock_photo1.jpg') no-repeat;
     background-size: cover;
@@ -1012,30 +1241,18 @@ form button.btn:hover { /* All forms have these styles on buttons */
     padding-top: 10px;
     height: 100px;
   }
-  #collapsable-nav a { /* Collapsed nav menu text */
+  /* End Header */
+  /* HOME PAGE */
+  .identify_text h3, .lightbulb_text h3, .empower_text h3 {
+    font-size: 2.5em;
+  }
+  .identify_img img, .lightbulb_img img, .empower_img img  {
+    transform: scale(0.4);
+  }
+  .identify_text p, .lightbulb_text p, .empower_text p {
     font-size: 1.2em;
   }
-  #collapsable-nav a span { /* Collapsed nav menu glyph */
-    font-size: 1em;
-    margin-right: 5px;
-  }
-
-  #call-btn > a {
-    font-size: 1.5em;
-    display: block;
-    margin: 0 20px;
-    padding: 10px;
-    border: 2px solid #fff;
-    background-color: #f6b319;
-    color: #951c49;
-  }
-  #xs-deliver {
-    margin-top: 5px;
-    font-size: .7em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-  }
-  /* End Header */
+  /* END HOME PAGE */
 
   /* ABOUT US PAGE */
   #staff-tiles span {
@@ -1095,15 +1312,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
   }
   .what-we-do-tile p {
     font-size: 1.3em;
-  }
-  .menu-item-photo {
-    margin-right: auto;
-  }
-  .menu-item-tile .menu-item-price {
-    text-align: center;
-  }
-  .menu-item-description {
-    text-align: center;;
   }
   /* END  HOME PAGE */
 
@@ -1167,28 +1375,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
 
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
-  /* Header */
-  .navbar-brand h1 { /* Restaurant name */
-    padding-top: 5px;
-    font-size: 6vw;
-  }
-  #call-btn > a {
-  font-size: 1.5em;
-  display: block;
-  margin: 0 20px;
-  padding: 10px;
-  border: 2px solid #fff;
-  background-color: #f6b319;
-  color: #951c49;
-  }
-  #xs-deliver {
-    margin-top: 5px;
-    font-size: .7em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-  }
-  /* End Header */
-
   /* PAGE HEADINGS */
   .pageHeading h1 {
     font-size: 1.6em;
@@ -1198,6 +1384,15 @@ form button.btn:hover { /* All forms have these styles on buttons */
   /* Home page */
   body {
     font-size: 4vw;
+  }
+  .identify_text h3, .lightbulb_text h3, .empower_text h3 {
+    font-size: 1.5em;
+  }
+  .identify_img img, .lightbulb_img img, .empower_img img  {
+    transform: scale(0.2);
+  }
+  .identify_text p, .lightbulb_text p, .empower_text p {
+    font-size: .8em;
   }
   .overlay img{
     width: 120px;

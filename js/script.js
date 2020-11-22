@@ -127,8 +127,98 @@ $(".pediatricHxForm").ready(function(){
   });  
 });
 
+// Conditional logic for Speech Language History Form ear tubes and tonsillitis drop downs
+$(".speechLangHxForm").ready(function(){
+  $(".earTubes").hide();
+  $(".tonsillitis").hide();
+  // ear Tubes
+  $("#pastDx23").click(function(){
+    if ($(this).is(":checked")) {
+      $(".earTubes").slideDown();
+    }
+    else {
+      $(".earTubes").slideUp();
+    }
+  });  
+  // tonsillitis
+  $("#pastDx16").click(function(){
+    if ($(this).is(":checked")) {
+      $(".tonsillitis").slideDown();
+    }
+    else {
+      $(".tonsillitis").slideUp();
+    }
+  });
+});
 
-// 
+// Conditional logic for Speech Language History Form previous speech therapy/screening, leading to when and where, dismissed and dismissed info 
+$(".speechLangHxForm").ready(function(){
+  $(".whereAndWhen").hide();
+  $(".freqLength").hide();
+  // When and Where/Was he/she dismissed dropdown
+  $(".speechTherHx").click(function(){
+    if ($("#speechTherHx1").is(":checked")) {
+      $(".whereAndWhen").slideDown();
+      // reopens "list frequency and length..." if "was he/she..." is selected as yes before user returns to "yes" on "has your child ever..." from a "no" selection on that section
+      if ($("#speechTherHxInfo1").is(":checked")) {
+        $(".freqLength").slideDown();
+      }
+    }
+    else {
+      $("#dismissed").val(""); //clears text field
+      $("#speechTherHxInfo").val(""); //clears text field
+      $("#speechTherHxInfo1").prop('checked', false); //clears toggled "yes" icon
+      $("#speechTherHxInfo2").prop('checked', false); //clears toggled "no" icon
+      $(".whereAndWhen").slideUp();// slides up info
+      $(".freqLength").slideUp(); // slides up info
+    }
+  });  
+  // List frequency and length of last service dropdown
+  $(".speechTherHxInfo").click(function(){
+    if ($("#speechTherHxInfo1").is(":checked")) {
+      $(".freqLength").slideDown();
+    }
+    else {
+      $("#dismissed").val(""); //clears text field
+      $(".freqLength").slideUp();// slides up info
+    }
+  });
+});
+
+// For checkbox group where at least one check is required. If one is checked in a group, the required attribute is removed and will pass validation
+$(function(){
+  $('.atLeastOneReq').each(function(){
+    var ID = this.id;
+    var requiredCheckboxes = $('.atLeastOneReq#' + ID + ' :checkbox[required]');
+    requiredCheckboxes.change(function(){
+      if(requiredCheckboxes.is(':checked')) {
+        requiredCheckboxes.removeAttr('required');
+      } else {
+        requiredCheckboxes.attr('required', 'required');
+      }
+    });
+  });
+});
+
+// Validation for signature pads
+$('form').submit(function(){
+  var errorExists = false;
+  if(signaturePad.isEmpty()){
+    if (errorExists === false){
+      if(!$(".error")[0]){
+        $(".signature-pad").append( "<div class='error' id='sig-error'><small>Please provide a signature</small></div>");
+        $('.error').css("color", "#dc3545");
+        $('.signature-pad--body > canvas').css('border-color', '#dc3545');
+        errorExists = true;
+      } 
+    }
+  } else if(!signaturePad.isEmpty()) {
+    if (errorExists === true){
+      $('#sig-error').remove();
+      errorExists = false;
+    }
+  }
+});
 
 // (function (global) {
 

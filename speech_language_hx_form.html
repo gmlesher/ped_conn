@@ -68,6 +68,867 @@
     </nav><!-- #header-nav -->
   </header>
 
+  <div>
+    <!--Speech Language History form-->
+    <form class="speechLangHxForm form needs-validation" novalidate>
+      <div>
+        <img class="formsLogo d-flex mx-auto" src="images/logo_small.png">
+      </div>
+      <div>
+        <h3>Speech Language History</h3>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-6">
+          <label for="cfname">Client First Name</label>
+          <input type="text" class="form-control" id="cfname" placeholder="First Name" required>
+          <div class="invalid-feedback">
+            Please fill out client first name
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="clname">Client Last Name</label>
+          <input type="text" class="form-control" id="clname" placeholder="Last Name" required>
+          <div class="invalid-feedback">
+            Please fill out client last name
+          </div>
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-4">
+          <label for="dob">Date of Birth</label>
+          <input type="date" class="form-control" id="dob" placeholder="MM/DD/YYY" required>
+          <div class="invalid-feedback">
+            Please fill out DOB
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="gender">Gender</label>
+          <select id="gender" class="form-control" required>
+            <option value="">Select...</option>
+            <option value="boy">Boy</option>
+            <option value="girl">Girl</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select gender
+          </div>
+        </div>
+      </div>
+      <div class="form-row required">
+        <div class="form-group col-md-8">
+          <label for="email">Parent/Guardian Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Email" required>
+          <div class="invalid-feedback">
+            Please provide email
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="referralSource">Who referred you to Pediatric Connections?</label>
+          <input type="text" class="form-control" id="referralSource" placeholder="Referral Source">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="reasonReferred">Why were you referred?</label>
+          <input type="text" class="form-control" id="reasonReferred" placeholder="Reason Referred">
+        </div>
+      </div>
+      <h5>Family Information</h5>
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <label for="clientLivesWith">Client Lives With:</label>
+          <small class="form-text text-muted">Please list all persons living in the home with names and relationship to client - including ages of all children in home.</small>
+          <textarea class="form-control" id="clientLivesWith" rows="3" required></textarea>
+          <div class="invalid-feedback">
+            Please fill out information about persons living with client
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6 required">
+          <label for="parentOcc1">Parent #1 Occupation</label>
+          <input type="text" class="form-control" id="parentOcc1" placeholder="Occupation" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="parentOcc2">Parent #2 Occupation</label>
+          <input type="text" class="form-control" id="parentOcc2" placeholder="Occupation">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="primLanguage"> Child's primary language spoken at home</label>
+          <input type="text" class="form-control" id="primLanguage" placeholder="Occupation">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="otherLang"> Is there a language other than English spoken at home?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="otherLang" id="otherLang1" value="yes">
+            <label class="form-check-label" for="otherLang1">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="otherLang" id="otherLang1" value="no">
+            <label class="form-check-label" for="otherLang1">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+      <h5>Medical History</h5>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="premature">Was client born premature?</label>
+          <select id="premature" class="form-control">
+            <option value="">Select...</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row gestWeek">
+        <div class="form-group col-md-6">
+          <label for="gestWeek">Gestational week</label>
+          <input type="text" class="form-control" id="gestWeek" placeholder="Gestation">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="birthHx">Describe birth history, including complications:</label>
+          <small class="form-text text-muted">If client is under 18</small>
+          <textarea class="form-control" id="birthHx" rows="3"></textarea>
+          <div class="invalid-feedback">
+            Please fill out birth history
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="meds">Medications</label>
+          <input type="text" class="form-control" id="meds" placeholder="Medications">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="hear/visCon">Hearing/Vision Concerns</label>
+          <input type="text" class="form-control" id="hear/visCon" placeholder="Hearing/Vision Concerns">
+        </div>
+      </div>
+      <section class="form-row">
+        <p>
+          Has your child had any of the following:
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx1">
+            <label class="custom-control-label" for="pastDx1">Adenoidectomy</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx2">
+            <label class="custom-control-label" for="pastDx2">Allergies</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx10">
+            <label class="custom-control-label" for="pastDx10">Asthma</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx11">
+            <label class="custom-control-label" for="pastDx11">Breathing Difficulties</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx12">
+            <label class="custom-control-label" for="pastDx12">Chicken Pox</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx13">
+            <label class="custom-control-label" for="pastDx13">Colds</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx14">
+            <label class="custom-control-label" for="pastDx14">Ear Infections</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx23">
+            <label class="custom-control-label" for="pastDx23">Ear Tubes</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx9">
+            <label class="custom-control-label" for="pastDx9">Encephalitis</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx18">
+            <label class="custom-control-label" for="pastDx18">Flu</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx19">
+            <label class="custom-control-label" for="pastDx19">Head Injury</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx20">
+            <label class="custom-control-label" for="pastDx20">High Fevers</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx21">
+            <label class="custom-control-label" for="pastDx21">Measles</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx22">
+            <label class="custom-control-label" for="pastDx22">Meningitis</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx7">
+            <label class="custom-control-label" for="pastDx7">Mumps</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx8">
+            <label class="custom-control-label" for="pastDx8">Scarlet Fever</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx17">
+            <label class="custom-control-label" for="pastDx17">Seizures</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx3">
+            <label class="custom-control-label" for="pastDx3">Sinusitis</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx4">
+            <label class="custom-control-label" for="pastDx4">Sleeping difficulties</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx5">
+            <label class="custom-control-label" for="pastDx5">Thumb/Finger sucking</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx6">
+            <label class="custom-control-label" for="pastDx6">Tonsillectomy</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx16">
+            <label class="custom-control-label" for="pastDx16">Tonsillitis</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="pastDx custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="pastDx15">
+            <label class="custom-control-label" for="pastDx15">Vision Problems</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row earTubes">
+        <div class="form-group col-md-4">
+          <label for="eTDate">Date of ear tubes</label>
+          <input type="date" class="form-control" id="eTDate" placeholder="MM/DD/YYY">
+        </div>
+      </div>
+      <div class="form-row tonsillitis">
+        <div class="form-group col-md-12">
+          <label for="tonsillitis">Tonsillitis: How often?</label>
+          <input type="text" class="form-control" id="tonsillitis" placeholder="Tonsillitis Info">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="otherInfo">Other serious injury/surgery/hospitalizations (age & reason)</label>
+          <input type="text" class="form-control" id="otherInfo" placeholder="Other Info">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="hearingExamDate">Last Hearing Exam</label>
+          <input type="date" class="form-control" id="hearingExamDate" placeholder="MM/DD/YYY">
+        </div>
+        <div class="form-group col-md-8">
+          <label for="hearingExamRes">Results of Hearing Exam</label>
+          <input type="text" class="form-control" id="hearingExamRes" placeholder="Exam Results">
+        </div>
+      </div>
+      <section class="form-group required">
+        <label>
+          Is client currently under the care of:
+        </label>
+        <small class="form-text text-muted">Select all that apply</small>
+      </section>
+      <div class="form-row atLeastOneReq" id="one">
+        <div class="form-group col-md-4">
+          <div class="currentCare custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="currentCare1" required>
+            <label class="custom-control-label" for="currentCare1">ENT</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="currentCare custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="currentCare2" required>
+            <label class="custom-control-label" for="currentCare2">Neurologist</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="currentCare custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="currentCare3" required>
+            <label class="custom-control-label" for="currentCare3">Occupational Therapist</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="currentCare custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="currentCare4" required>
+            <label class="custom-control-label" for="currentCare4">Physical Therapist</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="currentCare custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="currentCare5" required>
+            <label class="custom-control-label" for="currentCare5">Psychologist</label>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="currentCare custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="currentCare6" required>
+            <label class="custom-control-label" for="currentCare6">None of the above</label>
+            <div class="invalid-feedback">
+            Please select at least one checkbox
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="otherSpecialist">Other Specialist</label>
+          <input type="text" class="form-control" id="otherSpecialist" placeholder="Other Specialist">
+        </div>
+      </div>
+      <section class="form-group required">
+        <label>
+          Does client:
+        </label>
+        <small class="form-text text-muted">Select all that apply</small>
+      </section>
+      <div class="form-row atLeastOneReq" id="two">
+        <div class="form-group col-md-6">
+          <div class="doesClient custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesClient1" required>
+            <label class="custom-control-label" for="doesClient1">Choke on foods or liquids</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesClient custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesClient2" required>
+            <label class="custom-control-label" for="doesClient2">Currently put toys/objects in mouth</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesClient custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesClient3" required>
+            <label class="custom-control-label" for="doesClient3">Brush teeth/Allow brushing</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesClient custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesClient4" required>
+            <label class="custom-control-label" for="doesClient4">Drool or pool saliva</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesClient custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesClient5" required>
+            <label class="custom-control-label" for="doesClient5">None of the above</label>
+            <div class="invalid-feedback">
+            Please select at least one checkbox
+            </div>
+          </div>
+        </div>
+      </div>
+      <section>
+        <p>
+          Please tell the approximate age client achieved the following milestones:
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="milestones1">Sat alone</label>
+          <input type="text" class="form-control" id="milestones1" placeholder="Age">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="milestones2">Grasped crayon/pencil</label>
+          <input type="text" class="form-control" id="milestones2" placeholder="Age">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="milestones3">Babbled</label>
+          <input type="text" class="form-control" id="milestones3" placeholder="Age">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="milestones4">Said 1st word</label>
+          <input type="text" class="form-control" id="milestones4" placeholder="Age">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="milestones5">Put 2 words together</label>
+          <input type="text" class="form-control" id="milestones5" placeholder="Age">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="milestones6">Spoke in short sentences</label>
+          <input type="text" class="form-control" id="milestones6" placeholder="Age">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="milestones7">Walked</label>
+          <input type="text" class="form-control" id="milestones7" placeholder="Age">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="milestones8">Toilet trained</label>
+          <input type="text" class="form-control" id="milestones8" placeholder="Age">
+        </div>
+      </div>
+      <h5>Speech-Language Hearing Information</h5>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="latexAllergy">Does the client have a latex allergy?</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="latexAllergy" id="latexAllergy1" value="yes">
+            <label class="form-check-label" for="latexAllergy1">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="latexAllergy" id="latexAllergy2" value="no">
+            <label class="form-check-label" for="latexAllergy2">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="childComm">Your child currently communicates using the primary format of:</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="childComm" id="childComm1" value="bodyLangage">
+            <label class="form-check-label" for="childComm1">
+              Body Language (pointing, gesturing)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="childComm" id="childComm2" value="sounds">
+            <label class="form-check-label" for="childComm2">
+              Sounds
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="childComm" id="childComm3" value="words">
+            <label class="form-check-label" for="childComm3">
+              Words (shoe, doggy, up)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="childComm" id="childComm4" value="2-4WordSent">
+            <label class="form-check-label" for="childComm4">
+              2-4 word sentences
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="childComm" id="childComm5" value="sentLong4Words">
+            <label class="form-check-label" for="childComm5">
+              Sentences longer than 4 words
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="childComm" id="childComm6" value="other">
+            <label class="form-check-label" for="childComm6">
+              Other (sign language)
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="childStrengths">What are your child's strengths? What does your child like to do in his/her spare time?</label>
+          <textarea class="form-control" id="childStrengths" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="form-row pastSpeechTher">
+        <div class="form-group col-md-12">
+          <label for="speechTherHx">Has your child ever had speech therapy/screening?</label>
+          <div class="form-check">
+            <input class="form-check-input speechTherHx" type="radio" name="speechTherHx" id="speechTherHx1" value="yes">
+            <label class="form-check-label" for="speechTherHx1">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input speechTherHx" type="radio" name="speechTherHx" id="speechTherHx2" value="no">
+            <label class="form-check-label" for="speechTherHx2">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row whereAndWhen">
+        <div class="form-group col-md-12">
+          <label for="speechTherHxInfo">Where and when?
+            <small class="form-text text-muted">(i.e. School district, infant/toddler, private practice)</small>
+          </label>
+          <input type="text" class="form-control" id="speechTherHxInfo" placeholder="Where and When Info">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="speechTherHxInfo">Was he/she dismissed?</label>
+          <div class="form-check">
+            <input class="form-check-input speechTherHxInfo" type="radio" name="speechTherHxInfo" id="speechTherHxInfo1" value="yes">
+            <label class="form-check-label" for="speechTherHxInfo1">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input speechTherHxInfo" type="radio" name="speechTherHxInfo" id="speechTherHxInfo2" value="no">
+            <label class="form-check-label" for="speechTherHxInfo2">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row freqLength">
+        <div class="form-group col-md-12">
+          <label for="dismissed">List frequency and length of last service</label>
+          <input type="text" class="form-control" id="dismissed" placeholder="Dismissed Info">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="awareFrust">Is your child aware of or frustrated by any speech/language challenges?</label>
+          <textarea class="form-control" id="awareFrust" rows="3"></textarea>
+        </div>
+      </div>
+      <section class="form-row">
+        <p>
+          Does your child:
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild1">
+            <label class="custom-control-label" for="doesYourChild1">Repeat sounds, words, or phrases over & over</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild2">
+            <label class="custom-control-label" for="doesYourChild2">Understand what you are saying</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild3">
+            <label class="custom-control-label" for="doesYourChild3">Retrieve/Point to common objects upon request (ball, cup, shoe)</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild4">
+            <label class="custom-control-label" for="doesYourChild4">Label items</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild5">
+            <label class="custom-control-label" for="doesYourChild5">Follow simple directions (shut the door, get your shoes)</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild6">
+            <label class="custom-control-label" for="doesYourChild6">Respond correctly to yes/no questions</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild7">
+            <label class="custom-control-label" for="doesYourChild7">Respond correctly to who/what/where/why questions</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild8">
+            <label class="custom-control-label" for="doesYourChild8">Ask questions</label>
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <p>(Social Characteristics)</p>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild9">
+            <label class="custom-control-label" for="doesYourChild9">Make eye contact with others when communicating</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild10">
+            <label class="custom-control-label" for="doesYourChild10">Imitate others (physically or verbally)</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild11">
+            <label class="custom-control-label" for="doesYourChild11">Interact in play with other children</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild12">
+            <label class="custom-control-label" for="doesYourChild12">Take turns in simple games and structured activities</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild13">
+            <label class="custom-control-label" for="doesYourChild13">Join in on-going activities</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild14">
+            <label class="custom-control-label" for="doesYourChild14">Demonstrate appropriate personal space/body proximity with others</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild15">
+            <label class="custom-control-label" for="doesYourChild15">Initiate communication with others</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild16">
+            <label class="custom-control-label" for="doesYourChild16">Return and initiate greetings</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild17">
+            <label class="custom-control-label" for="doesYourChild17">Identify emotions of others by responding appropriately</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild18">
+            <label class="custom-control-label" for="doesYourChild18">Interpret body language</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild19">
+            <label class="custom-control-label" for="doesYourChild19">Self-regulate when upset or excited</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild20">
+            <label class="custom-control-label" for="doesYourChild20">Accept unexpected changes</label>
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <p>(Behavioral Characteristics)</p>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild21">
+            <label class="custom-control-label" for="doesYourChild21">Cooperative</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild22">
+            <label class="custom-control-label" for="doesYourChild22">Restless</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild23">
+            <label class="custom-control-label" for="doesYourChild23">Attentive</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild24">
+            <label class="custom-control-label" for="doesYourChild24">Willing to try new activities</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild25">
+            <label class="custom-control-label" for="doesYourChild25">Easily distracted/short attention span</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild26">
+            <label class="custom-control-label" for="doesYourChild26">Plays alone for reasonable length of time</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild27">
+            <label class="custom-control-label" for="doesYourChild27">Destructive/aggressive</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild28">
+            <label class="custom-control-label" for="doesYourChild28">Separation difficulties</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild29">
+            <label class="custom-control-label" for="doesYourChild29">Withdrawn</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild30">
+            <label class="custom-control-label" for="doesYourChild30">Easily frustrated/impulsive</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild31">
+            <label class="custom-control-label" for="doesYourChild31">Inappropriate behavior</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild32">
+            <label class="custom-control-label" for="doesYourChild32">Stubborn</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild33">
+            <label class="custom-control-label" for="doesYourChild33">Self-abusive behavior</label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="doesYourChild custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="doesYourChild34">
+            <label class="custom-control-label" for="doesYourChild34">Flight risk (runs away)</label>
+          </div>
+        </div>
+      </div>
+      <section class="form-row">
+        <p>
+          Educational Information:<small class="form-text text-muted">If your child is in school, please answer the following</small>
+        </p>
+      </section>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="nameOfSchool">Name of School</label>
+          <input type="text" class="form-control" id="nameOfSchool" placeholder="Name of School">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="teacherName">Teacher Name</label>
+          <input type="text" class="form-control" id="teacherName" placeholder="Teacher Name">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="gradeLevel">Grade Level</label>
+          <input type="text" class="form-control" id="gradeLevel" placeholder="Grade Level">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="gradeRepeat">Has your child repeated a grade?</label>
+          <div class="form-check">
+            <input class="form-check-input gradeRepeat" type="radio" name="gradeRepeat" id="gradeRepeat1" value="yes">
+            <label class="form-check-label" for="gradeRepeat1">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input gradeRepeat" type="radio" name="gradeRepeat" id="gradeRepeat2" value="no">
+            <label class="form-check-label" for="gradeRepeat2">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+      <h5>Goals</h5>
+      <div class="form-row required">
+        <div class="form-group col-md-12">
+          <p>It is important that we partner in establishing goals for therapeutic intervention. Please list the top priorities as it relates to speech and communication:</p>
+          <label for="goal1">Goal #1</label>
+          <input type="text" class="form-control" id="goal1" placeholder="Goal #1" required>
+          <div class="invalid-feedback">
+            Please fill out at least one goal
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="goal2">Goal #2</label>
+          <input type="text" class="form-control" id="goal2" placeholder="Goal #2">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="goal3">Goal #3</label>
+          <input type="text" class="form-control" id="goal3" placeholder="Goal #3">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="goal4">Goal #4</label>
+          <input type="text" class="form-control" id="goal4" placeholder="Goal #4">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="speechLangCom">Please state any additional information or comments you feel would be helpful in learning about your child's speech/language behavior:</label>
+          <textarea class="form-control" id="speechLangCom" rows="3"></textarea>
+        </div>
+      </div>
+      <!-- Add reCAPTHA later -->
+      <div class="g-recaptcha brochure__form__captcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-theme="dark"></div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form> <!--End Speech Language History form-->
+  </div>
+
 
   <!-- Begin footer content under header-->
   <footer class="panel-footer footer">
