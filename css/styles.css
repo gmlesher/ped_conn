@@ -1174,11 +1174,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
-  .container .jumbotron {
-    background: url('../images/stock_photo1.jpg') no-repeat;
-    background-size: cover;
-    height: 600px;
-  }
   /* HOME PAGE*/
   .what-we-do-tile p {
     font-size: 1.7em;
@@ -1216,11 +1211,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
   /* Home Page */
-  .container .jumbotron {
-    background: url('../images/stock_photo1.jpg') no-repeat;
-    background-size: cover;
-    height: 500px;
-  }
   .overlay img{
     width: 150px;
     height: 150px;
@@ -1263,11 +1253,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
   /* Home Page */
   .identify_text h3, .lightbulb_text h3, .empower_text h3 {
     font-size: 3.5em;
-  }
-  .container .jumbotron {
-    background: url('../images/stock_photo1.jpg') no-repeat;
-    background-size: cover;
-    height: 400px;
   }
   .overlay img{
     width: 130px;
@@ -1388,11 +1373,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
   /* End Footer */
 
   /* Home Page */
-  .container .jumbotron {
-    background: url('../images/stock_photo1.jpg') no-repeat;
-    background-size: cover;
-    height: 300px;
-  }
   .overlay img{
     width: 130px;
     height: 130px;
