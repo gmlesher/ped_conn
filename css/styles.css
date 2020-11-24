@@ -842,7 +842,7 @@ form button.btn:hover { /* All forms have these styles on buttons */
   background-color: white;
   position: relative;
   height: 75vh;
-  background-image: url("/images/documents.jpg");
+  /*background-image: url("/images/documents.jpg");*/
   background-image:url("https://gmlesher.github.io/ped_conn/images/documents.jpg");
   background-attachment: scroll;
   background-position: center;
