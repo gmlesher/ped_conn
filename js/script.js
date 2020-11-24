@@ -220,6 +220,9 @@ $('form').submit(function(){
   }
 });
 
+// adds FAQ section to resources dropdown after new client dropdown
+$(".dropdown-divider").after("<a class='dropdown-item' href='faq.html'>FAQ</a>")
+
 // (function (global) {
 
 // var dc = {};
