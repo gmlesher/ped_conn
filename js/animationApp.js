@@ -5,8 +5,8 @@ const logo = document.querySelector('#logo');
 window.onload = function () {
     const tl = new TimelineMax();
     tl
-    .fromTo(welcome, 3, {opacity: 0, y: -100}, {background: "linear-gradient(45deg, rgba(21, 173, 226, 0.75), rgba(94, 191, 156, 0.75))", opacity:1, y: 0})
-    .fromTo("#logo", 3, {x: "-100%"}, {x: 0, ease: Back.easeOut}, "-=3")
+    .fromTo(welcome, 3, {opacity: 0, y: -100}, {background: "linear-gradient(45deg, rgba(21, 173, 226, 0.75), rgba(94, 191, 156, 0.75))", opacity: 1, y: 0})
+    .fromTo("#logo", 3, {x: "-100%", opacity: 0}, {x: 0, ease: Back.easeOut, opacity: 1}, "-=3")
 }
 
 //home page animations for scroll
