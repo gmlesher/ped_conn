@@ -1,14 +1,19 @@
 Dark Grey (header, text in footer, social media icons, background color for about me page):
 hex: #343a40
+rgb: rgb(52, 58, 64)
 
 Very light grey (background color of body):
 hex: #e0e0e0
+rgb: rgb(224, 224, 224)
 
 Light Grey (footer background color):
 hex: #88898b
+rgb: rgb(136, 137, 139)
 
 Pediatric Connections light blue:
 hex: #15ade2
+rgb: rgb(21, 173, 226)
 
 Pediatric Connections light green:
 hex: #5ebf9c
+rgb: rgb(94, 191, 156)
