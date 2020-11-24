@@ -571,19 +571,19 @@ form button.btn:hover { /* All forms have these styles on buttons */
   z-index: -1; /* z-index must be here for links to be clicked. otherwise, image covers links and they are un-clickable */
 }
 .bgimg-1 {
-  background-image: url("/images/cute_baby.jpg");
+  background-image: url("https://gmlesher.github.io/ped_conn/images/cute_baby.jpg");
   height: 100vh;
 }
 .bgimg-2 {
-  background-image: url("/images/baby_foot.jpg");
+  background-image: url("https://gmlesher.github.io/ped_conn/images/baby_foot.jpg");
   height: 75vh;
 }
 .bgimg-3 {
-  background-image: url("/images/red_shirt_kid.jpg");
+  background-image: url("https://gmlesher.github.io/ped_conn/images/red_shirt_kid.jpg");
   height: 75vh;
 }
 .bgimg-4 {
-  background-image: url("/images/cute_baby.jpg");
+  background-image: url("https://gmlesher.github.io/ped_conn/images/cute_baby.jpg");
   height: 75vh;
 }
 .caption {
@@ -842,13 +842,12 @@ form button.btn:hover { /* All forms have these styles on buttons */
   background-color: white;
   position: relative;
   height: 75vh;
-  /*background-image: url("/images/documents.jpg");*/
-  background-image:url("https://gmlesher.github.io/ped_conn/images/documents.jpg");
+  background-image: url("https://gmlesher.github.io/ped_conn/images/documents.jpg");
   background-attachment: scroll;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 75%;
-  z-index: -1; /* z-index must be here for links to be clicked. otherwise, image covers links and they are un-clickable */
+  /*z-index: -1*/; /* z-index must be here for links to be clicked. otherwise, image covers links and they are un-clickable */
 }
 .formLinksMopContainer {
   color: white;
