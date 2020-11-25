@@ -1652,10 +1652,10 @@ form button.btn:hover { /* All forms have these styles on buttons */
     margin: 0;
     padding: 0;
   }
-  /*.g-recaptcha {
+  .g-recaptcha {
     transform: scale(0.5);
     transform-origin: 0 0;
-  }*/
+  }
   /* END FORMS PAGE*/
 
   /* CONTACT PAGE*/
