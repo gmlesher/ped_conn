@@ -227,7 +227,7 @@ form button.btn:hover { /* All forms have these styles on buttons */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #343a40;
   width: 50%;
   height: 50vh;
   overflow: hidden;
@@ -933,7 +933,7 @@ form button.btn:hover { /* All forms have these styles on buttons */
 /* FAQ PAGE */
 .faqInfo {
   text-align: center;
-  max-width: 50%;
+  max-width: 60%;
   margin-right: auto;
   margin-left: auto;
   margin-top: 30px;
@@ -952,7 +952,7 @@ form button.btn:hover { /* All forms have these styles on buttons */
   color: #15ade2;
 }
 .accordion {
-  max-width: 50%;
+  max-width: 60%;
   margin-top: 30px;
   margin-bottom: 30px;
   margin-right: auto;
@@ -1253,9 +1253,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
   .video-container video {
     display: none;
   }
-  .video-container {
-    background-image: url("images/logo_large.png");
-  }
   .color-overlay {
     display: none;
   }
@@ -1309,6 +1306,15 @@ form button.btn:hover { /* All forms have these styles on buttons */
     width: 30%;
   }
   /* END INDIVIDUAL ABOUT ME PAGE */
+  
+  /* FAQ PAGE */
+  .faqInfo {
+    max-width: 75%;
+  }
+  .accordion {
+    max-width: 75%;
+  }
+  /* END FAQ PAGE */
 
   /* FOOTER */
   .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
@@ -1328,9 +1334,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
   /* HOME PAGE */
   .video-container video {
     display: none;
-  }
-  .video-container {
-    background-image: url("images/logo_large.png");
   }
   .color-overlay {
     display: none;
@@ -1465,6 +1468,15 @@ form button.btn:hover { /* All forms have these styles on buttons */
   }
   /* END FORMS PAGE*/
 
+  /* FAQ PAGE */
+  .faqInfo {
+    max-width: 75%;
+  }
+  .accordion {
+    max-width: 75%;
+  }
+  /* END FAQ PAGE */
+
   /* CONTACT PAGE*/
   .contactForm {
     padding-bottom: 30px;
@@ -1487,9 +1499,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
   }
   .video-container video {
     display: none;
-  }
-  .video-container {
-    background: url("/images/logo_large.png");
   }
   .color-overlay {
     display: none;
@@ -1657,6 +1666,15 @@ form button.btn:hover { /* All forms have these styles on buttons */
     transform-origin: 0 0;
   }
   /* END FORMS PAGE*/
+
+  /* FAQ PAGE */
+  .faqInfo {
+    max-width: 75%;
+  }
+  .accordion {
+    max-width: 75%;
+  }
+  /* END FAQ PAGE */
 
   /* CONTACT PAGE*/
   .contactForm {
