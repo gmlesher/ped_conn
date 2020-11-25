@@ -135,7 +135,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
   z-index: 1;
   opacity: 0;
 }
-
 .video-container {
   position: absolute;
   top: 0;
@@ -1251,18 +1250,24 @@ form button.btn:hover { /* All forms have these styles on buttons */
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   /* Home Page */
-  .identify_text h3, .lightbulb_text h3, .empower_text h3 {
-    font-size: 3.5em;
+  .video-container video {
+    display: none;
   }
-  .overlay img{
-    width: 130px;
-    height: 130px;
-    margin: 75px 40px;
+  .video-container {
+    background-image: url("images/logo_large.png");
   }
-  .overlay-text {
-    padding-top: 60px;
-    line-height: 1.4;
-    font-size: 1.2em;
+  .color-overlay {
+    display: none;
+  }
+  .identify_text h3, .lightbulb_text h3, .empower_text h3, .wwd_text h3 {
+    font-size: 3.4em;
+  }
+  .identify_text p, .lightbulb_text p, .empower_text p, .wwd_text p {
+    font-size: 0.9em;
+    line-height: 20px;
+  }
+  .identify_img img, .lightbulb_img img, .empower_img img {
+    transform: scale(0.3);
   }
   /* End Home Page */
 
@@ -1321,14 +1326,24 @@ form button.btn:hover { /* All forms have these styles on buttons */
   }
   /* End Header */
   /* HOME PAGE */
-  .identify_text h3, .lightbulb_text h3, .empower_text h3 {
+  .video-container video {
+    display: none;
+  }
+  .video-container {
+    background-image: url("images/logo_large.png");
+  }
+  .color-overlay {
+    display: none;
+  }
+  .identify_text h3, .lightbulb_text h3, .empower_text h3, .wwd_text h3 {
     font-size: 2.5em;
   }
-  .identify_img img, .lightbulb_img img, .empower_img img  {
-    transform: scale(0.4);
+  .identify_img img, .lightbulb_img img, .empower_img img {
+    transform: scale(0.3);
   }
-  .identify_text p, .lightbulb_text p, .empower_text p {
-    font-size: 1.2em;
+  .identify_text p, .lightbulb_text p, .empower_text p, .wwd_text p {
+    font-size: 0.8em;
+    line-height: 20px;
   }
   /* END HOME PAGE */
 
@@ -1444,6 +1459,10 @@ form button.btn:hover { /* All forms have these styles on buttons */
     margin: 0;
     padding: 0;
   }
+  .g-recaptcha {
+    transform: scale(0.9);
+    transform-origin: 0 0;
+  }
   /* END FORMS PAGE*/
 
   /* CONTACT PAGE*/
@@ -1466,13 +1485,22 @@ form button.btn:hover { /* All forms have these styles on buttons */
   body {
     font-size: 4vw;
   }
-  .identify_text h3, .lightbulb_text h3, .empower_text h3 {
+  .video-container video {
+    display: none;
+  }
+  .video-container {
+    background: url("/images/logo_large.png");
+  }
+  .color-overlay {
+    display: none;
+  }
+  .identify_text h3, .lightbulb_text h3, .empower_text h3, .wwd_text h3 {
     font-size: 1.5em;
   }
   .identify_img img, .lightbulb_img img, .empower_img img  {
     transform: scale(0.2);
   }
-  .identify_text p, .lightbulb_text p, .empower_text p {
+  .identify_text p, .lightbulb_text p, .empower_text p, .wwd_text p {
     font-size: .8em;
   }
   .overlay img{
@@ -1624,6 +1652,10 @@ form button.btn:hover { /* All forms have these styles on buttons */
     margin: 0;
     padding: 0;
   }
+  /*.g-recaptcha {
+    transform: scale(0.5);
+    transform-origin: 0 0;
+  }*/
   /* END FORMS PAGE*/
 
   /* CONTACT PAGE*/
