@@ -1,0 +1,422 @@
+{% extends "pedcon_main/base_form.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+
+{% block content%}
+<!-- Loading animation -->
+<div class="loaderDiv">
+  {% include 'pedcon_main/loader.html'%}
+  <h5 class="d-flex mx-auto loading_msg">Processing Form
+    <span></span>
+    <span></span>
+    <span></span>
+  </h5>
+</div>
+
+<!--Practice Info form-->
+<form  action="" method="post" class="pediatricHxForm form" novalidate>
+  <div>
+    <img class="formsLogo d-flex mx-auto" src="{% static 'pedcon_main/images/logo_small.png' %}">
+  </div>
+  <div>
+    <h3>Pediatric History</h3>
+  </div>
+    {% csrf_token %}
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "client_first_name" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "client_last_name" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "parent_email" %}
+        <div class="form-row">
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "dob" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "gender" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "child_is" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "adopted_age" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "pre_adoption_hx" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "how_long_foster" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "trauma_hx" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">If this information is better explained via phone or email please let us know. It's imperative that your therapist be informed PRIOR to the evaluation.</small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "ref_source" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "ref_reason" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Family Information</h5>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "client_lives_with" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">Please list all persons living in the home with names and relationship to client - including ages of all children in home.</small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "parent_1_occ" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "parent_2_occ" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Medical History</h5>
+
+    {% for field in form.visible_fields %}
+
+    {% if field.name == "born_premature" %}
+      <div class="form-row">
+        <div class="form-group col-md-6"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if field.name == "gest_wk" %}
+      <div class="form-row">
+        <div class="form-group col-md-6"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+      {% if field.name == "birth_hx" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">If client is under 18</small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "med_conditions" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if field.name == "diagnosis" %}
+      <div class="form-row">
+        <div class="form-group col-md-8"> 
+          {{ block.super }}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if field.name == "medications" %}
+      <div class="form-row">
+        <div class="form-group col-md-8"> 
+          {{ block.super }}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if field.name == "hearing_vision" %}
+      <div class="form-row">
+        <div class="form-group col-md-8"> 
+          {{ block.super }}
+        </div>
+      </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>School/Home/Community</h5>
+
+    {% for field in form.visible_fields %}
+
+    {% if field.name == "school_name" %}
+      <div class="form-row">
+        <div class="form-group col-md-5"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "school_dist" %}
+        <div class="form-group col-md-5"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "grade" %}
+        <div class="form-group col-md-2"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+
+    {% if field.name == "serv_received" %}
+
+      {{ field.label_tag }}:
+      <div class="form-row ">
+        {% for checkbox in form.serv_received %}
+          <div class="form-group col-md-6 m2m">
+              <label>{{ checkbox.tag }} {{ checkbox.choice_label }}</label>
+            </div>
+        {% endfor %}
+
+        {% if field.errors %}
+          <small>{{ form.serv_received.errors }}</small>
+
+        {% endif %}
+
+      </div>          
+    {% endif %}
+
+    {% if field.name == "diff_at_school" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if field.name == "diff_at_home" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if field.name == "type_of_discipline" %}
+
+      {{ field.label_tag }} Check all that apply:
+      <div class="form-row ">
+        {% for checkbox in form.type_of_discipline %}
+          <div class="form-group col-md-6 m2m">
+              <label>{{ checkbox.tag }} {{ checkbox.choice_label }}</label>
+            </div>
+        {% endfor %}
+
+        {% if field.errors %}
+          <small>{{ form.type_of_discipline.errors }}</small>
+
+        {% endif %}
+
+      </div>          
+    {% endif %}
+
+    {% if field.name == "diff_in_community" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% endfor %}
+
+    <h6><strong>Please place a check by thos characteristics you observe with your child. Please add comments or additional concerns</strong>:</h6>
+    <small class="form-text text-muted">Select items of concern for each category. Depending on your child's age, some items may not be age appropriate yet.</small><br>
+
+
+    {% for field in form.visible_fields %}
+
+
+    {% if field.name == "muscle_tone" or field.name == "babinski" or field.name == "ftg" or field.name == "lcfe" or field.name == "atnr" or field.name == "trunk_ext" or field.name == "hands_grasp" or field.name == "hands_supp" or field.name == "hands_pulling" or field.name == "babkin" or field.name == "moro"  or field.name == "fear_paral" or field.name == "spinal_perez" or field.name == "tlr" or field.name == "landau"  or field.name == "bauer_crawl" or field.name == "spinal_galant" or field.name == "stnr" or field.name == "fly_land" %}
+
+      <strong>{{ field.label_tag }}</strong>
+      <div class="form-row ">
+        {% for checkbox in field %}
+          <div class="form-group col-md-6">
+              <label>{{ checkbox.tag }} {{ checkbox.choice_label }}</label>
+            </div>
+        {% endfor %}
+
+        {% if field.errors %}
+          <small>{{ field.errors }}</small>
+        {% endif %}
+        
+
+
+      </div> 
+
+    {% endif %}
+
+    {% if field.name == "muscle_tone_comm" or field.name == "babinski_comm" or field.name == "ftg_comm" or field.name == "lcfe_comm" or field.name == "atnr_comm" or field.name == "trunk_ext_comm" or field.name == "hands_grasp_comm" or field.name == "hands_supp_comm" or field.name == "hands_pulling_comm" or field.name == "babkin_comm" or field.name == "moro_comm"  or field.name == "fear_paral_comm" or field.name == "spinal_perez_comm" or field.name == "tlr_comm" or field.name == "landau_comm"  or field.name == "bauer_crawl_comm" or field.name == "spinal_galant_comm" or field.name == "stnr_comm" or field.name == "fly_land_comm" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+    {% endfor %}
+
+
+    <h5>Goals</h5>
+
+    <h6>It is important that we partner in establishing goals for therapeutic intervention. Please list the top priorities we can address first:</h6>
+
+    {% for field in form.visible_fields %}
+
+    {% if field.name == "goal_1" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "goal_2" %}
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "goal_3" %}
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "goal_4" %}
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if field.name == "childs_strengths" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "childs_challenges" %}
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "other_comm" %}
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if field.name == "captcha" %}
+        {{ form.captcha }}
+      {% endif %}
+
+
+    {% endfor %}
+
+    <button type="submit" class="btn btn-dark" value="Submit">Submit</button>
+</form>
+
+
+{% endblock content %}
+

@@ -1,0 +1,54 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+  
+
+  <div class="pageHeading">
+    <h1>Blog</h1>
+  </div>
+
+  <h1 class="blogSectionTitle">Latest</h1>
+
+
+    <div class="row mainBlogRow">
+      <div class="col-md-8">
+        <div class="blogRow row">
+          <div>
+            {% for post in object_list %}
+              <div class="blogBox">
+                <a href="{% url 'blog:article' post.pk %}">
+                  <div class="blog1">
+                    {% if post.post_image %}
+                      <img src="{{ post.post_image.url }}">
+                    {% else %}
+                      <img src="{% static '../media/images/no-photo.svg' %}">
+                    {% endif %}
+
+                    {% if post.body %}
+                        {{ post.body|truncatechars:50|safe }}
+                    {% endif %}
+                  </div>
+                  <h3 class="blogTitle">{{ post.title }}</h3>
+                </a>
+              </div> 
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mt-2 mx-auto sticky-top blogRight">
+        <img class="mx-auto d-block" style="width: 180px; padding-top:20px;" src="{% static 'pedcon_main/images/logo.png' %}" alt="logo">
+        <h2 class="blogSectionTitle text-white">Blog Categories</h2>
+
+        <div class="blogCategories text-center">
+          <ul class="list-unstyled">
+            {% for category in categories_list %}
+            <li><h4><a href="{% url 'blog:category' category.name|slugify %}">{{ category.name }}</a></h4></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>  
+
+{% endblock content %}

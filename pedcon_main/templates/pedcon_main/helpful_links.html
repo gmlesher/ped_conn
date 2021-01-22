@@ -1,0 +1,46 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <div class="pageHeading">
+    <h1>Helpful Links</h1>
+  </div>
+
+  <!--Main Content-->
+  <section class="LHRContent">
+    <div class="row m-0">
+      <div class="itemContent col-md-12">
+        <span><a href="https://masgutovamethod.com/" target="_blank">MNRI Method</a></span>
+        <div class="">
+          <img src="{% static 'pedcon_main/images/mnri.jpg' %}">
+        </div>
+        <p>
+          The Masgutova organization is dedicated to developing and refining non-invasive techniques that improve, restore or optimize function, despite the challenges that may be present.  We offer a wide range of educational programs designed to bring the Masgutova Method within reach of health and wellness professinals, parents, and caregivers alike.
+        </p>
+      </div>
+      <div class="itemContent col-md-6">
+        <span><a href="https://lesher.juiceplus.com/us/en" target="_blank">Juice Plus</a></span>
+        <div class="">
+          <img src="{% static 'pedcon_main/images/juice_plus.png' %}">
+        </div>
+        <p>
+          Juice Plus+ products are made from the juice powder concentrates and oils from 48 different fruits, vegetables and grains. While Juice Plus+ isn’t a substitute for eating fruits and vegetables, our whole food-based products support a healthy diet by offering a much wider variety of naturally occurring vitamins, along with antioxidants and phytonutrients found in fruits and vegetables. Every Juice Plus+ product is made from quality ingredients grown farm fresh, providing the natural nutrients your body needs.
+        </p>
+      </div>
+      <div class="itemContent col-md-6">
+        <span><a href="https://www.youngliving.com/en_US" target="_blank">Young Living Essential Oils</a></span>
+        <div class="">
+          <img src="{% static 'pedcon_main/images/young_living.png' %}">
+        </div>
+        <p>
+          Essential oils have also been used for thousands of years for cosmetic purposes, as well as for their spiritually and emotionally uplifting properties. Young Living has always been at the forefront of bringing this ancient tradition to modern users. Primarily extracted through careful steam distillation but also through cold pressing, the purest essential oils are far more powerful than the botanicals from which they were extracted. Any time you hold a bottle of our powerful essential oils, you are holding nature's pure essence.<br><br>
+ 
+          Member # 3029865
+          (Use this number as both enroller and sponsor number)
+        </p>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

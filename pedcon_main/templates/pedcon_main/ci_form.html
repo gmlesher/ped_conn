@@ -1,0 +1,416 @@
+{% extends "pedcon_main/base_form.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+<!-- Loading animation -->
+<div class="loaderDiv">
+  {% include 'pedcon_main/loader.html'%}
+  <h5 class="d-flex mx-auto loading_msg">Processing Form
+    <span></span>
+    <span></span>
+    <span></span>
+  </h5>
+</div>
+
+<!--Practice Info form-->
+<form  action="" method="post" class="clientInfoForm form" novalidate>
+  <div>
+    <img class="formsLogo d-flex mx-auto" src="{% static 'pedcon_main/images/logo_small.png' %}">
+  </div>
+  <div>
+    <h3>Client Information</h3>
+  </div>
+    {% csrf_token %}
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "client_first_name" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "client_last_name" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "parent_first_name" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">For clients under age 18</small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+      {% elif field.name == "parent_last_name" %}
+          <div class="form-group col-md-6"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">For clients under age 18</small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "dob" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "address" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}  
+
+      {% if field.name == "address_2" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "city" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "state" %}
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "zip_code" %}
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "prim_phone" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+       {% elif field.name == "prim_phone_type" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "sec_phone" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        {% elif field.name == "sec_phone_type" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "email" %}
+        <div class="form-row">
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "physician" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "physician_fax" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "pt_dx" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "iep" %}
+          <div class="form-group col-md-6"> 
+            {{ field.label_tag }}
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+            <small class="form-text text-muted">If yes, please provide a copy at time of services</small>
+          </div>
+        </div>
+      {% endif %}
+
+
+      {% if field.name == "ref_source" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <div>
+      <h5>Responsible Financial Party</h5>
+    </div>
+    
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "rfp_first_name" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "rfp_last_name" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "rfp_address" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">(If different from above)</small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}  
+
+      {% if field.name == "rfp_address_2" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "rfp_city" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "rfp_state" %}
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "rfp_zip_code" %}
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "rfp_prim_phone" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "rfp_prim_phone_type" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "rfp_sec_phone" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "rfp_sec_phone_type" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "rfp_employer" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% endfor %}
+
+      <div>
+        <h5>Insurance</h5>
+      </div>
+
+      {% for field in form.visible_fields %}
+
+      {% if field.name == "prim_insurance" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "ins_id" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "ins_group_id" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "pol_hold_first_name" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "pol_hold_last_name" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "pol_hold_dob" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "pol_hold_employer" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "sec_insurance" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "sec_ins_id" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "sec_ins_group_id" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "sec_pol_hold_first_name" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "sec_pol_hold_last_name" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "sec_pol_hold_dob" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "sec_pol_hold_employer" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "captcha" %}
+        {{ form.captcha }}
+      {% endif %}
+
+      {% endfor %}
+
+    <button type="submit" class="btn btn-dark" value="Submit">Submit</button>
+</form>
+
+{% endblock content %}
+

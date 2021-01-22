@@ -1,0 +1,462 @@
+{% extends "pedcon_main/base_form.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+<!-- Loading animation -->
+<div class="loaderDiv">
+  {% include 'pedcon_main/loader.html'%}
+  <h5 class="d-flex mx-auto loading_msg">Processing Form
+    <span></span>
+    <span></span>
+    <span></span>
+  </h5>
+</div>
+
+<!--Practice Info form-->
+<form  action="" method="post" class="sspForm form" novalidate>
+  <div>
+    <img class="formsLogo d-flex mx-auto" src="{% static 'pedcon_main/images/logo_small.png' %}">
+  </div>
+  <div>
+    <h3>Safe and Sound Protocol Form</h3>
+  </div>
+  {% csrf_token %}
+
+  {% for field in form.visible_fields %}
+
+    {% if field.name == "client_first_name" %}
+      <div class="form-row">
+        <div class="form-group col-md-6"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "client_last_name" %}
+        <div class="form-group col-md-6"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if field.name == "dob" %}
+      <div class="form-row">
+        <div class="form-group col-md-4"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if field.name == "form_completed_by" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ field.label_tag }}
+          {% for radio in form.form_completed_by %}
+            <div>
+              {{ radio }}
+            </div>
+          {% endfor %}
+
+          {% if field.errors %}
+            <small>{{ form.form_completed_by.errors }}</small>
+
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% endfor %}
+
+  <p>We will ask you to complete this form before you start SSP and after completion.</p>
+
+  {% for field in form.visible_fields %}
+    {% if field.name == "pre_or_post" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ field.label_tag }}
+          {% for radio in form.pre_or_post %}
+            <div>
+              {{ radio }}
+            </div>
+          {% endfor %}
+
+          {% if field.errors %}
+            <small>{{ form.pre_or_post.errors }}</small>
+
+          {% endif %}
+
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+
+
+  <h5>Client Experience</h5>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "sound_sensitivity" %}
+
+        <strong>{{ field.label_tag }}</strong>
+        <small class="form-text text-muted">Select all that apply</small><br>
+        <div class="form-row">
+          {% for checkbox in form.sound_sensitivity %}
+            <div class="form-group col-md-12">
+                <label>{{ checkbox.tag }} {{ checkbox.choice_label }}</label>
+              </div>
+          {% endfor %}
+
+          {% if field.errors %}
+            <small>{{ form.sound_sensitivity.errors }}</small>
+
+          {% endif %}
+
+        </div>          
+      {% endif %}
+
+      {% if field.name == "ss_other" %}
+        <div class="form-row">
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "general_sensitivity" %}
+
+          <strong>{{ field.label_tag }}</strong>
+          <small class="form-text text-muted">Select all that apply</small><br>
+          <div class="form-row">
+            {% for checkbox in form.general_sensitivity %}
+              <div class="form-group col-md-12">
+                  <label>{{ checkbox.tag }} {{ checkbox.choice_label }}</label>
+                </div>
+            {% endfor %}
+
+            {% if field.errors %}
+              <small>{{ form.general_sensitivity.errors }}</small>
+
+            {% endif %}
+
+          </div>          
+        {% endif %}
+
+      {% if field.name == "gs_other" %}
+        <div class="form-row">
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+  <p><strong>Prior Listening Experience:</strong></p>
+
+    {% for field in form.visible_fields %}
+
+    {% if field.name == "prior_listen_ther" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ field.label_tag }}
+          {% for radio in form.prior_listen_ther %}
+            <div>
+              {{ radio }}
+            </div>
+          {% endfor %}
+
+          {% if field.errors %}
+            <small>{{ form.prior_listen_ther.errors }}</small>
+
+          {% endif %}
+
+        </div>
+    {% elif field.name == "prior_listen_ther_comm" %}
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if field.name == "how_music_affect" %}
+      <div class="form-row">
+        <div class="form-group col-md-8"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "how_music_affect_comm" %}
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+
+    {% endfor %}
+
+    <p>
+      <strong>Nervous System Tendency:</strong><br>
+      When reacting to distressing events in our lives (become dysregulated or destabilized), it is normal for us to quickly move out of a restful (ventral vagal) state of social engagement and connection, and into a survival state. 
+    </p>
+
+    <p>
+      There are two general types of survival responses or states and we usually tend to move towards one more than the other.
+      <ul>
+        <li><strong>Activation/mobilization (sympathetic hyper-arousal) or</strong></li>
+        <li><strong>Shutdown/immobilization (dorsal vagal hypo-arousal)</strong></li>
+      </ul>
+    </p>
+
+    <p>
+      Please use the lists of descriptors below to help you consider which you tend more towards 
+    </p>
+
+    <p>
+      <i>Please note that while these words may have a negative tone, both systems are important and valuable supports of the body. You may find it helpful to select the words that apply to you.</i> 
+    </p>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "sympathetic" %}
+
+        {{ field.label_tag }}
+        <div class="form-row">
+          {% for checkbox in form.sympathetic %}
+            <div class="form-group col-md-4">
+                <label>{{ checkbox.tag }} {{ checkbox.choice_label }}</label>
+              </div>
+          {% endfor %}
+
+          {% if field.errors %}
+            <small>{{ form.sympathetic.errors }}</small>
+
+          {% endif %}
+
+        </div>          
+      {% endif %}
+
+      {% if field.name == "symp_other" %}
+        <div class="form-row">
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "dorsal_vagal" %}
+
+        {{ field.label_tag }}
+        <div class="form-row">
+          {% for checkbox in form.dorsal_vagal %}
+            <div class="form-group col-md-4">
+                <label>{{ checkbox.tag }} {{ checkbox.choice_label }}</label>
+              </div>
+          {% endfor %}
+
+          {% if field.errors %}
+            <small>{{ form.dorsal_vagal.errors }}</small>
+
+          {% endif %}
+
+        </div>          
+      {% endif %}
+
+      {% if field.name == "dv_other" %}
+        <div class="form-row">
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "reaction_to_stress" %}
+      <div class="form-row">
+        <div class="form-group col-md-8"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+    {% endfor %}
+
+    <h5>Client Resources</h5>
+
+    <p><strong>Please answer the following to describe your current home environment according to your perceptions:</strong></p>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "general_feeling_home" %}
+        <div class="form-row">
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "noise" %}
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "people_in_home" %}
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "home_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% endfor %}
+
+    <p><strong>Access to support (co-regulation) from others and yourself:</strong></p>
+
+    {% for field in form.visible_fields %}
+      {% if field.name == "for_children" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">It is imperative to sit with your child during listening sessions</small><br>
+            {% for radio in form.for_children %}
+              <div>
+                {{ radio }}
+              </div>
+            {% endfor %}
+          </div>
+      {% elif field.name == "for_children_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "for_adults" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            {% for radio in form.for_adults %}
+              <div>
+                {{ radio }}
+              </div>
+            {% endfor %}
+          </div>
+      {% elif field.name == "for_adults_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "quiet_space" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">A quiet environment is expected</small><br>
+            {% for radio in form.quiet_space %}
+              <div>
+                {{ radio }}
+              </div>
+            {% endfor %}
+
+            {% if field.errors %}
+              <small>{{ form.quiet_space.errors }}</small>
+
+            {% endif %}
+
+          </div>
+      {% elif field.name == "quiet_space_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "peaceful_env" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">For example: tactile techniques, epsom salt baths, breathing exercises, nature walks, yoga, etc.</small><br>
+            {% for radio in form.peaceful_env %}
+              <div>
+                {{ radio }}
+              </div>
+            {% endfor %}
+
+            {% if field.errors %}
+              <small>{{ form.peaceful_env.errors }}</small>
+
+            {% endif %}
+            
+          </div>
+      {% elif field.name == "peaceful_env_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <p><strong>Although there is always the possibility of unforeseen circumstances, it is helpful to know if there are any significant events likely to happen in your life or those close to you which may have an impact on your ability to benefit from SSP. It is helpful to be aware of these in advance, if possible, so they can be factored into the timing of SSP delivery for you.</strong></p>
+
+    <p>Please provide any details of events happening or expected in the next few weeks or months so these can be considered: such as exams, job stress, medical procedures or operations, house moves, recent bereavement or life change, holiday/family celebrations, or transitions.</p>
+
+    <p>In addition to considering your current personal circumstances, it is also helpful to reflect on the larger world and how current events and the background situation (i.e. weather, politics, crime, contagious diseases...) may be affecting you.</p>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "life_comfy" %}
+        <div class="form-row">
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "life_comfy_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <p><strong>Before starting your SSP journey it is important you understand that this is a process you are engaging in for yourself and you will have the opportunity to learn new ways to help you stay more steady and regulated in the future. Although the listening is passive, the work to sustain the experience is intentional, and requires active engagement from you throughout.</strong></p>
+
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "willingness" %}
+        <div class="form-row">
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "willingness_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "captcha" %}
+        {{ form.captcha }}
+      {% endif %}
+      
+    {% endfor %}
+
+
+    <button type="submit" class="btn btn-dark" value="Submit">Submit</button>
+</form>
+
+{% endblock content %}
+

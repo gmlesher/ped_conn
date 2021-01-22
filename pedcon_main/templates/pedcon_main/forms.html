@@ -1,0 +1,73 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+  <div class="pageHeading">
+    <h1>Forms</h1>
+  </div>
+
+  <div class="formsImg"></div>
+
+  <div class="formLinksMopContainer row m-0">
+    <div class="formLinks col-md-8">
+      <div>
+        <h3>Preparing for your first visit</h3>
+        <p>
+          Please complete all forms and submit online.<br>
+          Once all forms and doctor's orders are received, we will contact you about appointment options.  
+        </p>
+      </div>
+      <h5>Mandatory forms for all clients:</h5>
+      <ul>
+        <li><a href="{% url 'pedcon_main:practice_form' %}">Practice Form</a></li>
+        <li><a href="{% url 'pedcon_main:client_info_form' %}">Client Information</a></li>
+        <li><a href="{% url 'pedcon_main:payment_policy_form' %}">Payment Policy/HIPAA</a></li>
+        <li><a href="{% url 'pedcon_main:cancellation_policy_form' %}">Cancellation Policy</a></li>
+      </ul>
+      <h5>Additional mandatory forms for pediatric clients:</h5>
+      <ul>
+        <li><a href="{% url 'pedcon_main:pediatric_hx_form' %}">Pediatric History</a></li>
+      </ul>
+      <h5>Additional mandatory forms for adult clients:</h5>
+      <ul>
+        <li><a href="{% url 'pedcon_main:adult_hx_form' %}">Adult History</a></li>
+      </ul>
+      <h5>Optional forms:</h5>
+      <ul>
+        <li><a href="{% url 'pedcon_main:speech_language_hx_form' %}">Speech Language History</a></li>
+        <li><a href="{% url 'pedcon_main:roi_form' %}">Release of Information</a></li>
+        <li><a href="{% url 'pedcon_main:ssp_form' %}">Safe and Sound Protocol</a></li>
+      </ul>
+    </div>
+
+    <div class="mop col-md-4">
+      <h3>Methods of Payment</h3>
+      <h5>In Network Insurance Plans</h5>
+      <ul>
+        <li>Blue Cross Blue Shield</li>
+        <li>Tricare</li>
+        <li>Kansas Medicaid</li>
+        <ul>
+          <li>Aetna Better Health of Kansas</li>
+          <li>UHC Kancare</li>
+          <li>Sunflower (with some stipulations due to high rate of denials)</li>
+        </ul>
+      </ul>
+      <h5>Out of Network Insurance Plans</h5>
+      <ul>
+        <li>United Health Care</li>
+        <li>Blue Cross Blue Shield - Blue Select</li>
+        <li>Aetna</li>
+        <li>Coventry</li>
+        <li>Cigna</li>
+        <li>Humana</li>
+        <li>Missouri Health Net</li>
+        <li>Missouri Medicaid</li>
+      </ul><br>
+      <p>*Private pay (contact our office for fee schedule)</p>
+    </div>
+  </div>
+
+{% endblock content %}

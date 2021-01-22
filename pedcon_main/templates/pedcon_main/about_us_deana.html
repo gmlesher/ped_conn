@@ -1,0 +1,75 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Deana.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/deana_portrait.jpg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>Bio</h3>
+        <p>
+          Deana Lesher is the founder and owner of Pediatric Connections.  She is a proud graduate of the University of Kansas with a Bachelor of Science in Occupational Therapy.  Deana has extensive experience in pediatric settings including 10 years in the public school system.​<br><br>
+ 
+          Occupational Therapists specialize in helping children succeed in activities of daily living in the home, school, and community.  They are uniquely trained to help children detect, interpret, and regulate sensory information which, in turn, allows for appropriate motor and behavioral responses.<br><br>
+
+          Deana has been studying reflex integration and has over 400 hours in continuing education.  This is often called "the missing link" in therapy and is the main focus of her intervention protocol.  She is also level 1 certified in Handwriting Without Tears and successfully implemented that curriculum in three different school districts.<br><br>
+
+          New seasons of life bring new adventures!  Deana is married to Mike, a retired Commander in the US Navy.  Pictured below: Gracen, Grant, new beautiful daughter Nicole, Garrett, Deana and Mike.<br>
+        </p>
+      </div>
+
+      <div>
+        <h3>Favorites & Goals</h3>
+        <p>
+          Favorite scripture:<br>
+
+          “You are the light of the world. A town built on a hill cannot be hidden. 15 Neither do people light a lamp and put it under a bowl. Instead they put it on its stand, and it gives light to everyone in the house. 16 In the same way, let your light shine before others, that they may see your good deeds and glorify your Father in heaven."<br>
+
+          -Matthew 5:14-16<br><br>
+
+           
+
+          Favorite Quote:<br>
+
+          "What lies behind us and what lies before us are tiny matters compared to what lies within us."<br>
+
+          -Ralph Waldo Emerson<br><br>
+
+          Goal:<br>
+
+          To help every client let their light shine!<br>
+        </p>
+      </div>
+      <div>
+        <h3>Awards & Pictures</h3>
+        <h5 class="awardsh5">
+          Recipient of the 2019 KOTA Occupational Therapist of the Year Award
+        </h5>
+        <div class="deanaAward">
+          <img src="{% static 'pedcon_main/images/deana_award.jpg' %}">
+        </div>
+        <h5 class="lesherh5">
+         Lesher Family
+        </h5>
+        <div class="deanaFamily">
+          <img src="{% static 'pedcon_main/images/deana_family.jpg' %}">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  

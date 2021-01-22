@@ -1,0 +1,31 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+
+
+  {% block content %} 
+
+    {% block repeat %}
+
+      {{ field.label_tag }}
+      {% if form.is_bound %}
+        {% if field.errors %}
+          {% render_field field class="form-control is-invalid" %}
+          {% for error in field.errors %}
+            <div class="invalid-feedback">
+              {{ error }}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% render_field field class="form-control is-valid" %}
+        {% endif %}
+      {% else %}
+        {% render_field field class="form-control" %}
+      {% endif %}
+
+    {% endblock repeat %}
+
+  {% endblock content %}
+  

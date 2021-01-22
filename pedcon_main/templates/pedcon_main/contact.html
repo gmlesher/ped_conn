@@ -1,0 +1,165 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Loading animation -->
+<div class="loaderDiv">
+
+  {% include 'pedcon_main/loader.html'%}
+
+  <h5 class="d-flex mx-auto loading_msg">Processing Form
+    <span></span>
+    <span></span>
+    <span></span>
+  </h5>
+</div>
+
+  <div class="contact row m-0">
+    {% if message_first_name %}
+    <div class="col-md-6 text-center">
+      <h2>Thanks {{ message_first_name }}!</h2>
+      <p>We received your email and will contact you shortly...</p>
+      <br>
+      <a class="btn btn-dark success_btn" href="{% url 'pedcon_main:contact' %}">Refresh Contact Page</a>
+      <a class="btn btn-dark success_btn" href="{% url 'pedcon_main:index' %}">Go to Home Page</a><br><br>
+    </div>
+    {% else %}
+    <!--Contact form-->
+    <form class="contactForm col-md-6 needs-validation" method="post" novalidate>
+      {% csrf_token %}
+      <div>
+        <h3>Be In Touch!</h3>
+        <p>Please contact us via the form below, by email, or by phone.</p>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="fname">First Name</label>
+          <input type="text" class="form-control" id="fname" placeholder="First Name" name="first_name" required>
+          <div class="invalid-feedback">
+            Please provide a first name
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lname">Last Name</label>
+          <input type="text" class="form-control" id="lname" placeholder="Last Name" name="last_name" required>
+          <div class="invalid-feedback">
+            Please provide a last name
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+        <div class="invalid-feedback">
+          Please provide an email
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" class="form-control" id="phone" placeholder="Phone #" name="phone" required>
+        <div class="invalid-feedback">
+          Please provide a phone number
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject" required>
+        <div class="invalid-feedback">
+          Please provide a subject
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="messagebox">Message</label>
+        <textarea class="form-control" id="messagebox" rows="3" placeholder="Message" name="message" required></textarea>
+        <div class="invalid-feedback">
+          Please provide a message
+        </div>
+      </div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form> <!--End contact form-->
+    {% endif %}
+  
+    <!--Contact information-->
+    <div class="contactInfo col-md-6">
+      <h3 class="">Connect With Us</h3>
+      <div>
+        <h5 class="">Social Media</h5>
+        <section class="contactSocialMediaImages">
+          <div class="text-center">
+            <a href="https://www.facebook.com/pediatricconnections" target="_blank"><img src="{% static 'pedcon_main/images/facebook_icon.png' %}"></a>
+            <a href="https://twitter.com/pedconnections1" target="_blank"><img src="{% static 'pedcon_main/images/twitter_icon.png' %}"></a> 
+            <a href="https://www.pinterest.com/pedconnectionso/" target="_blank"><img src="{% static 'pedcon_main/images/pinterest_icon.png' %}"></a> 
+            <a href="https://www.instagram.com/pediatricconnectionsot/" target="_blank"><img src="{% static 'pedcon_main/images/instagram_icon.png' %}"></a> 
+            <a href="https://www.youtube.com/channel/UC3h0muLW7GSxBr_DdtaLOCg" target="_blank"><img src="{% static 'pedcon_main/images/youtube_icon.png' %}"></a>
+            <hr>  
+          </div>
+        </section>
+      </div>
+      <div>
+        <h5 class="">Hours</h5>
+        <section id="hours">
+          Mon - Thurs: 8:00am-6:30pm<br>
+          Fri: 8:00am-2:00pm<br>
+          Sat & Sun: closed
+          <hr>
+        </section>
+      </div>
+      <div>
+        <h5 class="">Address</h5>
+        <section id="address">
+          Stilwell Location:<br>
+          7235 W 162nd Terr<br>
+          Stilwell, KS 66085
+        </section><br>
+        <section id="address">
+          <a href="https://www.joymeadows.org/" target="_blank">Joy Meadows</a> Location:<br>
+          12400 170th St<br>
+          Linwood, KS 66052
+          <hr>
+        </section>
+      </div>
+      <div>
+        <h5 class="">Contact Info</h5>
+        <section>
+          <a href="tel: 913-257-5808">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+            </svg>&nbsp; 913-257-5808<br>
+          </a>
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-printer-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5z"/>
+            <path fill-rule="evenodd" d="M11 9H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
+            <path fill-rule="evenodd" d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+          </svg> 
+          &nbsp;844-270-5788<br>
+          <a href="mailto: info@pediatricconnectionsot.com">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+            </svg>
+             &nbsp;info@pediatricconnectionsot.com</a>
+          <hr>
+        </section>
+      </div>
+    </div> <!--End contact information-->
+  </div>
+
+
+  <div class="row maps m-0">
+    <div class="col-md-6 d-none d-sm-block">
+      <h3 class="d-flex justify-content-center stilwell">Stilwell</h3>
+      <div class="col map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3107.9773763446906!2d-94.67213088472127!3d38.83297895834387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c0c1a22e633af7%3A0xd8b87012c2de3ce5!2sPediatric%20Connections%20OT!5e0!3m2!1sen!2sus!4v1609469509546!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      </div>
+    </div>
+    <div class="col-md-6 d-none d-sm-block">
+      <h3 class="d-flex justify-content-center jm">Joy Meadows</h3>
+      <div class="col map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3100.633144977753!2d-94.97013838471695!3d39.000868248443574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c09b84939dfd23%3A0x388646c789adf879!2s12400%20170th%20St%2C%20Linwood%2C%20KS%2066052!5e0!3m2!1sen!2sus!4v1609469451764!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      </div>
+    </div>
+
+    
+  </div>
+  
+
+{% endblock content %}

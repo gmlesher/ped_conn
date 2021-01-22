@@ -1,0 +1,495 @@
+{% extends "pedcon_main/base_form.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+
+{% block content%}
+<!-- Loading animation -->
+<div class="loaderDiv">
+  {% include 'pedcon_main/loader.html'%}
+  <h5 class="d-flex mx-auto loading_msg">Processing Form
+    <span></span>
+    <span></span>
+    <span></span>
+  </h5>
+</div>
+
+<!--Practice Info form-->
+<form  action="" method="post" class="adultHxForm form" novalidate>
+  <div>
+    <img class="formsLogo d-flex mx-auto" src="{% static 'pedcon_main/images/logo_small.png' %}">
+  </div>
+  <div>
+    <h3>Adult History</h3>
+  </div>
+    {% csrf_token %}
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "client_first_name" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "client_last_name" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "client_email" %}
+          <div class="form-group col-md-8"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "dob" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "gender" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "ref_source" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "ref_reason" %}
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">Please explain why you're seeking services (i.e. Childhood trauma, recent car accident, debilitating anxiety, etc.)</small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Family Information</h5>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "client_lives_with" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">Please list all persons living in the home with names and relationship to client</small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+      {% elif field.name == "client_occ" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Medical History</h5>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "medical_hx" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">Include diagnosis and explain any significant factors resulting in the need to seek further care</small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+      {% elif field.name == "medications" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Emotional</h5>
+
+    <section>
+      Emotional health is expressing your emotions in a positive, non-destructive way.
+      <small class="form-text text-muted">Please rate each on a scale from 1-10</small><br>
+      
+    </section>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "calm" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "happy" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "safe" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "hopeful" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "peaceful" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "emotional_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">Please specify recent environmental stressors (i.e. Increased work demands, challenging living situation, etc.)
+            </small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Physical</h5>
+
+    <section>
+      Physical health refers to the way that your body is functioning. This includes eating habits, sleep patterns, getting regular exercise, and being at your recommended body weight. Physical health could also be impacted by pain, sickness, disease, medications, drugs, and/or alcohol.
+      <small class="form-text text-muted">Please rate each on a scale from 1-10</small><br>
+      
+    </section>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "appetite" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "sleep_quality" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "sleep_quantity" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "pain" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "health" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "physical_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">Please include any medication changes, new illnesses, or anything related to physical health
+            </small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Social</h5>
+
+    <section>
+      Social Health is the quality of your relationships with friends, family, teachers and others you are in contact with.
+      <small class="form-text text-muted">Please rate each on a scale from 1-10</small><br>
+      
+    </section>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "rel_sig_other" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "rel_children" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "rel_peers" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "rel_colleagues" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "social_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">Please include your typical response to stressors
+            </small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Intellectual/Mental Health</h5>
+
+    <section>
+      Mental Health is the ability to think clearly and critically, problem solving abilities, learning abilities, and knowledge learned throughout life. Example: Reading books, taking classes, learning a new language or trade, or working on an art project.
+      <small class="form-text text-muted">Please rate each on a scale from 1-10</small><br>
+      
+    </section>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "clar_of_thought" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "clar_of_speech" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "focus" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "comp_of_task" %}
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "mental_health_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">Please include your typical response to stressors
+            </small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Daily Functioning</h5>
+
+    <section>
+      How does stress effect your daily functioning? Are you able to complete daily tasks? (Includes taking care of personal needs, completing daily routine of eating)
+      <small class="form-text text-muted">Please rate each on a scale from 1-10</small><br>
+      
+    </section>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "daily_tasks" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "daily_tasks_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">Please include your typical response to stressors
+            </small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Stress Resiliency</h5>
+
+    <section>
+      As typical stressful events occur in daily life, are you able to address and move forward?
+      <small class="form-text text-muted">Please rate each on a scale from 1-10</small><br>
+      
+    </section>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "resp_to_stress" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "resp_to_stress_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ field.label_tag }}
+            <small class="form-text text-muted">Please include your typical response to stressors
+            </small>
+            {% if form.is_bound %}
+              {% if field.errors %}
+                {% render_field field class="form-control is-invalid" %}
+                {% for error in field.errors %}
+                  <div class="invalid-feedback">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% else %}
+                {% render_field field class="form-control is-valid" %}
+              {% endif %}
+            {% else %}
+              {% render_field field class="form-control" %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h5>Goals</h5>
+
+    <section>
+      It is important that we partner in establishing goals for therapeutic intervention. Please list the top priorities we can address first:
+    </section><br>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "goal_1" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "goal_2" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "goal_3" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "goal_4" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "other_comm" %}
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+
+      {% if field.name == "captcha" %}
+        {{ form.captcha }}
+      {% endif %}
+      
+    {% endfor %}      
+
+    <button type="submit" class="btn btn-dark" value="Submit">Submit</button>
+</form>
+
+
+{% endblock content %}
+

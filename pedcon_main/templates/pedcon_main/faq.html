@@ -1,0 +1,277 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <div class="pageHeading">
+    <h1>FAQ</h1>
+  </div>
+
+  <div class="faqInfo">
+    <h3>Still have Questions?</h3>
+    <p>We get it. Choosing a therapist and a clinic is a big deal. Here are some of the most common questions we hear from families.</p>
+    <p>If you still have questions after this page, please be in <a href="{% url 'pedcon_main:contact' %}">contact</a> with us so we can help you better understand our practice.</p>
+  </div>
+  
+  <div class="accordion" id="faqAccordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          What is your primary methodology?
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>We address sensory and motor dysregulation through reflex integration strategies.  This method is a “bottom-up” approach, first addressing the brainstem (the lowest center in our brain), which controls our fight/flight/freeze responses.  When this area of the brain is well regulated, we have much better access to the pre-frontal cortex (highest center in our brain) for impulse control, reasoning and executive functioning.</p>
+        <p>A video explaining our primary methodology, MNRI, can be viewed <a href="https://www.youtube.com/watch?v=8z03ZAAl7JM&feature=youtu.be&ab_channel=PediatricConnectionsOT" target="_blank">here</a>.</p>
+        <p>A video explaining neurotransmitters can be found <a href="https://www.youtube.com/watch?v=jAs1R9L3rSs&feature=youtu.be&ab_channel=PediatricConnectionsOT" target="_blank">here</a>.</p>
+        <p>A video explaining MNRI as a breakthrough in neurological treatment can be found <a href="https://www.youtube.com/watch?v=5qP53pBlltA&feature=youtu.be&ab_channel=PediatricConnectionsOT" target="_blank">here</a>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          How are you different from other Occupational Therapists?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+      <div class="card-body">
+        
+        <p>Read our blog article, 
+          <a href="{% url 'blog:article' '3' %}">Address the Reason Why</a>
+          , to see how our clinic is different.</p> 
+        
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          What diagnoses or concerns do you treat?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>Our primary methodology, reflex integration, addresses the difficulties that clients with these diagnoses have: ADHD, ASD, Down Syndrome, Cerebral Palsy, Sensory Processing Disorder, PTSD, Anxiety, Dyslexia, Dysgraphia, Apraxia and many more.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          What do I need to do to begin the process?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>
+            <ul>
+              <li>
+                Fill out 4 forms that we have listed on our website
+                  <ul>
+                    <li><a href="{% url 'pedcon_main:client_info_form' %}">Client Information</a></li>
+                    <li><a href="{% url 'pedcon_main:payment_policy_form' %}">Payment Policy</a></li>
+                    <li><a href="{% url 'pedcon_main:cancellation_policy_form' %}">Cancellation Policy</a></li>
+                    <li><a href="{% url 'pedcon_main:pediatric_hx_form' %}">Pediatric History</a> or <a href="{% url 'pedcon_main:adult_hx_form' %}">Adult History</a></li>
+                  </ul>
+              </li>
+            </ul>
+        </p>
+        <p>
+          Our Billing Administrator, Julie Frazier, will verify your insurance and let you know if there would be any out of pocket expenses. She will also send you an email with a link to complete a payment authorization form.
+
+          We will contact your physician to get a doctor’s order for OT and/or speech services.  Once we have all the above, you will receive an email with scheduling options for your initial evaluation.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          What should I expect on my first visit?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>
+          <ul>
+            <li>
+              You will get a reminder text message sent from our records system 24 hours prior to your appointment.
+            </li>
+            <li>
+              Your therapist will have reviewed all the intake forms and will begin the evaluation.
+            </li>
+            <li>
+              If we need you to wait in your car we will notify you prior to your appointment, otherwise come into the clinic and you will be greeted by your therapist.
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          How long are treatment sessions?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>Treatment sessions are 50 minutes (unless you’ve scheduled a 30 min spot).</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingSeven">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          What if I need to contact my therapist?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>If you should need to contact your therapist for any reason, you can call the office line <a href="tel: 913-257-5808">913-257-5808</a>, and select the appropriate mailbox for her to leave her a message.  She will get the message immediately.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingEight">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          Should I bring my other children to the appointment?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>It’s generally best to make other arrangements for siblings. It’s paramount that the session is therapeutic and educational. Due to liability reasons, siblings are not allowed on equipment or in therapy areas. This can be a very difficult situation for the therapist as our equipment and therapy areas look very inviting. Please help us by setting the expectation with the sibling if they do attend.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingNine">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+          What if there is not an appointment time that works in my schedule?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>
+          We have a waiting list of clients who would like services. This can significantly increase the time it takes to get your child seen.  We still have a few options:
+          <ol>
+            <li>
+              You may wish to schedule at least a one-time evaluation appointment (even if it's during the school day) where our therapist could determine level of need and give you some “homework” while you wait to get in to see us on a more frequent basis.
+            </li>
+            <li>
+               Additionally, we can put your child on a cancellation list.  Occasionally we have last-minute or temporary cancellations from current clients.  We would contact you and offer that spot.
+            </li>
+            <li>
+              We can put your child on a waiting list until a consistent spot opens up.
+            </li>
+            <li>
+              We offer telehealth appointments as well. 
+            </li>
+          </ol>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTen">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+          How long will my child need services from Pediatric Connections?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>It is difficult to determine actual length of service for those that enter the clinic, however we do know that when parents do the “homework” our therapists give, there are typically faster gains. During the evaluation, very often you are given your first piece of homework that can be done within your daily routine.  That being said, we schedule with the intent of a weekly basis, but certainly try to work within your timeframe and budget. As progress is made, we strive to reduce frequency to bi-monthly and then monthly as needed.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingEleven">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+          What if I need to cancel or reschedule my appointment?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>Please refer to our <a href="{% url 'pedcon_main:cancellation_policy_form' %}">cancellation policy</a>. This is part of the required forms prior to beginning services. We reserve a time slot specifically for you. We partner with you in this journey and want this to be a top priority in your weekly schedule.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwelve">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">    
+          What is the current research for evidenced-based practice?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>Please refer to the <a href="https://masgutovamethod.com/learn-more/articles" target="_blank">MNRI</a> website for Dr. Masgutova’s scientific articles in peer-reviewed journals, testimonials and various articles.</p>
+        <p>Additionally,  there is a <a href="https://masgutovamethod.com/free-gift-giveaway" target="_blank">FREE download</a> from Dr. Masgutova’s website, TRAUMA RECOVERY.</p>
+
+        <p> Excerpt: <br>
+          "One of the most tragic train accidents in the history of the world occurred in a picturesque valley in the Urals of Russia in 1989.  Thousands of people volunteered their time and expertise in order to support the hundreds of people faced with unfathomable challenges of survival.  This is not a book of tragedy, it is an inspirational book of victory over tragedy. Dr. Svetlana Masgutova discovered the importance of using specialized movements to assist the children in rapidly recovering from shock and hysteria and thereby eventually unveiling the winner within."<br>
+
+          --Dr. Svetlana Masgutova - Creator of the Masgutova Method®<br>
+
+          --Pamela Curlee</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThirteen">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">    
+          Do you treat adults?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>Absolutely! We treat adults with past trauma and offer our PTSD protocols in conjunction with anxiety and stress management techniques.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFourteen">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">    
+          Do you have any patient testimonials?
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#faqAccordion">
+      <div class="card-body">
+        <p>We have a lot of happy families! Check our our <a href="https://www.youtube.com/watch?v=R60wRr_aHxM&t=16s&ab_channel=PediatricConnectionsOT" target="_blank">testimony video</a> as well as what some people are saying on <a href="https://www.facebook.com/pediatricconnections" target="_blank">Facebook</a> and Google.  We'd love to hear about your experience as well! See some of the <a href="https://www.facebook.com/pediatricconnections/photos/a.781204108606863.1073741828.728401317220476/1872276286166301/?type=3&theater" target="_blank">victories</a> parents and kids have shared with us!</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}

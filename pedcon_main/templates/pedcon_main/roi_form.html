@@ -1,0 +1,281 @@
+{% extends "pedcon_main/base_form.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+<!-- Loading animation -->
+<div class="loaderDiv">
+  {% include 'pedcon_main/loader.html'%}
+  <h5 class="d-flex mx-auto loading_msg">Processing Form
+    <span></span>
+    <span></span>
+    <span></span>
+  </h5>
+</div>
+
+<!--Practice Info form-->
+<form  action="" method="post" class="roiForm form" novalidate>
+  <div>
+    <img class="formsLogo d-flex mx-auto" src="{% static 'pedcon_main/images/logo_small.png' %}">
+  </div>
+  <div>
+    <h3>Authorization to Release Information</h3>
+  </div>
+  <section class="directions">
+    <p>
+      Use this form if you want Pediatric Connections to communicate information to your child's school or other health care professionals (excluding your doctor who writes the script for services), social workers, etc.<br><br>
+
+      One authorization per person/agency.<br>
+      Please list anyone who may bring your child to therapy so that we can communicate OT sessions with them.
+    </p>
+  </section>
+    {% csrf_token %}
+
+    {% for field in form.visible_fields %}
+
+        {% if field.name == "client_first_name" %}
+          <div class="form-row">
+            <div class="form-group col-md-6"> 
+              {{ block.super }}
+            </div>
+        {% elif field.name == "client_last_name" %}
+            <div class="form-group col-md-6"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if field.name == "dob" %}
+          <div class="form-row">
+            <div class="form-group col-md-4"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+      {% endfor %}
+
+    <section>
+      <p>
+        I hereby authorize the person/agency (allows information exchange with anyone representing that agency) below to use or disclose, request, and/or exchange my protected health information as indicated below to <strong>Pediatric Connections OT</strong>.
+      </p>
+    </section>
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "person_agency_name" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "address" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}  
+
+      {% if field.name == "address_2" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "city" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "state" %}
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "zip_code" %}
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "phone" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "fax" %}
+            <div class="form-group col-md-4"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+      {% endfor %}
+
+      
+      
+      {% for field in form.visible_fields %}
+
+      {% if field.name == "info_released" %}
+      <section>
+        <p>
+          <strong>{{ field.label_tag }}<br></strong>Check all that apply:
+        </p>
+      </section>
+
+        
+        <div class="form-row ">
+          {% for checkbox in form.info_released %}
+            <div class="form-group col-md-12 m2m">
+                <label>{{ checkbox.tag }} {{ checkbox.choice_label }}</label>
+            </div>
+          {% endfor %}
+
+          {% if field.errors %}
+            <small>{{ form.info_released.errors }}</small>
+
+          {% endif %}
+
+        </div>          
+      {% endif %}
+
+      {% endfor %}
+
+
+      {% for field in form.visible_fields %}
+
+        {% if field.name == "other" %}
+          <div class="form-row">
+            <div class="form-group col-md-12"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+      {% endfor %}
+
+      <section>
+        <p>
+          <strong>Terms</strong>: This release will last for 12 months from date of signature or upon discharge of OT services.
+        </p>
+      </section>
+      <section>
+        <p>
+          <strong>Purpose</strong>: Pediatric Connections will exchange/release information for purposes of evaluation, treatment, case coordination, caregiver training, and follow-up care and for payment via phone, fax, and/or email.
+        </p>
+      </section>
+      <section>
+        <p>
+          <strong>I have read the above and authorize the request or disclosure of Protected Heath Information. I understand I may revoke this right at any time by providing verbal or written notice to Pediatric Connections except to the extent that action has been taken in reliance and on the authorization or as otherwise stated in Pediatric Connections' Notice of Privacy Practices.</strong>
+        </p>
+      </section>
+
+      {% for field in form.visible_fields %}
+
+        {% if field.name == "printed_first_name" %}
+          <div class="form-row">
+            <div class="form-group col-md-6"> 
+              {{ block.super }}
+            </div>
+        {% elif field.name == "printed_last_name" %}
+            <div class="form-group col-md-6"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+      {% endfor %}
+
+      {% for field in form.hidden_fields %}
+
+      {% if field.name == "sig_data_URL" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% endfor %}
+
+      <label class="required">Signature of Client/Legal Guardian</label>
+      <div id="signature-pad" class="signature-pad">
+        <div class="signature-pad--body">
+          <canvas id="sigImg"></canvas>
+        </div><br>
+        <div class="signature-pad--footer">
+          <div class="signature-pad--actions">
+            <div>
+              <button type="button" class="btn btn-dark clear" data-action="clear">Clear Signature</button>
+              <button type="button" class="btn btn-dark undo" data-action="undo">Undo</button>
+              <button type="button" class="btn btn-dark save" name="savePNG" data-action="save-png" hidden>Save PNG</button>
+            </div>
+          </div>
+        </div>
+      </div><br>
+
+
+      {% for field in form.visible_fields %}
+
+        {% if field.name == "date" %}
+          <div class="form-row">
+            <div class="form-group col-md-4"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if field.name == "second_address" %}
+          <div class="form-row">
+            <div class="form-group col-md-12"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}  
+
+        {% if field.name == "second_address_2" %}
+          <div class="form-row">
+            <div class="form-group col-md-12"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if field.name == "second_city" %}
+          <div class="form-row">
+            <div class="form-group col-md-6"> 
+              {{ block.super }}
+            </div>
+        {% elif field.name == "second_state" %}
+            <div class="form-group col-md-3"> 
+              {{ block.super }}
+            </div>
+        {% elif field.name == "second_zip_code" %}
+            <div class="form-group col-md-3"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if field.name == "captcha" %}
+          {{ form.captcha }}
+        {% endif %}
+
+      {% endfor %}
+
+
+    <button type="submit" class="btn btn-dark" value="Submit">Submit</button>
+</form>
+
+<script src="{% static 'pedcon_main/js/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'pedcon_main/js/signature_pad.umd.js' %}"></script>
+<script src="{% static 'pedcon_main/js/app.js' %}"></script>
+
+{% endblock content %}
+

@@ -1,0 +1,270 @@
+<head>
+  <style>
+    @page {
+      size: a4 portrait;
+      @frame header_frame {
+        -pdf-frame-content: header_content;
+        left: 50pt; width: 500pt; top: 50pt; height: 60pt;
+        -pdf-frame-content: logo_content;
+        left: 235pt; width: 200pt; top: 20pt; height: 60pt;
+      }
+      @frame content_frame {
+        left: 50pt; width: 500pt; top: 90pt; height: 632pt;
+      }
+      @frame footer_frame {
+        -pdf-frame-content: footer_content;
+        left: 50pt; width: 512pt; top: 772pt; height: 30pt;
+      }
+    }
+    h1 {
+      color: #5ebf9c;
+      text-align: center;
+      font-size: 1.8em;
+    }
+    .directions {
+      text-align: center;
+      font-style: italic;
+    }
+    h3 {
+      color: #5ebf9c;
+      text-align: left;
+      font-size: 1.3em;
+    }
+    table {
+      font-size: 1.2em;
+    }
+    p {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <img class="formsLogo d-flex mx-auto" id="logo_content" src="pedcon_main/static/pedcon_main/images/logo_small.png">
+
+  <!-- Content for Static Frame 'header_frame' -->
+  <div id="header_content">
+    <h1>{{ form_title }}</h1>
+  </div>
+
+
+  <!-- Content for Static Frame 'footer_frame' -->
+  <div id="footer_content">Page <pdf:pagenumber>
+      of <pdf:pagecount>
+      | Form submitted on
+      {% load tz %}
+      {% timezone "America/Chicago" %}
+       {{ object.created_at|default_if_none:"" }} CT from {{ object.ip_address|default_if_none:"" }} ({{ object.country|default_if_none:"" }}) on {{ object.device_info|default_if_none:"" }}
+      {% endtimezone %}
+      <br>Entry ID: {{ object.pk }}
+       
+  </div>
+
+  <table>
+    <tr>
+      <td>Client Name: {{ object.client_first_name|default_if_none:"" }} {{ object.client_last_name|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>DOB: {{ object.dob|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Form Completed By: {{ object.form_completed_by|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Pre or Post SPP Treatment? {{ object.pre_or_post|default_if_none:"" }}</td>
+    </tr>
+  </table><br>
+
+
+  <h3>Client Experience</h3>
+
+  <table>
+    <tr>
+      <td><strong>Sound Sensitivity</strong>: 
+        {% for item in object.sound_sensitivity.all %} 
+          <!-- removes comma at end of last item in list. Cleaner look. -->
+          {% if forloop.last %}
+            {{ item }}
+          {% else %}
+            {{ item }},
+          {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td>If other, please specify: {{ object.ss_other|default_if_none:"" }}<br></td>
+    </tr>
+    <td><strong>General Nervous System Function</strong>: 
+      {% for item in object.general_sensitivity.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+      {% endfor %}
+    </td>
+    <tr>
+      <td>If other, please specify: {{ object.gs_other|default_if_none:"" }}</td>
+    </tr>
+  </table><br>
+
+  <table>
+    <th align="left"><strong>Prior Listening Experience:</strong></th>
+    <tr>
+      <td>
+        Prior Listening Therapies: {{ object.prior_listen_ther|default_if_none:"" }}
+      </td>
+      <td>
+        Comments: {{ object.prior_listen_ther_comm|default_if_none:""}}
+      </td>
+    </tr>
+    <tr>
+      <td>How does music affect you generally? {{ object.how_music_affect|default_if_none:"" }}
+      </td>
+      <td>Comments: {{ object.how_music_affect_comm|default_if_none:""}}</td>
+    </tr>
+  </table><br>
+
+  <table>
+    <th align="left"><strong>Nervous System Tendency:</strong></th>
+    <tr>
+      <td>In sympathetic hyper-arousal, you might feel:
+        {% for item in object.sympathetic.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+      {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        If other, please specify: {{ object.symp_other|default_if_none:""}}<br><br>
+      </td>
+    </tr>
+    <td>In dorsal vagal hypo-arousal, you might feel:
+        {% for item in object.dorsal_vagal.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+      {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        If other, please specify: {{ object.dv_other|default_if_none:""}}<br><br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        When reacting to distressing events I tend more towards: {{ object.reaction_to_stress|default_if_none:"" }}
+      </td>
+    </tr>
+  </table><br>
+
+  <h3>Client Resources</h3>
+
+  <table>
+    <tr><th colspan="3" align="left">Please answer the following to describe your current home environment according to your perceptions:</th>
+    </tr>
+    <tr>
+      <td>
+        General feeling at home: {{ object.general_feeling_home|default_if_none:""}}
+      </td>
+      <td>
+        Noise: {{ object.noise|default_if_none:""}}
+      </td>
+      <td>
+        People in your home: {{ object.people_in_home|default_if_none:""}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        Comments: {{ object.home_comm|default_if_none:""}}
+      </td>
+    </tr>
+  </table><br>
+
+  <table>
+    <tr><th align="left">Access to support (co-regulation) from others and for yourself:</th>
+    </tr>
+    <tr>
+      <td>
+        <i>For children</i>: Will a reliable, caring adult be able to support their experience with the SSP? {{ object.for_children|default_if_none:""}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Comments: {{ object.for_children_comm|default_if_none:""}}<br><br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <i>For adults</i>: Do you have a reliable, caring person at or close to home who could support you during your SSP journey? {{ object.for_adults|default_if_none:""}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Comments: {{ object.for_adults_comm|default_if_none:""}}<br><br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Will you have access to the same quiet space for your SSP listening sessions during remote delivery, and will your privacy in these sessions be respected? {{ object.quiet_space|default_if_none:""}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Comments: {{ object.quiet_space_comm|default_if_none:""}}<br><br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Will you have access to a peaceful supportive environment to practice self-regulation between sessions and after completing SSP? {{ object.peaceful_env|default_if_none:""}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Comments: {{ object.peaceful_env_comm|default_if_none:""}}<br><br>
+      </td>
+    </tr>
+  </table><br>
+
+  <table>
+    <th align="left">Life Events:</th>
+    <tr>
+      <td>
+        Does your life and world feel comfortable? {{ object.life_comfy|default_if_none:""}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Comments: {{ object.life_comfy_comm|default_if_none:""}}<br><br>
+      </td>
+    </tr>
+  </table><br>
+
+  <table>
+    <th align="left">Willingness To Complete SSP:</th>
+    <tr>
+      <td>
+        Do you have a willingness to engage and participate fully in the process with us as your provider, and understand that the SSP is not a quick fix, or a stand-alone therapy? {{ object.willingness|default_if_none:""}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Comments: {{ object.willingness_comm|default_if_none:""}}<br><br>
+      </td>
+    </tr>
+  </table><br>
+
+  
+  
+
+</body>

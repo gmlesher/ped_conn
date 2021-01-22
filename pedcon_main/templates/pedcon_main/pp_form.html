@@ -1,0 +1,313 @@
+{% extends "pedcon_main/base_form.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+<!-- Loading animation -->
+<div class="loaderDiv">
+  {% include 'pedcon_main/loader.html'%}
+  <h5 class="d-flex mx-auto loading_msg">Processing Form
+    <span></span>
+    <span></span>
+    <span></span>
+  </h5>
+</div>
+
+<!--Practice Info form-->
+<form  action="" method="post" class="paymentPolicyForm form" novalidate>
+  <div>
+    <img class="formsLogo d-flex mx-auto" src="{% static 'pedcon_main/images/logo_small.png' %}">
+  </div>
+  <div>
+    <h3>Payment Policy/HIPAA</h3>
+  </div>
+  <h5>HIPAA Form</h5>
+    {% csrf_token %}
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "client_first_name" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "client_last_name" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    <h6>Please initial sections below each statement:</h6><br>
+    
+
+    {% for field in form.visible_fields %}
+
+      {% if field.name == "initial_1" %}
+        <div class="form-row">
+          <p>
+            I authorize PEDIATRIC CONNECTIONS or any entity doing business with PEDIATRIC CONNECTIONS, to verify the benefits of our insurance  and email us the benefit details.
+          </p>
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div><br>
+      {% endif %}
+
+      {% if field.name == "initial_2" %}
+        <div class="form-row">
+          <p>
+            I authorize PEDIATRIC CONNECTIONS to bill my insurance company directly for the covered portion of charges, and I authorize payment of medical benefits directly to PEDIATRIC CONNECTIONS.
+          </p>
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div><br>
+      {% endif %}
+
+      {% if field.name == "initial_3" %}
+        <div class="form-row">
+          <p>
+            I authorize PEDIATRIC CONNECTIONS to release medical or other information necessary to process this claim.
+          </p>
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div><br>
+      {% endif %}
+
+      {% if field.name == "initial_4" %}
+        <div class="form-row">
+          <p>
+            I understand that the verified estimation of benefits is provided as a courtesy, and does not guarantee coverage. I realize that I am ultimately responsible to know my level of coverage.
+          </p>
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div><br>
+      {% endif %}
+
+      {% if field.name == "initial_5" %}
+        <div class="form-row">
+          <p>
+            PEDIATRIC CONNECTIONS will submit claims to my health insurance company. I am responsible for payment of my deductible, co-insurance or co-payment, and any charges not reimbursed by my insurance carrier.
+          </p>
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div><br>
+      {% endif %}
+
+      {% if field.name == "initial_6" %}
+        <div class="form-row">
+          <p>
+            It is my responsibility to inform PEDIATRIC CONNECTIONS of any and all changes of insurance coverage during the course of treatment. Failure to do so may result in denial of coverage by my insurance company. If my insurance changes, PEDIATRIC CONNECTIONS will bill my new insurance company, but there is no guarantee they will cover the services.
+          </p>
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div><br>
+      {% endif %}
+
+      {% if field.name == "initial_7" %}
+        <div class="form-row">
+          <p>
+            PEDIATRIC CONNECTIONS uses a billing company to process claims and payments. The billing company is of our choice and its employees will have access to protected patient information. This is for the purposes of providing insurance companies with needed information to process claims. Your initials indicate your permission to share protected patient information in order to process payments on your child's behalf.
+          </p>
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div><br>
+      {% endif %}
+
+      {% if field.name == "initial_8" %}
+        <div class="form-row">
+          <p>
+            I hereby consent to such treatment procedures and patient care which, in the judgment of my therapist and/or physician, may be considered necessary or advisable while a patient as PEDIATRIC CONNECTIONS.
+          </p>
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div><br>
+      {% endif %}
+
+      {% if field.name == "initial_9" %}
+        <div class="form-row">
+          <p>
+            I hereby release, discharge and acquit PEDIATRIC CONNECTIONS, it’s agents, representatives, affiliates, employees or assigns of and from any and all liability, claim, demand, damage, cause of action, or loss of any kind arising out of or resulting from my refusal to accept, receive or allow emergency and or medical services, including but not limited to ambulance service, Emergency Medical Technician, physician or urgent care services.
+          </p>
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div><br>
+      {% endif %}
+      
+      {% endfor %}
+
+      <section>
+        <p>
+          Notice of Privacy Policy: This notice tells you how we collect, handle, and disclose personal health information. If you want to limit our disclosing, please submit your wishes to us in writing. We protect personal health information we collect by maintaining physical, electronic, and procedural safeguards that meet applicable laws. The Protected Heath information we collect about your comes from the following sources: Information received from your physician or other health care providers, from you while providing therapy services, on enrollment forms, assessments, evaluation, or other forms, from other caregivers, insurer, employer or other. We may disclose any of your protected health information to the following entities as long as this information directly relates to health services we provide for you or your child’s individual care. These entities may include doctor, billing services, your insurance company, or other caregivers that bring your child to therapy.
+        </p>
+      </section>
+
+      <section class="form-row">
+        <p>
+          <strong>Please indicate below how I may share protected health information with you. Check all that apply</strong>:
+        </p>
+      </section>
+
+      {% for field in form.visible_fields %}
+
+      {% if field.name == "contact_via" %}
+
+        <div class="form-row ">
+          {% for checkbox in form.contact_via %}
+            <div class="form-group col-md-12 m2m">
+                <label>{{ checkbox.tag }} {{ checkbox.choice_label }}</label>
+            </div>
+          {% endfor %}
+
+          {% if field.errors %}
+            <small>{{ form.contact_via.errors }}</small>
+
+          {% endif %}
+
+        </div>          
+      {% endif %}
+
+      {% endfor %}
+
+      <section class="form-row">
+        <p>
+          <strong>All commercial insurance and private pay clients (excludes Medicaid)</strong>:
+        </p>
+      </section>
+
+      <section>
+        <p>
+          To streamline our billing process and to more efficiently collect payments, we are mandating a credit card on file to process all patient related balances. All deductibles, co-insurances, co-payments, missed appointment fees, and all other non-covered services will be auto-charged to the credit card on file. A receipt will be emailed to the email address on file. Upon request, an itemized summary report will be mailed showing how the payments have been applied towards the balance. A $20 processing fee will be applied to all declined credit cards so it will be imperative to keep an updated card on file.<br><br>
+
+          If you have any questions about this policy please contact Julie Frazier, Billing Administrator at <a href="tel: 316-263-0776">(316) 263-0776</a> or <a href="mailto: juliefrazier@medisourcehcs.com">juliefrazier@medisourcehcs.com</a>
+        </p>
+      </section>
+
+      <h5>Payment Authorization Form</h5>
+      <section class="form-row justify-content-center paymentAuthInfo">
+        <p>
+          <strong>PAYMENT AUTHORIZATION FORM</strong><br>
+          <strong>Required for all non-Medicaid Clients</strong>
+        </p>
+      </section>
+      <hr>
+
+      <section class="paymentAuthInfo">
+        <p>
+          Please note: If you do NOT have Medicaid, we must have at least 1 credit card on file before we will begin services.
+        </p>
+      </section>
+      <section class="paymentAuthInfo" id="textHighlight">
+        <p>
+          <strong><mark>Please contact Julie Frazier, Billing Administrator at <a href="tel: 316-263-0776">(316) 263-0776</a> to place a credit card on file that may be used to pay remaining balances or copays.  Services will not begin until an authorized payment is on file.<mark></strong>
+        </p>
+      </section>
+      <section>
+        <p>
+          I have read and agree to abide by the above policies and am aware of the privacy policy.<br>
+          I agree to the Payment Policy/Assignment of Benefits/Authorization to Release Medical Information.
+        </p>
+      </section>
+
+      {% for field in form.visible_fields %}
+
+      {% if field.name == "initial_10" %}
+        <div class="form-row">
+          <div class="form-group col-md-3"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "first_name" %}
+        <div class="form-row">
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+      {% elif field.name == "last_name" %}
+          <div class="form-group col-md-6"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% endfor %}
+
+      <section>
+        <p>
+          By signing, I agree to have Medisource Healthcare Solutions bill my insurance and/or process my credit card after each visit on behalf of Pediatric Connections OT (when applicable for non-Medicaid clients). Information.
+        </p>
+      </section>
+
+      {% for field in form.hidden_fields %}
+
+      {% if field.name == "sig_data_URL" %}
+        <div class="form-row">
+          <div class="form-group col-md-12"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% endfor %}
+      
+      <label class="required">Signature</label>
+      <div id="signature-pad" class="signature-pad">
+        <div class="signature-pad--body">
+          <canvas id="sigImg"></canvas>
+        </div><br>
+        <div class="signature-pad--footer">
+          <div class="signature-pad--actions">
+            <div>
+              <button type="button" class="btn btn-dark clear" data-action="clear">Clear Signature</button>
+              <button type="button" class="btn btn-dark undo" data-action="undo">Undo</button>
+              <button type="button" class="btn btn-dark save" name="savePNG" data-action="save-png" hidden>Save PNG</button>
+            </div>
+          </div>
+        </div>
+      </div><br>
+
+
+      {% for field in form.visible_fields %}
+
+      {% if field.name == "date" %}
+        <div class="form-row">
+          <div class="form-group col-md-4"> 
+            {{ block.super }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if field.name == "captcha" %}
+        {{ form.captcha }}
+      {% endif %}
+
+
+      {% endfor %}
+
+      <section>
+        <p>
+          Thank you for choosing PEDIATRIC CONNECTIONS for your child’s therapy services.
+        </p>
+      </section>      
+
+    <button type="submit" class="btn btn-dark" value="Submit">Submit</button>
+</form>
+
+<script src="{% static 'pedcon_main/js/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'pedcon_main/js/signature_pad.umd.js' %}"></script>
+<script src="{% static 'pedcon_main/js/app.js' %}"></script>
+
+{% endblock content %}
+

@@ -1,0 +1,175 @@
+<head>
+  <style>
+    @page {
+      size: a4 portrait;
+      @frame header_frame {
+        -pdf-frame-content: header_content;
+        left: 50pt; width: 500pt; top: 50pt; height: 60pt;
+        -pdf-frame-content: logo_content;
+        left: 235pt; width: 200pt; top: 20pt; height: 60pt;
+      }
+      @frame content_frame {
+        left: 50pt; width: 500pt; top: 90pt; height: 632pt;
+      }
+      @frame footer_frame {
+        -pdf-frame-content: footer_content;
+        left: 50pt; width: 512pt; top: 772pt; height: 30pt;
+      }
+    }
+    h1 {
+      color: #5ebf9c;
+      text-align: center;
+      font-size: 1.8em;
+    }
+    .directions {
+      text-align: center;
+      font-style: italic;
+    }
+    h3 {
+      text-align: left;
+      font-size: 1.3em;
+    }
+    table {
+      font-size: 1.1em;
+    }
+    p {
+      font-size: 1.1em;
+    }
+    .signature {
+      zoom: 30%;
+    }
+  </style>
+</head>
+<body>
+
+  <img class="formsLogo d-flex mx-auto" id="logo_content" src="pedcon_main/static/pedcon_main/images/logo_small.png">
+
+  <!-- Content for Static Frame 'header_frame' -->
+  <div id="header_content">
+    <h1>{{ form_title }}</h1>
+  </div>
+
+
+  <!-- Content for Static Frame 'footer_frame' -->
+  <div id="footer_content">Page <pdf:pagenumber>
+      of <pdf:pagecount>
+      | Form submitted on
+      {% load tz %}
+      {% timezone "America/Chicago" %}
+       {{ object.created_at|default_if_none:"" }} CT from {{ object.ip_address|default_if_none:"" }} ({{ object.country|default_if_none:"" }}) on {{ object.device_info|default_if_none:"" }}
+      {% endtimezone %}
+      <br>Entry ID: {{ object.pk }}
+       
+  </div>
+
+  <section class="directions">
+    <p>
+      Use this form if you want Pediatric Connections to communicate information to your child's school or other health care professionals (excluding your doctor who writes the script for services), social workers, etc.<br><br>
+
+      One authorization per person/agency.<br>
+      Please list anyone who may bring your child to therapy so that we can communicate OT sessions with them.
+    </p>
+  </section><br>
+
+  <table>
+      <tr>
+        <td>Client Name: {{ object.client_first_name|default_if_none:"" }} {{ object.client_last_name|default_if_none:"" }}</td>
+      </tr>
+      <tr>
+        <td>DOB: {{ object.dob|default_if_none:"" }}</td>
+      </tr>
+  </table><br>
+  <section>
+    <p>
+      I hereby authorize the person/agency (allows information exchange with anyone representing that agency) below to use or disclose, request, and/or exchange my protected health information as indicated below to <strong>Pediatric Connections OT</strong>.
+    </p>
+  </section>
+
+  <table>
+      <tr>
+        <td>Name of person/agency: {{ object.person_agency_name|default_if_none:"" }}</td>
+        <td>{{ object.address|default_if_none:"" }}</td>
+      </tr>
+      <tr>
+        <td>Phone: {{ object.phone|default_if_none:"" }}</td>
+        <td>{{ object.address_2|default_if_none:"" }}</td>
+      </tr>
+      <tr>
+        <td>Fax: {{ object.fax|default_if_none:"" }}</td>
+        <td>{{ object.city|default_if_none:"" }}, {{ object.state|default_if_none:"" }}</td>
+        
+      </tr>
+      <tr>
+        <td></td>
+        <td>{{ object.zip_code|default_if_none:"" }}</td>
+      </tr>
+  </table><br>
+
+  <section>
+    <p>
+      <strong>Information to be released/exchanged</strong>:<br>
+
+          {% for item in object.info_released.all %} 
+          <!-- removes comma at end of last item in list. Cleaner look. -->
+          {% if forloop.last %}
+            {{ item }}
+          {% else %}
+            {{ item }},
+          {% endif %}
+              
+          {% endfor %}
+    </p>
+    <p>Other (specifics): {{ object.other|default_if_none:"" }}</p>
+  </section>
+  
+
+  
+
+  <section>
+    <p>
+      <strong>Terms</strong>: This release will last for 12 months from date of signature or upon discharge of OT services.
+    </p>
+  </section>
+  <section>
+    <p>
+      <strong>Purpose</strong>: Pediatric Connections will exchange/release information for purposes of evaluation, treatment, case coordination, caregiver training, and follow-up care and for payment via phone, fax, and/or email.
+    </p>
+  </section>
+  <section>
+    <p>
+      <strong>I have read the above and authorize the request or disclosure of Protected Heath Information. I understand I may revoke this right at any time by providing verbal or written notice to Pediatric Connections except to the extent that action has been taken in reliance and on the authorization or as otherwise stated in Pediatric Connections' Notice of Privacy Practices.</strong>
+    </p>
+  </section>
+
+  <table>
+      <tr>
+        <td>Client/Legal Guardian Name: {{ object.printed_first_name|default_if_none:"" }} {{ object.printed_last_name|default_if_none:"" }}</td>
+        <td>{{ object.second_address|default_if_none:"" }}</td>
+      </tr>
+      <tr>
+        <td>Phone: {{ object.phone|default_if_none:"" }}</td>
+        <td>{{ object.second_address_2|default_if_none:"" }}</td>
+      </tr>
+      <tr>
+        <td>Date: {{ object.date|default_if_none:"" }}</td>
+        <td>{{ object.second_city|default_if_none:"" }}, {{ object.second_state|default_if_none:"" }}</td>
+        
+      </tr>
+      <tr>
+        <td></td>
+        <td>{{ object.second_zip_code|default_if_none:"" }}</td>
+      </tr>
+  </table><br>
+
+  <p><strong>Signature:</strong></p>
+  <div class="signature">
+    {% if not object.sig_img  %}
+      <p>No signature image available</p>
+    {% else %}
+      <img class="d-flex mx-auto" src="media/sig_images/roi_form_sigs/{{ object.filename }}">
+    {% endif %}
+  </div><br>
+
+
+
+</body>

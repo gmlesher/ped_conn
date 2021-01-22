@@ -1,0 +1,535 @@
+<head>
+  <style>
+    @page {
+      size: a4 portrait;
+      @frame header_frame {
+        -pdf-frame-content: header_content;
+        left: 50pt; width: 500pt; top: 50pt; height: 60pt;
+        -pdf-frame-content: logo_content;
+        left: 235pt; width: 200pt; top: 20pt; height: 60pt;
+      }
+      @frame content_frame {
+        left: 50pt; width: 500pt; top: 90pt; height: 632pt;
+      }
+      @frame footer_frame {
+        -pdf-frame-content: footer_content;
+        left: 50pt; width: 512pt; top: 772pt; height: 30pt;
+      }
+    }
+    h1 {
+      color: #5ebf9c;
+      text-align: center;
+      font-size: 1.8em;
+    }
+    .directions {
+      text-align: center;
+      font-style: italic;
+    }
+    h3 {
+      text-align: left;
+      font-size: 1.3em;
+    }
+    table {
+      font-size: 1.2em;
+    }
+    p {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <img class="formsLogo d-flex mx-auto" id="logo_content" src="pedcon_main/static/pedcon_main/images/logo_small.png">
+
+  <!-- Content for Static Frame 'header_frame' -->
+  <div id="header_content">
+    <h1>{{ form_title }}</h1>
+  </div>
+
+
+  <!-- Content for Static Frame 'footer_frame' -->
+  <div id="footer_content">Page <pdf:pagenumber>
+      of <pdf:pagecount>
+      | Form submitted on
+      {% load tz %}
+      {% timezone "America/Chicago" %}
+       {{ object.created_at|default_if_none:"" }} CT from {{ object.ip_address|default_if_none:"" }} ({{ object.country|default_if_none:"" }}) on {{ object.device_info|default_if_none:"" }}
+      {% endtimezone %}
+      <br>Entry ID: {{ object.pk }}
+       
+  </div>
+
+  <table>
+    <tr>
+      <td>Client Name: {{ object.client_first_name|default_if_none:"" }} {{ object.client_last_name|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>DOB: {{ object.dob|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Gender: {{ object.gender|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Parent Email: {{ object.parent_email|default_if_none:"" }}</td>
+    </tr>
+  </table><br>
+
+   <table>
+    <tr>
+      <td>Child Is: {{ object.child_is|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Adopted at what age? {{ object.adopted_age|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>If international adoption, explain setting of preadoption history:  {{ object.pre_adoption_hx|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>How long in foster care? {{ object.how_long_foster|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Please give a brief explanation of known trauma history. {{ object.trauma_hx|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Who referred you to Pediatric Connections? {{ object.ref_source|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Why were you referred? {{ object.ref_reason|default_if_none:"" }}</td>
+    </tr>
+  </table><br>
+
+  <h3>Family Information</h3>
+
+  <table>
+    <tr>
+      <td>Client lives with: {{ object.client_lives_with|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Parent #1 Occupation: {{ object.parent_1_occ|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Parent #2 Occupation: {{ object.parent_2_occ|default_if_none:"" }}</td>
+    </tr>
+  </table><br>
+
+  <h3>Medical History</h3>
+  
+  <table>
+    <tr>
+      <td>Client born premature? {{ object.born_premature|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Gestational week: {{ object.gest_wk|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Describe birth history, including complications: {{ object.birth_hx|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Medical Conditions/Allergies: {{ object.med_conditions|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Diagnosis (as given by MD): {{ object.diagnosis|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Medications: {{ object.medications|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Hearing/Vision Concerns: {{ object.hearing_vision|default_if_none:"" }}</td>
+    </tr>
+  </table><br>
+
+  <h3>School/Home/Community</h3>
+  
+  <table>
+    <tr>
+      <td>School Name: {{ object.school_name|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>School District: {{ object.school_dist|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Grade: {{ object.grade|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Services Received at School:
+
+        {% for item in object.serv_received.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td>Is client having difficulties at school?: {{ object.diff_at_school|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Is client having difficulties at home?: {{ object.diff_at_home|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td>Type of dicsipline used at home:
+
+        {% for item in object.type_of_discipline.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td>Is client having difficulties within the community?: {{ object.diff_in_community|default_if_none:"" }}</td>
+    </tr>
+  </table><br>
+
+  <section>
+    <p><strong>Please place a check by those characteristics you observe with your child. Please add comments or
+    additional concerns.</strong></p>
+  </section>
+
+  <table>
+    <tr>
+      <td><strong>Muscle Tone</strong>: 
+
+        {% for item in object.muscle_tone.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Muscle Tone Comments</strong>: {{ object.muscle_tone_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Babinski</strong>: 
+
+        {% for item in object.babinski.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Babinski Comments</strong>: {{ object.babinski_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Foot Tendon Guard</strong>: 
+
+        {% for item in object.ftg.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Foot Tendon Guard Comments</strong>: {{ object.ftg_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Legs Cross Flexion Extension</strong>: 
+
+        {% for item in object.lcfe.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Legs Cross Flexion Extension Comments</strong>: {{ object.lcfe_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>ATNR</strong>: 
+
+        {% for item in object.atnr.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>ATNR Comments</strong>: {{ object.atnr_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Trunk Extension</strong>: 
+
+        {% for item in object.trunk_ext.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Trunk Extension Comments</strong>: {{ object.trunk_ext_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Hands Grasp</strong>: 
+
+        {% for item in object.hands_grasp.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Hands Grasp Comments</strong>: {{ object.hands_grasp_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Hands Supporting</strong>: 
+
+        {% for item in object.hands_supp.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Hands Supporting Comments</strong>: {{ object.hands_supp_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Hands Pulling</strong>: 
+
+        {% for item in object.hands_pulling.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Hands Pulling Comments</strong>: {{ object.hands_pulling_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Babkin</strong>: 
+
+        {% for item in object.babkin.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Babkin Comments</strong>: {{ object.babkin_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Moro</strong>: 
+
+        {% for item in object.moro.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Moro Comments</strong>: {{ object.moro_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Fear Paralysis</strong>: 
+
+        {% for item in object.fear_paral.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Fear Paralysis Comments</strong>: {{ object.fear_paral_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Spinal Perez</strong>: 
+
+        {% for item in object.spinal_perez.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Spinal Perez Comments</strong>: {{ object.spinal_perez_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>TLR</strong>: 
+
+        {% for item in object.tlr.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>TLR Comments</strong>: {{ object.tlr_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Landau</strong>: 
+
+        {% for item in object.landau.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Landau Comments</strong>: {{ object.landau_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Bauer Crawling</strong>: 
+
+        {% for item in object.bauer_crawl.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Bauer Crawling Comments</strong>: {{ object.bauer_crawl_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Spinal Galant</strong>: 
+
+        {% for item in object.spinal_galant.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Spinal Galant Comments</strong>: {{ object.spinal_galant_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>STNR</strong>: 
+
+        {% for item in object.stnr.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>STNR Comments</strong>: {{ object.stnr_comm|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td><br><strong>Flying and Landing</strong>: 
+
+        {% for item in object.fly_land.all %} 
+        <!-- removes comma at end of last item in list. Cleaner look. -->
+        {% if forloop.last %}
+          {{ item }}
+        {% else %}
+          {{ item }},
+        {% endif %}   
+        {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Flying and Landing Comments</strong>: {{ object.fly_land_comm|default_if_none:"" }}</td>
+    </tr>
+  </table><br>
+
+  <h3>Goals</h3>
+
+  <table>
+    <tr>
+      <td>Goal #1: {{ object.goal_1|default_if_none:"" }}
+      </td>
+    </tr>
+    <tr>
+      <td>Goal #2: {{ object.goal_2|default_if_none:"" }}
+      </td>
+    </tr>
+    <tr>
+      <td>Goal #3: {{ object.goal_3|default_if_none:"" }}
+      </td>
+    </tr>
+    <tr>
+      <td>Goal #4: {{ object.goal_4|default_if_none:"" }}
+      </td>
+    </tr>
+    <tr>
+      <td>Child's Strengths: {{ object.childs_strengths|default_if_none:"" }}
+      </td>
+    </tr>
+    <tr>
+      <td>Child's Challenges: {{ object.childs_challenges|default_if_none:"" }}
+      </td>
+    </tr>
+    <tr>
+      <td>Other Comments: {{ object.other_comm|default_if_none:"" }}
+      </td>
+    </tr>
+  </table><br>
+
+</body>

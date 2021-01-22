@@ -1,0 +1,171 @@
+<head>
+  <style>
+    @page {
+      size: a4 portrait;
+      @frame header_frame {
+        -pdf-frame-content: header_content;
+        left: 50pt; width: 500pt; top: 50pt; height: 60pt;
+        -pdf-frame-content: logo_content;
+        left: 235pt; width: 200pt; top: 20pt; height: 60pt;
+      }
+      @frame content_frame {
+        left: 50pt; width: 500pt; top: 90pt; height: 632pt;
+      }
+      @frame footer_frame {
+        -pdf-frame-content: footer_content;
+        left: 50pt; width: 512pt; top: 772pt; height: 30pt;
+      }
+    }
+    
+    h1 {
+      color: #5ebf9c;
+      text-align: center;
+      font-size: 1.8em;
+    }
+
+    h3 {
+      text-align: left;
+      font-size: 1.3em;
+    }
+    table {
+      font-size: 1.1em;
+    }
+    p {
+      font-size: 1.1em;
+    }
+    table, tr, td {
+      border: 1px solid black;
+      padding: 5px;
+      /*margin-right: auto;
+      margin-left: auto;*/
+    }
+    th {
+      font-size: .9em;
+    }
+    td.left {
+      width: 500pt;
+      height: auto;
+    }
+    td.right {
+      width: 30pt;
+      height: auto;
+    }
+    .signature {
+      zoom: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <img class="formsLogo d-flex mx-auto" id="logo_content" src="pedcon_main/static/pedcon_main/images/logo_small.png">
+
+  <!-- Content for Static Frame 'header_frame' -->
+  <div id="header_content">
+    <h1>{{ form_title }}</h1>
+  </div>
+
+
+  <!-- Content for Static Frame 'footer_frame' -->
+  <div id="footer_content">Page <pdf:pagenumber>
+      of <pdf:pagecount>
+      | Form submitted on
+      {% load tz %}
+      {% timezone "America/Chicago" %}
+       {{ object.created_at|default_if_none:"" }} CT from {{ object.ip_address|default_if_none:"" }} ({{ object.country|default_if_none:"" }}) on {{ object.device_info|default_if_none:"" }}
+      {% endtimezone %}
+      <br>Entry ID: {{ object.pk }}
+       
+  </div>
+    
+    <h3>Child's name: {{ object.client_first_name|default_if_none:"" }} {{ object.client_last_name|default_if_none:"" }}</h3>
+    
+  </div>
+
+  <!-- HTML Content -->
+  <table>
+    <tr>
+      <th class="left">Statement</th>
+      <th class="right">Initials</th>
+    </tr>
+    <tr>
+      <td class="left">I authorize PEDIATRIC CONNECTIONS or any entity doing business with PEDIATRIC CONNECTIONS, to verify the benefits of our insurance  and email us the benefit details.</td>
+      <td class="right">{{ object.initial_1|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td class="left">I authorize PEDIATRIC CONNECTIONS to bill my insurance company directly for the covered portion of charges, and I authorize payment of medical benefits directly to PEDIATRIC CONNECTIONS.</td>
+      <td class="right">{{ object.initial_2|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td class="left">I authorize PEDIATRIC CONNECTIONS to release medical or other information necessary to process this claim.</td>
+      <td class="right">{{ object.initial_3|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td class="left">I understand that the verified estimation of benefits is provided as a courtesy, and does not guarantee coverage. I realize that I am ultimately responsible to know my level of coverage.</td>
+      <td class="right">{{ object.initial_4|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td class="left">PEDIATRIC CONNECTIONS will submit claims to my health insurance company. I am responsible for payment of my deductible, co-insurance or co-payment, and any charges not reimbursed by my insurance carrier.</td>
+      <td class="right">{{ object.initial_5|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td class="left">It is my responsibility to inform PEDIATRIC CONNECTIONS of any and all changes of insurance coverage during the course of treatment. Failure to do so may result in denial of coverage by my insurance company. If my insurance changes, PEDIATRIC CONNECTIONS will bill my new insurance company, but there is no guarantee they will cover the services.</td>
+      <td class="right">{{ object.initial_6|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td class="left">PEDIATRIC CONNECTIONS uses a billing company to process claims and payments. The billing company is of our choice and its employees will have access to protected patient information. This is for the purposes of providing insurance companies with needed information to process claims. Your initials indicate your permission to share protected patient information in order to process payments on your child's behalf.</td>
+      <td class="right">{{ object.initial_7|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td class="left">I hereby consent to such treatment procedures and patient care which, in the judgment of my therapist and/or physician, may be considered necessary or advisable while a patient as PEDIATRIC CONNECTIONS.</td>
+      <td class="right">{{ object.initial_8|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td class="left">I hereby release, discharge and acquit PEDIATRIC CONNECTIONS, it's agents, representatives, affiliates, employees or assigns of and from any and all liability, claim, demand, damage, cause of action, or loss of any kind arising out of or resulting from my refusal to accept, receive or allow emergency and or medical services, including but not limited to ambulance service, Emergency Medical Technician, physician or urgent care services.</td>
+      <td class="right">{{ object.initial_9|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td class="left">Please indicate below how I may share protected health information with you:<br>
+        <strong>
+          {% for item in object.contact_via.all %} 
+            {{ item }}<br>
+          {% endfor %}
+        </strong>
+      </td>
+      <td class="right">-</td>
+    </tr>
+    <tr>
+      <td class="left">I have read and agree to abide by the above policies and am aware of the privacy policy.<br>
+          I agree to the Payment Policy/Assignment of Benefits/Authorization to Release Medical Information.</td>
+      <td class="right">{{ object.initial_10|default_if_none:"" }}</td>
+    </tr>
+    <tr>
+      <td class="left">Printed name: {{ object.first_name|default_if_none:"" }} {{ object.last_name|default_if_none:"" }}</td>
+      <td class="right">-</td>
+    </tr>
+    <tr>
+      <td class="left">By signing, I agree to have Medisource Healthcare Solutions bill my insurance and/or process my credit card after each visit on behalf of Pediatric Connections OT (when applicable for non-Medicaid clients).</td>
+      <td class="right">-</td>
+    </tr>
+    <tr>
+      <td class="left">
+        <p><strong>Signature:</strong></p>
+        <div class="signature">
+          {% if not object.sig_img  %}
+            <p>No signature image available</p>
+          {% else %}
+            <img class="d-flex mx-auto" src="media/sig_images/payment_policy_form_sigs/{{ object.filename }}">
+          {% endif %}
+        </div><br>
+      </td>
+      <td class="right">-</td>
+    </tr>
+    <tr>
+      <td class="left">Date: {{ object.date|default_if_none:"" }}</td>
+      <td class="right">-</td>
+    </tr>
+
+  </table>
+
+
+
+</body>

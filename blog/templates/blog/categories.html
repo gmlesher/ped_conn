@@ -1,0 +1,50 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+  
+{% if category_posts %}
+  <div class="pageHeading">
+    <!-- Loop for all posts in "category_posts" from view, but only goes through first post in category to get title of category, hence "slice: ':1'"  -->
+    {% for post in category_posts|slice:':1' %}
+      <h1>"{{ post.category }}" Posts</h1>
+    {% endfor %}
+  </div>
+
+  <h1 class="blogSectionTitle"></h1>
+
+
+  <div class="blogRow row">
+    {% for post in category_posts %}
+      <div class="blogBox col-md-4">
+        <a href="{% url 'blog:article' post.pk %}">
+          <div class="blog1">
+            {% if post.post_image %}
+              <img src="{{ post.post_image.url }}">
+            {% else %}
+              <img src="{% static '../media/images/no-photo.svg' %}">
+            {% endif %}
+
+            {% if post.body %}
+                {{ post.body|slice:":50"|safe }}...
+            {% endif %}
+          </div>
+          <h3 class="blogTitle">{{ post.title }}</h3>
+        </a>
+      </div> <!--End box-->
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="d-flex align-items-center justify-content-center" style="min-height:75%;">
+    <center>
+    <h2>Blog posts for this category do not exist yet</h2>
+    <a class="btn btn-dark success_btn" href="{% url 'blog:blog' %}">Back to Blog</a>
+    <a class="btn btn-dark success_btn" href="{% url 'pedcon_main:index' %}">Go to Home Page</a><br><br>
+  </center>
+  </div>
+  
+
+{% endif %}
+
+
+{% endblock content %}
