@@ -4,56 +4,21 @@ from django.shortcuts import render
 from django.core import validators
 from django.core.mail import EmailMessage # for sending email in contact page
 from django.conf import settings # for sending email in contact page
-from django.views.generic import View # for class based views
-# from django.urls import reverse, reverse_lazy # form processing in CBV (maybe) 
-# from django.views.generic.edit import FormView # form processing in CBV (maybe) 
+from django.http import Http404 # allows me to force 404 page when needed
+from django.views.generic import View # for class based views 
 
 """ my file imports: """
 from .forms import *
 from .models import *
 from .utils import *
 
-    
-# class ProcessView(FormView):
-#     form_class = PracticeForm
-#     template_name = 'pedcon_main/practice_form.html'
-#     pk = None
-    # success_url = reverse_lazy(f'pedcon_main:pdf_view{pk}')
 
-    # def get_success_url(self):
-    #     print(self.pk)
-    #     return reverse('pdf_view', kwargs={'pk': self.pk})
-    
-    # def form_valid(self, form):
-    #     # self.request.session['form-submitted'] = True
-    #     form = form.save()
-    #     self.pk = form.pk
-    #     print(self.pk)
-    #     return super().form_valid(form)
-
-   
-
-        # # x = request.__name__
-        # # print(x)
-
-# processes and saves practice form
-def practice_form(request):
-    form = PracticeForm(request.POST or None)
-
-    if request.method == 'POST':
-        if form.is_valid():
-            form.cleaned_data
-            new_form = form.save()
-
-            pk_value = new_form.pk
-            # sets session to "form-submitted" in this view. To be processed in the view below
-            request.session['form-submitted'] = True
-            return HttpResponseRedirect(f'/pdf_view/{pk_value}')
-
-    context = {'form': form}
-
-    return render(request, 'pedcon_main/practice_form.html', context)
-
+# Practice form processing (see .utils for Mixin)
+class PracticeFormView(ProcessFormMixin, View):
+    form_class = PracticeForm
+    initial = {'key': 'value'}
+    template_name = 'pedcon_main/practice_form.html'
+    to_url = '/pdf_view/'
 
 # renders practice information to PDF & sends email of PDF
 class ViewPDF(CreatePdfMixin, EmailPdfMixin, View):
@@ -61,25 +26,14 @@ class ViewPDF(CreatePdfMixin, EmailPdfMixin, View):
     template = 'pedcon_main/practice_pdf_template.html'
 
 
-# processes and saves client information form
-def client_info_form(request):
 
-    form = ClientInformationForm(request.POST or None)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            form.cleaned_data
-            new_form = form.save()
-            pk_value = new_form.pk
-
-            # sets session to "form-submitted" in this view. To be processed in the view below
-            request.session['form-submitted'] = True
-            return HttpResponseRedirect(f'/ci_pdf_view/{pk_value}')
-
-    context = {'form': form}
-
-    return render(request, 'pedcon_main/ci_form.html', context)
-
+# Client info form processing (see .utils for Mixin)
+class CIFormView(ProcessFormMixin, View):
+    form_class = ClientInformationForm
+    initial = {'key': 'value'}
+    template_name = 'pedcon_main/ci_form.html'
+    to_url = '/ci_pdf_view/'
 
 # renders client information to PDF & sends email of PDF
 class ViewCIPDF(CreatePdfMixin, EmailPdfMixin, View):
@@ -87,25 +41,14 @@ class ViewCIPDF(CreatePdfMixin, EmailPdfMixin, View):
     template = 'pedcon_main/client_info_pdf_template.html'
 
 
-# processes and saves payment policy form
-def payment_policy_form(request):
 
-    form = PaymentPolicyForm(request.POST or None)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            form.cleaned_data
-            new_form = form.save()
-            pk_value = new_form.pk
-
-            # sets session to "form-submitted" in this view. To be processed in the view below
-            request.session['form-submitted'] = True
-            return HttpResponseRedirect(f'/pp_pdf_view/{pk_value}')
-
-    context = {'form': form}
-
-    return render(request, 'pedcon_main/pp_form.html', context)
-
+# Payment policy form processing (see .utils for Mixin)
+class PaymentPolicyFormView(ProcessFormMixin, View):
+    form_class = PaymentPolicyForm
+    initial = {'key': 'value'}
+    template_name = 'pedcon_main/pp_form.html'
+    to_url = '/pp_pdf_view/'
 
 # renders payment policy information to PDF & sends email of PDF
 class ViewPPPDF(CreatePdfMixin, EmailPdfMixin, View):
@@ -113,25 +56,14 @@ class ViewPPPDF(CreatePdfMixin, EmailPdfMixin, View):
     template = 'pedcon_main/payment_policy_pdf_template.html'
 
 
-# processes and saves cancellation policy form
-def cancellation_policy_form(request):
 
-    form = CancellationPolicyForm(request.POST or None)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            form.cleaned_data
-            new_form = form.save()
-            pk_value = new_form.pk
-
-            # sets session to "form-submitted" in this view. To be processed in the view below
-            request.session['form-submitted'] = True
-            return HttpResponseRedirect(f'/cancel_pdf_view/{pk_value}')
-
-    context = {'form': form}
-
-    return render(request, 'pedcon_main/can_pol_form.html', context)
-
+# Cancellation policy form processing (see .utils for Mixin)
+class CancellationPolicyFormView(ProcessFormMixin, View):
+    form_class = CancellationPolicyForm
+    initial = {'key': 'value'}
+    template_name = 'pedcon_main/can_pol_form.html'
+    to_url = '/cancel_pdf_view/'
 
 # renders cancellation policy information to PDF & sends email of PDF
 class ViewCancelPDF(CreatePdfMixin, EmailPdfMixin, View):
@@ -139,25 +71,14 @@ class ViewCancelPDF(CreatePdfMixin, EmailPdfMixin, View):
     template = 'pedcon_main/cancellation_pdf_template.html'
 
 
-# processes and saves pediatric history form
-def pediatric_hx_form(request):
 
-    form = PedHxForm(request.POST or None)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            form.cleaned_data
-            new_form = form.save()
-            pk_value = new_form.pk
-
-            # sets session to "form-submitted" in this view. To be processed in the view below
-            request.session['form-submitted'] = True
-            return HttpResponseRedirect(f'/pediatric_hx_pdf_view/{pk_value}')
-
-    context = {'form': form}
-
-    return render(request, 'pedcon_main/pediatric_hx_form.html', context)
-
+# Pediatric history form processing (see .utils for Mixin)
+class PediatricHxFormView(ProcessFormMixin, View):
+    form_class = PedHxForm
+    initial = {'key': 'value'}
+    template_name = 'pedcon_main/pediatric_hx_form.html'
+    to_url = '/pediatric_hx_pdf_view/'
 
 # renders pediatric history information to PDF & sends email of PDF
 class ViewPedHxPDF(CreatePdfMixin, EmailPdfMixin, View):
@@ -165,25 +86,14 @@ class ViewPedHxPDF(CreatePdfMixin, EmailPdfMixin, View):
     template = 'pedcon_main/pediatric_hx_pdf_template.html'
 
 
-# processes and saves pediatric history form
-def adult_hx_form(request):
 
-    form = AdultHxForm(request.POST or None)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            form.cleaned_data
-            new_form = form.save()
-            pk_value = new_form.pk
-
-            # sets session to "form-submitted" in this view. To be processed in the view below
-            request.session['form-submitted'] = True
-            return HttpResponseRedirect(f'/adult_hx_pdf_view/{pk_value}')
-
-    context = {'form': form}
-
-    return render(request, 'pedcon_main/adult_hx_form.html', context)
-
+# Adult history form processing (see .utils for Mixin)
+class AdultHxFormView(ProcessFormMixin, View):
+    form_class = AdultHxForm
+    initial = {'key': 'value'}
+    template_name = 'pedcon_main/adult_hx_form.html'
+    to_url = '/adult_hx_pdf_view/'
 
 # renders adult history information to PDF & sends email of PDF
 class ViewAdultHxPDF(CreatePdfMixin, EmailPdfMixin, View):
@@ -191,25 +101,14 @@ class ViewAdultHxPDF(CreatePdfMixin, EmailPdfMixin, View):
     template = 'pedcon_main/adult_hx_pdf_template.html'
 
 
-# processes and saves speech language history form
-def speech_language_hx_form(request):
 
-    form = SpeechLanguageHxForm(request.POST or None)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            form.cleaned_data
-            new_form = form.save()
-            pk_value = new_form.pk
-
-            # sets session to "form-submitted" in this view. To be processed in the view below
-            request.session['form-submitted'] = True
-            return HttpResponseRedirect(f'/speech_lang_hx_pdf_view/{pk_value}')
-
-    context = {'form': form}
-
-    return render(request, 'pedcon_main/speech_language_hx_form.html', context)
-
+# Speech language history form processing (see .utils for Mixin)
+class SpeechLanguageHxFormView(ProcessFormMixin, View):
+    form_class = SpeechLanguageHxForm
+    initial = {'key': 'value'}
+    template_name = 'pedcon_main/speech_language_hx_form.html'
+    to_url = '/speech_lang_hx_pdf_view/'
 
 # renders speech language history information to PDF & sends email of PDF
 class ViewSpeechLangHxPDF(CreatePdfMixin, EmailPdfMixin, View):
@@ -217,25 +116,14 @@ class ViewSpeechLangHxPDF(CreatePdfMixin, EmailPdfMixin, View):
     template = 'pedcon_main/speech_lang_hx_pdf_template.html'
 
 
-# processes and saves client information form
-def roi_form(request):
 
-    form = ROIForm(request.POST or None)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            form.cleaned_data
-            new_form = form.save()
-            pk_value = new_form.pk
-
-            # sets session to "form-submitted" in this view. To be processed in the view below
-            request.session['form-submitted'] = True
-            return HttpResponseRedirect(f'/roi_pdf_view/{pk_value}')
-
-    context = {'form': form}
-
-    return render(request, 'pedcon_main/roi_form.html', context)
-
+# Release of information form processing (see .utils for Mixin)
+class ROIFormView(ProcessFormMixin, View):
+    form_class = ROIForm
+    initial = {'key': 'value'}
+    template_name = 'pedcon_main/roi_form.html'
+    to_url = '/roi_pdf_view/'
 
 # renders release of information to PDF & sends email of PDF
 class ViewROIPDF(CreatePdfMixin, EmailPdfMixin, View):
@@ -243,25 +131,14 @@ class ViewROIPDF(CreatePdfMixin, EmailPdfMixin, View):
     template = 'pedcon_main/roi_pdf_template.html'
 
 
-# processes and saves client information form
-def ssp_form(request):
 
-    form = SSPForm(request.POST or None)
 
-    if request.method == 'POST':
-        if form.is_valid():
-            form.cleaned_data
-            new_form = form.save()
-            pk_value = new_form.pk
-
-            # sets session to "form-submitted" in this view. To be processed in the view below
-            request.session['form-submitted'] = True
-            return HttpResponseRedirect(f'/ssp_pdf_view/{pk_value}')
-
-    context = {'form': form}
-
-    return render(request, 'pedcon_main/ssp_form.html', context)
-
+# Safe and sound form processing (see .utils for Mixin)
+class SSPFormView(ProcessFormMixin, View):
+    form_class = SSPForm
+    initial = {'key': 'value'}
+    template_name = 'pedcon_main/ssp_form.html'
+    to_url = '/ssp_pdf_view/'
 
 # renders SSP information to PDF & sends email of PDF
 class ViewSSPPDF(CreatePdfMixin, EmailPdfMixin, View):
@@ -274,7 +151,6 @@ def contact(request):
     """The contact page for pedcon."""
     if request.method == 'POST':
         subject = 'Contact Form Submission'
-
         message_first_name = request.POST['first_name']
         message_last_name = request.POST['last_name']
         message_email = request.POST['email']
@@ -286,17 +162,11 @@ def contact(request):
               f'Phone: {message_phone} \n'\
               f'Subject: {message_subject} \n'\
               f'Message: {message}'
-
         recipients = ['gmlesher@gmail.com',]
-
         email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, recipients)
         email.send(fail_silently=False)
-        
         return render(request, 'pedcon_main/contact.html', {'message_first_name': message_first_name})
-
-    else:
-
-        return render(request, 'pedcon_main/contact.html')
+    return render(request, 'pedcon_main/contact.html')
 
 def index(request):
     """The home page for pedcon."""
@@ -339,6 +209,5 @@ def privacy_policy(request):
     return render(request, 'pedcon_main/privacy_policy.html')
 
 def success(request):
-    """The release of information form page for pedcon."""
+    """The success page for pedcon."""
     return render(request, 'pedcon_main/success.html')
-

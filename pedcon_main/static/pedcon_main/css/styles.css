@@ -1240,7 +1240,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
   vertical-align: middle;
 }
 .success {
-  max-height: 50%;
   max-width: 70%;
   margin-left: auto;
   margin-right: auto;

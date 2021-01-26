@@ -17,21 +17,14 @@ from .utils import render_to_pdf
 # retrieves all model names from 'pedcon_main' models.py
 app_models = apps.get_app_config('pedcon_main').get_models()
 
-# converts ManyToManyField to checkboxes in the admin 
-class Checkbox(admin.ModelAdmin):
-    formfield_overrides = {
-        models.ManyToManyField: {'widget': CheckboxSelectMultiple},
-    }
-
-# converts BooleanField to radio buttons in the admin
-class RadioButton(admin.ModelAdmin):
-    formfield_overrides = {
-        models.BooleanField: {'widget': RadioSelect},
-    }
-
 class PdfAdmin(admin.ModelAdmin):
     ''' This model allows for opening of PDF documents for each submitted form. Only called when admin user selects desired object and clicks "go" button as "open PDF" is selected '''
     '''Side note: the reason "paired_dict" is available in the function below is because it is already created when admin.py is saved. This goes back to the fact that this class in only called on user request.'''
+
+    # turns all m2m  multiple select fields into checkboxes in django admin
+    formfield_overrides = {
+        models.ManyToManyField: {'widget': CheckboxSelectMultiple},
+    }
 
     def open_pdf(self, request, queryset, *args, **kwargs):
         for obj in queryset:

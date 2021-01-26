@@ -20,29 +20,22 @@ from .models import *
 
 # gets ip of user 
 def get_ip(request):
-
     address = request.META.get("HTTP_X_FORWARDED_FOR")
-
     if address:
         ip = address.split(',')[-1].strip()
     else:
         ip = request.META.get("REMOTE_ADDR")
-
     return ip
 
 # gets browser info of user
 def get_device_info(request):
-
     info = request.META.get("HTTP_USER_AGENT")
     user_agent = parse(info)
-
     return user_agent
 
 # gets country of user
 def get_country(request):
-
     g = GeoIP2()
-
     try:
         # use below line of code for production
         country = g.country_name(get_ip(request))
@@ -50,10 +43,8 @@ def get_country(request):
         # country = g.country_name('3.99.25.5') # Canada
         # country = g.country_name('2.56.114.0') # United States
         return country
-
     except: 
         country = "n/a"
-
         return country
 
 # renders pdf
@@ -65,6 +56,31 @@ def render_to_pdf(template_src, context_dict={}):
     if not pdf.err:
         return HttpResponse(result.getvalue(), content_type='application/pdf')
     return None
+
+# Mixin for processing each form
+class ProcessFormMixin:
+    form_class = None
+    initial = None
+    template_name = None
+    to_url = None
+
+    # get request for blank form
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    # post request for complted form
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.cleaned_data
+            new_form = form.save()
+            pk_value = new_form.pk
+            # sets session to "form-submitted" in this view. To be processed in the view below
+            request.session['form-submitted'] = True
+            return HttpResponseRedirect(f'{self.to_url}{pk_value}')
+        return render(request, self.template_name, {'form': form})
+
 
 """It's possible that this "CreatePdfMixin" is doing too much and needs to be broken up. Works fine as-is for now."""
 """ Mixin for creating PDF and saving object info to database. Also processes signature images. DON'T BE TEMPTED TO EXCLUDE THIS MIXIN IN VIEWS. VERY IMPORTANT FOR SAVING DATA! """

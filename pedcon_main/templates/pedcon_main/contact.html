@@ -20,8 +20,8 @@
       <h2>Thanks {{ message_first_name }}!</h2>
       <p>We received your email and will contact you shortly...</p>
       <br>
-      <a class="btn btn-dark success_btn" href="{% url 'pedcon_main:contact' %}">Refresh Contact Page</a>
-      <a class="btn btn-dark success_btn" href="{% url 'pedcon_main:index' %}">Go to Home Page</a><br><br>
+      <a class="btn btn-dark success_btn m-2" href="{% url 'pedcon_main:contact' %}">Refresh Contact Page</a>
+      <a class="btn btn-dark success_btn m-2" href="{% url 'pedcon_main:index' %}">Go to Home Page</a><br><br>
     </div>
     {% else %}
     <!--Contact form-->
@@ -87,7 +87,6 @@
         <section class="contactSocialMediaImages">
           <div class="text-center">
             <a href="https://www.facebook.com/pediatricconnections" target="_blank"><img src="{% static 'pedcon_main/images/facebook_icon.png' %}"></a>
-            <a href="https://twitter.com/pedconnections1" target="_blank"><img src="{% static 'pedcon_main/images/twitter_icon.png' %}"></a> 
             <a href="https://www.pinterest.com/pedconnectionso/" target="_blank"><img src="{% static 'pedcon_main/images/pinterest_icon.png' %}"></a> 
             <a href="https://www.instagram.com/pediatricconnectionsot/" target="_blank"><img src="{% static 'pedcon_main/images/instagram_icon.png' %}"></a> 
             <a href="https://www.youtube.com/channel/UC3h0muLW7GSxBr_DdtaLOCg" target="_blank"><img src="{% static 'pedcon_main/images/youtube_icon.png' %}"></a>

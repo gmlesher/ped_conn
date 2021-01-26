@@ -36,7 +36,10 @@ function resizeCanvas() {
 
 // On mobile devices it might make more sense to listen to orientation change,
 // rather than window resize events.
-window.onresize = resizeCanvas;
+
+// Garrett's notes - commented out below window.onresize to prevent signature 
+// from being cleared when resizing window on desktop and when scrolling on mobile
+// window.onresize = resizeCanvas;
 resizeCanvas();
 
 function download(dataURL, filename) {
