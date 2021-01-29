@@ -1,0 +1,1 @@
+web: gunicorn pedcon.wsgi --log-file - 
