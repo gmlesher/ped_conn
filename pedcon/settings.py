@@ -139,15 +139,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILE_DIRS = [
-      "static/images", 
-      "static/css",
-      "static/js",
-      "staticfiles",]
-
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-#     )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    )
 
 # Google reCAPTCHA keys
 # these are testing keys. not real ones. get real ones for production

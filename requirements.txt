@@ -24,7 +24,7 @@ idna==2.10
 maxminddb==2.0.3
 multidict==5.1.0
 Pillow==8.0.1
-psycopg2==2.8.6
+psycopg2-binary==2.8.6
 PyPDF2==1.26.0
 python-bidi==0.4.2
 python-stdnum==1.14
