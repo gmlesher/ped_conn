@@ -11,7 +11,6 @@ django-ckeditor==6.0.0
 django-crispy-forms==1.10.0
 django-heroku==0.3.1
 django-js-asset==1.2.2
-django-jsignature==0.10
 django-localflavor==3.0.1
 django-multiselectfield==0.1.12
 django-recaptcha==2.0.6

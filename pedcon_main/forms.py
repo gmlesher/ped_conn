@@ -1,7 +1,6 @@
 from django import forms
 from .models import *
 from localflavor.us.models import USStateField
-from jsignature.forms import JSignatureField
 
 from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV3 
