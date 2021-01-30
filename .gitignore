@@ -3,5 +3,3 @@ __pycache__/
 *.sqlite3
 .DS_Store
 .env
-pedcon_main/urls.py
-blog/urls.py
