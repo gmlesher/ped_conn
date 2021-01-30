@@ -14,14 +14,10 @@ from pathlib import Path
 import os
 import django_heroku
 import dj_database_url
-import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
 
 GEOIP_PATH = '/Users/garrettlesher/Documents/GitHub/ped_conn/pedcon_main/GeoIP/GeoLite2-Country_20201201'
 
@@ -251,8 +247,4 @@ CKEDITOR_CONFIGS = {
 }
 
 # heorku settings.
-
 django_heroku.settings(locals())
-
-options = DATABASES['default'].get('OPTIONS', {})
-options.pop('sslmode', None)
