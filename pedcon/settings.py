@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 import os
 import django_heroku
 import dj_database_url
@@ -26,10 +28,10 @@ GEOIP_PATH = '/Users/garrettlesher/Documents/GitHub/ped_conn/pedcon_main/GeoIP/G
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$c+jnu7$dq=%53!j1hpkb5fxq%8zac&xo@m_-hp8po=zo3shw4'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -107,8 +109,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# DATABASES = {}
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
@@ -148,7 +148,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
@@ -156,11 +156,11 @@ STATICFILES_DIRS = (
 
 # Google reCAPTCHA keys
 # these are testing keys. not real ones. get real ones for production
-RECAPTCHA_PUBLIC_KEY = '6LdBmCMaAAAAAECbo6lVp875PIZYer5QXh-U6vK3'
-RECAPTCHA_PRIVATE_KEY = '6LdBmCMaAAAAANdZa3zGVIBmf68F20H3l8s0s33c'
+RECAPTCHA_PUBLIC_KEY = str(os.getenv('RECAPTCHA_PUBLIC_KEY'))
+RECAPTCHA_PRIVATE_KEY = str(os.getenv('RECAPTCHA_PRIVATE_KEY'))
 
 # DELETE THIS IN PRODUCTION!!!! only use this for testing
-SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+# SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 
 
 # Email configuration
