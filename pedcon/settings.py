@@ -31,9 +31,9 @@ GEOIP_PATH = '/Users/garrettlesher/Documents/GitHub/ped_conn/pedcon_main/GeoIP/G
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://pediatric-connections.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
