@@ -3,6 +3,12 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.core import validators
 from django.core.mail import EmailMessage # for sending email in contact page
+
+# sendgrid emailing
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
 from django.conf import settings # for sending email in contact page
 from django.http import Http404 # allows me to force 404 page when needed
 from django.views.generic import View # for class based views 
@@ -163,8 +169,25 @@ def contact(request):
               f'Subject: {message_subject} \n'\
               f'Message: {message}'
         recipients = ['gmlesher@gmail.com',]
-        email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, recipients)
-        email.send(fail_silently=False)
+
+        sg_message = Mail(
+            from_email='info@nicolemaylesher.com',
+            to_emails=recipients,
+            subject=subject,
+            html_content=msg)
+        try:
+            sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+            response = sg.send(sg_message)
+            print(response.status_code)
+            print(response.body)
+            print(response.headers)
+        except Exception as e:
+            print(e.sg_message)
+
+
+
+        # email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, recipients)
+        # email.send(fail_silently=False)
         return render(request, 'pedcon_main/contact.html', {'message_first_name': message_first_name})
     return render(request, 'pedcon_main/contact.html')
 
