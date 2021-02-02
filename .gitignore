@@ -3,7 +3,7 @@ __pycache__/
 *.sqlite3
 .DS_Store
 .env
-.sendgrid_notes.txt
+sendgrid_notes.txt
 sendgrid.env
-.sendgrid_test.py
+sendgrid_test.py
 
