@@ -1,0 +1,15 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="d-flex h-75">
+    <div class="justify-content-center align-self-center">
+      <center>
+        <h1>500 INTERNAL SERVER ERROR</h1>
+        <h3 class="w-50">Sorry, we had some technical problems during your last operation. Please contact us if the problem persists.</h3>
+        <a class="btn btn-dark success_btn m-2" href="{% url 'pedcon_main:index' %}">Go to Home Page</a><br><br>
+      </center>
+    </div>
+  </div>
+  
+{% endblock content %}
