@@ -21,7 +21,7 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-GEOIP_PATH = '/Users/garrettlesher/Documents/GitHub/ped_conn/pedcon_main/GeoIP/GeoLite2-Country_20201201'
+GEOIP_PATH = 'pedcon_main/GeoIP/GeoLite2-Country_20201201'
 
 
 # Quick-start development settings - unsuitable for production
