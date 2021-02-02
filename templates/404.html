@@ -2,14 +2,12 @@
 {% load static %}
 
 {% block content %}
-  <div class="d-flex h-75">
-    <div class="justify-content-center align-self-center">
-      <center>
-        <h1>404 PAGE NOT FOUND</h1>
-        <h3 class="w-50">The page you are looking for does not exist. Click the button below to return to the home page.</h3>
-        <a class="btn btn-dark success_btn m-2" href="{% url 'pedcon_main:index' %}">Go to Home Page</a><br><br>
-        <p>If you got this page by clicking a link, please notify us so we can fix the issue! </p>
-      </center>
+  <div class="d-flex justify-content-center align-items-center h-75">
+    <div class="w-75 mx-auto text-center">
+      <h1>404 PAGE NOT FOUND</h1>
+      <h3>The page you are looking for does not exist. Click the button below to return to the home page.</h3>
+      <a class="btn btn-dark success_btn m-2" href="{% url 'pedcon_main:index' %}">Go to Home Page</a><br><br>
+      <p>If you got this page by clicking a link, please notify us so we can fix the issue! </p>
     </div>
   </div>
   
