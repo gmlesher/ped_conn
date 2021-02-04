@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     'ckeditor',
     'captcha',
-    'sendgrid',
+    'storages',
 
     # Default django apps.
 
@@ -144,42 +144,43 @@ USE_L10N = True
 
 USE_TZ = True
 
+# AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+# AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+# AWS_STORAGE_BUCKET_NAME = 'pediatric-connections-bucket'
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400',
+# }
+# AWS_LOCATION = 'static'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+# DEFAULT_FILE_STORAGE = 'pedcon.storage_backends.MediaStorage'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/pedcon_main/static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'pedcon_main/static'),
     )
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Google reCAPTCHA keys
 # these are testing keys. not real ones. get real ones for production
 RECAPTCHA_PUBLIC_KEY = str(os.getenv('RECAPTCHA_PUBLIC_KEY'))
 RECAPTCHA_PRIVATE_KEY = str(os.getenv('RECAPTCHA_PRIVATE_KEY'))
 
-# DELETE THIS IN PRODUCTION!!!! only use this for testing
-# SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
-
-
-# Email configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-# EMAIL_HOST_USER = 'glesherlhs@gmail.com'
-# EMAIL_HOST_PASSWORD = 'Applesauce4U$'
 
 # Twilio SendGrid
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
-
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
+SENDGRID_SANDBOX_MODE_IN_DEBUG=False
+# SENDGRID_ECHO_TO_STDOUT=True
 
 # handles image and file uploads
 MEDIA_URL = '/media/'

@@ -137,12 +137,12 @@ for models in app_models:
     if models.__module__ == 'pedcon_main.m2m':
         m2m_classes.append(f'{models.__name__}')
 
-        # registers m2m.py classes in admin
-        try:
-            admin.site.register(models, PdfAdmin)
+        # # registers m2m.py classes in admin
+        # try:
+        #     admin.site.register(models, PdfAdmin)
 
-        except AlreadyRegistered:
-            pass
+        # except AlreadyRegistered:
+        #     pass
 
     elif models.__module__ == 'pedcon_main.models':
         model_names.append(f'{models.__name__}')

@@ -153,7 +153,7 @@
           {% if not object.sig_img  %}
             <p>No signature image available</p>
           {% else %}
-            <img class="d-flex mx-auto" src="media/sig_images/payment_policy_form_sigs/{{ object.filename }}">
+            <img class="d-flex mx-auto" src="{{ object.sig_img.url }}">
           {% endif %}
         </div><br>
       </td>
