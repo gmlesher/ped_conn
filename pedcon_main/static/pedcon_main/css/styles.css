@@ -197,9 +197,24 @@ form button.btn:hover { /* All forms have these styles on buttons */
 }
 .video-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+}
+.color-overlay {
+  min-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+}
+.homePageVideo {
+  min-height: 100vh;
+  min-width: 100vw;
+  object-fit: cover;
+}
+.image-container {
+  position: absolute;
+}
+.buildingImg {
+  min-height: 100vh;
+  max-width: 100%;
+  object-fit: cover;
 }
 .color-overlay {
   position: absolute;
