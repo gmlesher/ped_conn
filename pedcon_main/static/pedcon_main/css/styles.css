@@ -445,6 +445,9 @@ form button.btn:hover { /* All forms have these styles on buttons */
 }
 .staffContainer {
   padding:15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 #staff-tiles {
   height: 250px;
@@ -632,7 +635,7 @@ form button.btn:hover { /* All forms have these styles on buttons */
   z-index: -1; /* z-index must be here for links to be clicked. otherwise, image covers links and they are un-clickable */
 }
 .bgimg-1 {
-  background-image: url("../images/cute_baby.jpg");
+  background-image: url("../images/rings.jpg");
   height: 100vh;
 }
 .bgimg-2 {
@@ -644,7 +647,7 @@ form button.btn:hover { /* All forms have these styles on buttons */
   height: 75vh;
 }
 .bgimg-4 {
-  background-image: url('../images/cute_baby.jpg');
+  background-image: url('../images/rings.jpg');
   height: 75vh;
 }
 .caption {
