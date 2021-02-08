@@ -10,8 +10,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     # About us
     path('about_us/', views.about_us, name='about_us'),
-    # About Deana page
-    path('about_us_deana', views.about_us_deana, name='about_us_deana'),
     # Services page
     path('services/', views.services, name='services'),
     # Forms page
@@ -30,6 +28,23 @@ urlpatterns = [
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
     # Success page
     path('success/', views.success, name='success'),
+
+
+
+    # *************** urls for individual staff pages ***************
+
+    # About Deana page
+    path('about_us_deana', views.about_us_deana, name='about_us_deana'),
+    # About Andrea page
+    path('andrea-arlotti', views.andrea_arlotti, name='andrea-arlotti'),
+    # About Lisa berry page
+    path('lisa-berry', views.lisa_berry, name='lisa-berry'),
+    # About Briana page
+    path('briana-picht', views.briana_picht, name='briana-picht'),
+    # About Lisa Bergeson page
+    path('lisa-bergeson', views.lisa_bergeson, name='lisa-bergeson'),
+    # About Jennifer Shrum page
+    path('jennifer-shrum', views.jennifer_shrum, name='jennifer-shrum'),
 
 
 

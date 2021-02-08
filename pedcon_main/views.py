@@ -181,6 +181,26 @@ def about_us_deana(request):
     """The about us Deana page for pedcon."""
     return render(request, 'pedcon_main/about_us_deana.html')
 
+def andrea_arlotti(request):
+    """The about us Andrea Arlotti page for pedcon."""
+    return render(request, 'pedcon_main/andrea-arlotti.html')
+
+def lisa_berry(request):
+    """The about us Lisa berry page for pedcon."""
+    return render(request, 'pedcon_main/lisa-berry.html')
+
+def briana_picht(request):
+    """The about us Briana Picht page for pedcon."""
+    return render(request, 'pedcon_main/briana-picht.html')
+
+def lisa_bergeson(request):
+    """The about us Lisa bergeson page for pedcon."""
+    return render(request, 'pedcon_main/lisa-bergeson.html')
+
+def jennifer_shrum(request):
+    """The about us Jennifer Shrum page for pedcon."""
+    return render(request, 'pedcon_main/jennifer-shrum.html')
+
 def services(request):
     """The services page for pedcon."""
     return render(request, 'pedcon_main/services.html')

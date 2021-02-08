@@ -400,7 +400,13 @@ form button.btn:hover { /* All forms have these styles on buttons */
   line-height: 30px;
   padding-bottom: 30px;
 }
-
+.contactText h4 {
+  padding: 5px;
+  font-size: 3em;
+  background: -webkit-linear-gradient(45deg, #15ade2, #5ebf9c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 /* below is old home page*/
 .carousel-inner {
   overflow: hidden;
@@ -549,8 +555,16 @@ form button.btn:hover { /* All forms have these styles on buttons */
 /* END ABOUT US PAGE */
 
 /* INDIVIDUAL ABOUT ME PAGE */
-.about {
+.aboutLisa {
+  height: 200vh;
+  display:flex;
+}
+.aboutDeana {
   height: 300vh;
+  display:flex;
+}
+.about {
+  height: 100vh;
   display: flex;
 }
 .aboutPicture {
@@ -589,14 +603,17 @@ form button.btn:hover { /* All forms have these styles on buttons */
   font-size: 16px;
   line-height: 30px;
 }
+.aboutList {
+  width: 80%;
+}
 .aboutPages div:nth-child(1) {
-  background-color: #343a40;
+  background-color: #15ade2;
 }
 .aboutPages div:nth-child(2) {
   background-color: #5ebf9c;
 }
 .aboutPages div:nth-child(3) {
-  background-color: #15ade2;
+  background-color: #343a40;
 }
 .aboutOtherInfo {
   height: 25vh;
@@ -636,6 +653,15 @@ form button.btn:hover { /* All forms have these styles on buttons */
 .lesherh5 {
   padding-top: 30px;
   text-align: center;
+}
+#quoteImg {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  height: 65%;
+  width: auto;
 }
 /* END INDIVIDUAL ABOUT ME PAGE */
 
@@ -1388,6 +1414,9 @@ form button.btn:hover { /* All forms have these styles on buttons */
   .what-we-do-tile p {
     font-size: 1.5em;
   }
+  .contactText h4 {
+    font-size: 2.5em;
+  }
   /* End Home Page */
 
   /* ABOUT US PAGE */
@@ -1426,6 +1455,9 @@ form button.btn:hover { /* All forms have these styles on buttons */
   }
   .identify_text h3, .lightbulb_text h3, .empower_text h3, .wwd_text h3 {
     font-size: 3.4em;
+  }
+  .contactText h4 {
+    font-size: 2.0em;
   }
   .identify_text p, .lightbulb_text p, .empower_text p, .wwd_text p {
     font-size: 0.9em;
@@ -1511,6 +1543,9 @@ form button.btn:hover { /* All forms have these styles on buttons */
   }
   .identify_text h3, .lightbulb_text h3, .empower_text h3, .wwd_text h3 {
     font-size: 2.5em;
+  }
+  .contactText h4 {
+    font-size: 1.5em;
   }
   .identify_img img, .lightbulb_img img, .empower_img img {
     transform: scale(0.3);
@@ -1708,6 +1743,9 @@ form button.btn:hover { /* All forms have these styles on buttons */
     display: none;
   }
   .identify_text h3, .lightbulb_text h3, .empower_text h3, .wwd_text h3 {
+    font-size: 1.5em;
+  }
+  .contactText h4 {
     font-size: 1.5em;
   }
   .identify_img img, .lightbulb_img img, .empower_img img  {

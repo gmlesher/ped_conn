@@ -1,0 +1,60 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Lisa.</h1>
+  </div>
+
+  <section class="aboutLisa">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/lisa_berry_portrait.jpg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <ol class="aboutList">
+            <li>
+              If you could travel anywhere, where would you like to go?<br>
+              Kaui, Hawaii or the Southern Caribbean
+            </li><br>
+            <li>
+              What is the best advice you've ever been given?<br>
+              See my favorite quote in the image below!<br>
+            </li><br>
+            <li>
+              What do you do for fun?<br>
+              Yoga, cook, travel (non-Covid), spend time with my family and friends
+            </li><br>
+            <li>
+              What is your favorite movie or book? <br>
+              My favorite movie is Remember the Titans.
+            </li><br>
+            <li>
+              What is the best advice you can give your clients? <br>
+              Focus on the strengths and gifts of your child.  Let them feel secure in your unconditional love for them.
+            </li><br>
+
+          </ol>
+        </p>
+      </div>
+
+      <div>
+        <h3>Favorite Quote</h3>
+        <p>This is my favorite quote and I like to reflect on it as advice...</p>
+          <img id="quoteImg" src="{% static 'pedcon_main/images/quote.jpg' %}">
+      </div>
+
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  

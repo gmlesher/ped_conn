@@ -1,0 +1,53 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Briana.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/briana_portrait.jpg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <ol class="aboutList">
+            <li>
+              If you could travel anywhere, where would you like to go?<br>
+              If I could go anywhere I would go to Italy, to eat lots of Italian food and visit the historical sites.
+            </li><br>
+            <li>
+              What is the best advice you've ever been given?<br>
+              Best advice I've ever been given is to "never stop"...."Never stop being a better person, never stop learning, never stop living your best life".
+            </li><br>
+            <li>
+              What do you do for fun?<br>
+              In my "fun free time" I spend it with my husband, amazing daughter and our family dog. We love to enjoy the outdoors.
+            </li><br>
+            <li>
+              What is your favorite movie or book? <br>
+              Favorite movie: Currently Moana. We only watch it about 8x per week with Carter May.
+            </li><br>
+            <li>
+              What is the best advice you can give your clients? <br>
+              It is okay to be wrong & mess up, but what is important is that you learn from that and make the next outcome better.
+            </li><br>
+
+          </ol>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  

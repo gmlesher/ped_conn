@@ -676,19 +676,19 @@ form button.btn:hover { /* All forms have these styles on buttons */
   z-index: -1; /* z-index must be here for links to be clicked. otherwise, image covers links and they are un-clickable */
 }
 .bgimg-1 {
-  background-image: url("../images/rings.jpg");
+  background-image: url("../images/rings.0426ed5ae7ce.jpg");
   height: 100vh;
 }
 .bgimg-2 {
-  background-image: url('../images/baby_foot.jpg');
+  background-image: url("../images/baby_foot.45007527249a.jpg");
   height: 75vh;
 }
 .bgimg-3 {
-  background-image: url('../images/red_shirt_kid.jpg');
+  background-image: url("../images/red_shirt_kid.a2a7ecf911c3.jpg");
   height: 75vh;
 }
 .bgimg-4 {
-  background-image: url('../images/rings.jpg');
+  background-image: url("../images/rings.0426ed5ae7ce.jpg");
   height: 75vh;
 }
 .caption {
@@ -1005,7 +1005,7 @@ form button.btn:hover { /* All forms have these styles on buttons */
   background-color: white;
   position: relative;
   height: 75vh;
-  background-image: url("../images/documents.jpg");
+  background-image: url("../images/documents.66d339eb6959.jpg");
   background-attachment: scroll;
   background-position: center;
   background-repeat: no-repeat;

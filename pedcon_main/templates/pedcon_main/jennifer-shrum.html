@@ -1,0 +1,52 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Jen.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/jen_shrum_portrait.jpg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <ol class="aboutList">
+            <li>
+              If you could travel anywhere, where would you like to go?<br>
+              Thailand
+            </li><br>
+            <li>
+              What is the best advice you've ever been given?<br>
+              "Seek first His kingdom and His righteousness, and all these things will be given to you as well. Therefore do not worry about tomorrow, for tomorrow will worry about itself. Each day has enough trouble of its own." Matthew 6:33-34
+            </li><br>
+            <li>
+              What do you do for fun?<br>
+               I love spending time with others. To me it doesn't really matter what we are doing, just that we are having fun and building relationships!
+            </li><br>
+            <li>
+              What is your favorite movie or book? <br>
+              Moana!
+            </li><br>
+            <li>
+              What is the best advice you can give your clients? <br>
+              You are loved. Your life has meaning. You are incredibly valuable!
+            </li><br>
+          </ol>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  
