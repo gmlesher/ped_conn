@@ -602,9 +602,17 @@ form button.btn:hover { /* All forms have these styles on buttons */
   width: 80%;
   font-size: 16px;
   line-height: 30px;
+  margin-bottom: 0;
 }
 .aboutList {
   width: 80%;
+}
+.aboutList > dt {
+  font-size: 1.25em;
+}
+.aboutList > dd {
+  font-style: italic;
+  margin-bottom: 20px;
 }
 .aboutPages div:nth-child(1) {
   background-color: #15ade2;
