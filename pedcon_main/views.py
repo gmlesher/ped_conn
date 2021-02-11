@@ -165,7 +165,7 @@ def contact(request):
         recipients = ['gmlesher@gmail.com',]
 
         email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, recipients)
-        email.send(fail_silently=False)
+        email.send(fail_silently=True)
         return render(request, 'pedcon_main/contact.html', {'message_first_name': message_first_name})
     return render(request, 'pedcon_main/contact.html')
 

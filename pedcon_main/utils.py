@@ -225,7 +225,7 @@ class EmailPdfMixin:
 
         email.attach(email_filename, pdf_file, 'application/pdf')
         # change "fail_silently" to true for production 
-        email.send(fail_silently=False)
+        email.send(fail_silently=True)
 
         # takes user to success page after form has been emailed 
         return HttpResponseRedirect("/success")
