@@ -1,0 +1,52 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Suzanne.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/suzanne_portrait.jpg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <dl class="aboutList">
+            <dt>
+              If you could travel anywhere, where would you like to go?
+            </dt>
+            <dd>- I love learning about new places and cultures. There are very few places I would not enjoy exploring, but beautiful blue water and sunshine are hard to beat!</dd>
+            <dt>
+              What is the best advice you've ever been given?
+            </dt>
+            <dd>- You can find something in common with anyone you meet, no matter how different you think you might be, so always treat others the way you would like to be treated.</dd>
+            <dt>
+              What do you do for fun?
+            </dt>
+            <dd>- Life is short so I like to challenge myself to find fun in all things (or at least most things because we all have bad days every now and then)..... This  has led to a variety of interests: dance, yoga/aerial yoga,  movement/exercise, traveling, swimming, being outdoors/kayaking/hiking, antique shopping with my dad, party planning with my mom, trying new recipes, video games with my brother, building projects and remodeling just about anything, trying new restaurants with friends, and enjoying my dogs.</dd>
+            <dt>
+              What is your favorite movie or book? 
+            </dt>
+            <dd>- My favorite movie will forever and always be Aristocats.</dd>
+            <dt>
+              What is the best advice you can give your clients? 
+            </dt>
+            <dd>- Be mindful of small victories, they add up!</dd>
+          </dl>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  
