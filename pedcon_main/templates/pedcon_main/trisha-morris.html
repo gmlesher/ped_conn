@@ -1,0 +1,52 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Trisha.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/trisha_morris.jpeg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <dl class="aboutList">
+            <dt>
+              If you could travel anywhere, where would you like to go?
+            </dt>
+            <dd>- Hawaii</dd>
+            <dt>
+              What is the best advice you've ever been given?
+            </dt>
+            <dd>- For everything there is a season.</dd>
+            <dt>
+              What do you do for fun?
+            </dt>
+            <dd>- I like to spend time with friends and family, read, watch plays, spend time outside, and cheer on the Chiefs and Royals.</dd>
+            <dt>
+              What is your favorite movie or book? 
+            </dt>
+            <dd>- Hamilton</dd>
+            <dt>
+              What is the best advice you can give your clients? 
+            </dt>
+            <dd>- You are enough.</dd>
+          </dl>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  

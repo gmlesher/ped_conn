@@ -1,0 +1,52 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Paula.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/paula_portrait.jpg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <dl class="aboutList">
+            <dt>
+              If you could travel anywhere, where would you like to go?
+            </dt>
+            <dd>- The ocean is my happy place, anywhere where I can see the blue water and hear the waves.</dd>
+            <dt>
+              What is the best advice you've ever been given?
+            </dt>
+            <dd>- Spend time listening to others, sometimes they aren’t always looking for advice, rather need to be understood.</dd>
+            <dt>
+              What do you do for fun?
+            </dt>
+            <dd>- I love to go shopping when I really don’t need anything specifically. Gives me time to unwind. I also love to travel.</dd>
+            <dt>
+              What is your favorite movie or book? 
+            </dt>
+            <dd>- I love to read when I can find time but don’t have a favorite book. I also love musicals.</dd>
+            <dt>
+              What is the best advice you can give your clients? 
+            </dt>
+            <dd>- All children develop differently, spend time with them by being present with them, listening to them, talking to them and playing with them. This connection will take them so far!</dd>
+          </dl>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  

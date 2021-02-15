@@ -45,6 +45,12 @@ urlpatterns = [
     path('lisa-bergeson', views.lisa_bergeson, name='lisa-bergeson'),
     # About Jennifer Shrum page
     path('jennifer-shrum', views.jennifer_shrum, name='jennifer-shrum'),
+    # About Paula Worley page
+    path('paula-worley', views.paula_worley, name='paula-worley'),
+    # About Trisha Morris page
+    path('trisha-morris', views.trisha_morris, name='trisha-morris'),
+    # About Cathy Pickert page
+    path('cathy-pickert', views.cathy_pickert, name='cathy-pickert'),
 
 
 

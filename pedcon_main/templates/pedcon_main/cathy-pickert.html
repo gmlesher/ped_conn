@@ -1,0 +1,52 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Cathy.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/cathy_portrait.jpg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <dl class="aboutList">
+            <dt>
+              If you could travel anywhere, where would you like to go?
+            </dt>
+            <dd>- The beach is my favorite place to travel, but I’m also looking forward to visiting Europe someday soon! </dd>
+            <dt>
+              What is the best advice you've ever been given?
+            </dt>
+            <dd>- The best advice I’ve ever received is when I asked my grandfather, who was almost 102 years old, what he did to live so long and he said he tried not to worry.</dd>
+            <dt>
+              What do you do for fun?
+            </dt>
+            <dd>-  In my free time, I like to spend time with my husband, kids, pets, extended family and friends. I love spending time outside, taking the dogs for walks, going to movies, and shopping. I’m also scuba certified.</dd>
+            <dt>
+              What is your favorite movie or book? 
+            </dt>
+            <dd>-  I love all Disney movies- the old ones and new ones.</dd>
+            <dt>
+              What is the best advice you can give your clients? 
+            </dt>
+            <dd>-  I love working with kids and my best advice to their parents is to remember every behavior is a form of communication. The behavior/conflict can be looked at as an opportunity to teach the child skills to foster executive functioning. </dd>
+          </dl>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  

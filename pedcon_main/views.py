@@ -201,6 +201,18 @@ def jennifer_shrum(request):
     """The about us Jennifer Shrum page for pedcon."""
     return render(request, 'pedcon_main/jennifer-shrum.html')
 
+def paula_worley(request):
+    """The about us Paula Worley page for pedcon."""
+    return render(request, 'pedcon_main/paula-worley.html')
+
+def trisha_morris(request):
+    """The about us Trisha Morris page for pedcon."""
+    return render(request, 'pedcon_main/trisha-morris.html')
+
+def cathy_pickert(request):
+    """The about us Cathy Pickert page for pedcon."""
+    return render(request, 'pedcon_main/cathy-pickert.html')
+
 def services(request):
     """The services page for pedcon."""
     return render(request, 'pedcon_main/services.html')
