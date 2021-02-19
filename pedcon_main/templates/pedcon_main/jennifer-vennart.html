@@ -1,0 +1,52 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Jen.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/jen_vennart_portrait.jpg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <dl class="aboutList">
+            <dt>
+              If you could travel anywhere, where would you like to go?
+            </dt>
+            <dd>- Ireland</dd>
+            <dt>
+              What is the best advice you've ever been given?
+            </dt>
+            <dd>- Figure out what you love to do, then figure out how to get paid doing it. My Grandpa told me this in college and this is how I found OT, a career no one in my family had ever heard of, but I LOVE it!</dd>
+            <dt>
+              What do you do for fun?
+            </dt>
+            <dd>- I love to read. I am a huge brain nerd so I am always reading books to learn more about the brain and how it works.</dd>
+            <dt>
+              What is your favorite movie or book? 
+            </dt>
+            <dd>- Favorite book (right now): The Body Keeps the Score by Bessel Van Der Kolk</dd>
+            <dt>
+              What is the best advice you can give your clients? 
+            </dt>
+            <dd>- Only compare your child to your child. Your child is different than any other kid on the planet. If you are measuring progress, you will always be disappointed until you look at how far your own kiddo has come compared to where they were before.</dd>
+          </dl>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  
