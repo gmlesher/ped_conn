@@ -223,7 +223,7 @@ class EmailPdfMixin:
         # Bcc not supported by sendgrid. Workaround is to loop through
         # list of recipients and send them an individual email
         for recipient in recipients:
-            email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, [recipient])
+            email = EmailMessage(subject, message, settings.EMAIL_HOST_USER, [recipient])
             email.attach(email_filename, pdf_file, 'application/pdf')
             email.send(fail_silently=True)
 
