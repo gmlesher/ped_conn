@@ -220,12 +220,12 @@ class EmailPdfMixin:
         message = f'See attached file: \n\n'
         recipients = ['gmlesher@gmail.com',]
 
-
-        email = EmailMessage(subject, message, settings.EMAIL_HOST_USER, recipients)
-
-        email.attach(email_filename, pdf_file, 'application/pdf')
-        # change "fail_silently" to true for production 
-        email.send(fail_silently=True)
+        # Bcc not supported by sendgrid. Workaround is to loop through
+        # list of recipients and send them an individual email
+        for recipient in recipients:
+            email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, [recipient])
+            email.attach(email_filename, pdf_file, 'application/pdf')
+            email.send(fail_silently=True)
 
         # takes user to success page after form has been emailed 
         return HttpResponseRedirect("/success")
