@@ -218,7 +218,7 @@ class EmailPdfMixin:
         # send email of pdf 
         subject = f'New {data["form_title"]} Submission'
         message = f'See attached file: \n\n'
-        recipients = ['gmlesher@gmail.com',]
+        recipients = ['info@pediatricconnectionsot.com', 'glesher@garrettlesher.com',]
 
         # Bcc not supported by sendgrid. Workaround is to loop through
         # list of recipients and send them an individual email

@@ -61,7 +61,7 @@ urlpatterns = [
     # *************** urls for form pages ***************
 
     # Practice form page
-    path('practice_form/', views.PracticeFormView.as_view(), name='practice_form'),
+    # path('practice_form/', views.PracticeFormView.as_view(), name='practice_form'),
     # Client information form page
     path('client_info_form/', views.CIFormView.as_view(), name='client_info_form'),
     # Payment policy form page
@@ -84,7 +84,7 @@ urlpatterns = [
     # *************** urls for PDF views ***************
 
     # Practice PDF view
-    path('pdf_view/<int:pk>/', views.ViewPDF.as_view(), name='pdf_view'),
+    # path('pdf_view/<int:pk>/', views.ViewPDF.as_view(), name='pdf_view'),
     # Client info PDF view
     path('ci_pdf_view/<int:pk>/', views.ViewCIPDF.as_view(), name='ci_pdf_view'),
     # Payment policy PDF view

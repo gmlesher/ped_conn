@@ -13,17 +13,17 @@ from .models import *
 from .utils import *
 
 
-# Practice form processing (see .utils for Mixin)
-class PracticeFormView(ProcessFormMixin, View):
-    form_class = PracticeForm
-    initial = {'key': 'value'}
-    template_name = 'pedcon_main/practice_form.html'
-    to_url = '/pdf_view/'
+# # Practice form processing (see .utils for Mixin)
+# class PracticeFormView(ProcessFormMixin, View):
+#     form_class = PracticeForm
+#     initial = {'key': 'value'}
+#     template_name = 'pedcon_main/practice_form.html'
+#     to_url = '/pdf_view/'
 
-# renders practice information to PDF & sends email of PDF
-class ViewPDF(CreatePdfMixin, EmailPdfMixin, View):
-    model = PracticeInformation
-    template = 'pedcon_main/practice_pdf_template.html'
+# # renders practice information to PDF & sends email of PDF
+# class ViewPDF(CreatePdfMixin, EmailPdfMixin, View):
+#     model = PracticeInformation
+#     template = 'pedcon_main/practice_pdf_template.html'
 
 
 
@@ -162,7 +162,7 @@ def contact(request):
               f'Phone: {message_phone} \n'\
               f'Subject: {message_subject} \n'\
               f'Message: {message} \n'
-        recipients = ['gmlesher@gmail.com', 'glesher@garrettlesher.com',]
+        recipients = ['info@pediatricconnectionsot.com', 'glesher@garrettlesher.com',]
 
         '''# Bcc not supported by sendgrid. Workaround is to loop through list 
         of recipients and send them an individual email. Not efficient with 
