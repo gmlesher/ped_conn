@@ -218,14 +218,20 @@ class EmailPdfMixin:
         # send email of pdf 
         subject = f'New {data["form_title"]} Submission'
         message = f'See attached file: \n\n'
-        recipients = ['info@pediatricconnectionsot.com', 'glesher@garrettlesher.com',]
+        recipients = ['info@pediatricconnectionsot.com',]
+        email = EmailMessage(subject, message, settings.EMAIL_HOST_USER, recipients)
+        email.attach(email_filename, pdf_file, 'application/pdf')
+        email.send(fail_silently=True)
 
+        '''Use below code for sending to multiple recipients with sendgrid 
+        unless sendgrid has a better solution'''
+        # recipients = ['info@pediatricconnectionsot.com', 'glesher@garrettlesher.com',]
         # Bcc not supported by sendgrid. Workaround is to loop through
         # list of recipients and send them an individual email
-        for recipient in recipients:
-            email = EmailMessage(subject, message, settings.EMAIL_HOST_USER, [recipient])
-            email.attach(email_filename, pdf_file, 'application/pdf')
-            email.send(fail_silently=True)
+        # for recipient in recipients:
+        #     email = EmailMessage(subject, message, settings.EMAIL_HOST_USER, [recipient])
+        #     email.attach(email_filename, pdf_file, 'application/pdf')
+        #     email.send(fail_silently=True)
 
         # takes user to success page after form has been emailed 
         return HttpResponseRedirect("/success")

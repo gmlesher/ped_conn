@@ -162,14 +162,19 @@ def contact(request):
               f'Phone: {message_phone} \n'\
               f'Subject: {message_subject} \n'\
               f'Message: {message} \n'
-        recipients = ['info@pediatricconnectionsot.com', 'glesher@garrettlesher.com',]
+        recipients = ['info@pediatricconnectionsot.com',] 
+        email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, recipients)
+        email.send(fail_silently=True)
 
+        '''Use below code for sending to multiple recipients with sendgrid 
+        unless sendgrid has a better solution'''
+        # recipients = ['info@pediatricconnectionsot.com', 'glesher@garrettlesher.com',]
         '''# Bcc not supported by sendgrid. Workaround is to loop through list 
         of recipients and send them an individual email. Not efficient with 
         large # of recipients, ok for this use case.'''
-        for recipient in recipients:
-            email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, [recipient])
-            email.send(fail_silently=True)
+        # for recipient in recipients:
+        #     email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, [recipient])
+        #     email.send(fail_silently=True)
         return render(request, 'pedcon_main/contact.html', {'message_first_name': message_first_name})
     return render(request, 'pedcon_main/contact.html')
 
