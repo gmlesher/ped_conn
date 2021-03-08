@@ -218,7 +218,7 @@ class EmailPdfMixin:
         # send email of pdf 
         subject = f'New {data["form_title"]} Submission'
         message = f'See attached file: \n\n'
-        recipients = ['info@pediatricconnectionsot.com',]
+        recipients = ['gmlesher@gmail.com',]
         email = EmailMessage(subject, message, settings.EMAIL_HOST_USER, recipients)
         email.attach(email_filename, pdf_file, 'application/pdf')
         email.send(fail_silently=True)
