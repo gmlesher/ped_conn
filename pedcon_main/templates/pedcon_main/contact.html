@@ -25,7 +25,7 @@
     </div>
     {% else %}
     <!--Contact form-->
-    <form class="contactForm col-md-6 needs-validation" method="post" novalidate>
+    <form class="contactForm col-md-6 needs-validation" id="contactForm" method="post" novalidate>
       {% csrf_token %}
       <div>
         <h3>Be In Touch!</h3>
@@ -75,7 +75,7 @@
           Please provide a message
         </div>
       </div>
-      <button type="submit" class="btn btn-dark">Submit</button>
+      <button type="submit" class="g-recaptcha btn btn-dark" data-sitekey="6LdBmCMaAAAAAECbo6lVp875PIZYer5QXh-U6vK3" data-callback='onSubmit' data-action='submit'>Submit</button>
     </form> <!--End contact form-->
     {% endif %}
   
@@ -160,5 +160,10 @@
     
   </div>
   
-
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+   function onSubmit(token) {
+     document.getElementById("contactForm").submit();
+   }
+ </script>
 {% endblock content %}
