@@ -60,9 +60,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
   border-radius: 10px;
 }
 /*Google reCAPTCHA*/
-.g-recaptcha {
-  padding-bottom: 30px;
-}
 /*Highlight text*/
 #textHighlight  mark {
   background-color: #FFFF00;
@@ -1704,10 +1701,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
     margin: 0;
     padding: 0;
   }
-  .g-recaptcha {
-    transform: scale(0.9);
-    transform-origin: 0 0;
-  }
   /* END FORMS PAGE*/
 
   /* FAQ PAGE */
@@ -1946,10 +1939,6 @@ form button.btn:hover { /* All forms have these styles on buttons */
     list-style-type: none;
     margin: 0;
     padding: 0;
-  }
-  .g-recaptcha {
-    transform: scale(0.5);
-    transform-origin: 0 0;
   }
   /* END FORMS PAGE*/
 
