@@ -162,7 +162,7 @@ def contact(request):
               f'Phone: {message_phone} \n'\
               f'Subject: {message_subject} \n'\
               f'Message: {message} \n'
-        recipients = ['gmlesher@gmail.com',] 
+        recipients = ['info@pediatricconnectionsot.com',] 
         email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, recipients)
         email.send(fail_silently=True)
 
