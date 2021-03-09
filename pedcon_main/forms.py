@@ -1,6 +1,7 @@
 from django import forms
 from .models import *
 from localflavor.us.models import USStateField
+from django.core.validators import RegexValidator
 
 from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV3 
@@ -431,4 +432,23 @@ class SSPForm(forms.ModelForm):
             if field and isinstance(field , forms.TypedChoiceField):
                 field.choices = field.choices[1:]
     
-        
+class ContactForm(forms.Form):
+    required_css_class  = 'required'
+    captcha             = ReCaptchaField(widget=ReCaptchaV3)
+    first_name          = forms.CharField(label='First Name', max_length=50)
+    last_name           = forms.CharField(label='Last Name', max_length=50)
+    email               = forms.EmailField(label='Email', max_length=50)
+    phone_regex         = RegexValidator(regex=r'^(\+\d{1,2}\s)?\(?\d{3}\)?' \
+                            r'[\s.-]?\d{3}[\s.-]?\d{4}$')
+    phone               = forms.CharField(label='Phone', validators=[phone_regex])
+    subject             = forms.CharField(label='Subject', max_length=50)
+    message             = forms.CharField(label='Message', widget=forms.Textarea)
+
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix','')
+        super(ContactForm, self).__init__(*args, **kwargs)
+
+        # adds field name to all error messages
+        for field in self.fields.values():
+            field.error_messages = {'required':'{fieldname} is required'.format(
+                fieldname=field.label)}

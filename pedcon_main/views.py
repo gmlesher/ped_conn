@@ -149,34 +149,40 @@ class ViewSSPPDF(CreatePdfMixin, EmailPdfMixin, View):
 # Contact form view. Processes and sends content of contact form
 def contact(request):
     """The contact page for pedcon."""
+    form = ContactForm(request.POST)
     if request.method == 'POST':
-        subject = 'Contact Form Submission'
-        message_first_name = request.POST['first_name']
-        message_last_name = request.POST['last_name']
-        message_email = request.POST['email']
-        message_phone = request.POST['phone']
-        message_subject = request.POST['subject']
-        message = request.POST['message']
-        msg = f'Name: {message_first_name} {message_last_name} \n' \
-              f'Email: {message_email} \n'\
-              f'Phone: {message_phone} \n'\
-              f'Subject: {message_subject} \n'\
-              f'Message: {message} \n'
-        recipients = ['info@pediatricconnectionsot.com',] 
-        email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, recipients)
-        email.send(fail_silently=True)
 
-        '''Use below code for sending to multiple recipients with sendgrid 
-        unless sendgrid has a better solution'''
-        # recipients = ['info@pediatricconnectionsot.com', 'glesher@garrettlesher.com',]
-        '''# Bcc not supported by sendgrid. Workaround is to loop through list 
-        of recipients and send them an individual email. Not efficient with 
-        large # of recipients, ok for this use case.'''
-        # for recipient in recipients:
-        #     email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, [recipient])
-        #     email.send(fail_silently=True)
-        return render(request, 'pedcon_main/contact.html', {'message_first_name': message_first_name})
-    return render(request, 'pedcon_main/contact.html')
+        if form.is_valid():
+
+            subject = 'Contact Form Submission'
+            message_first_name = request.POST['first_name']
+            message_last_name = request.POST['last_name']
+            message_email = request.POST['email']
+            message_phone = request.POST['phone']
+            message_subject = request.POST['subject']
+            message = request.POST['message']
+            msg = f'Name: {message_first_name} {message_last_name} \n' \
+                  f'Email: {message_email} \n'\
+                  f'Phone: {message_phone} \n'\
+                  f'Subject: {message_subject} \n'\
+                  f'Message: {message} \n'
+            recipients = ['info@pediatricconnectionsot.com',] 
+            email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, recipients)
+            email.send(fail_silently=True)
+
+            '''Use below code for sending to multiple recipients with sendgrid 
+            unless sendgrid has a better solution'''
+            # recipients = ['info@pediatricconnectionsot.com', 'glesher@garrettlesher.com',]
+            '''# Bcc not supported by sendgrid. Workaround is to loop through list 
+            of recipients and send them an individual email. Not efficient with 
+            large # of recipients, ok for this use case.'''
+            # for recipient in recipients:
+            #     email = EmailMessage(subject, msg, settings.EMAIL_HOST_USER, [recipient])
+            #     email.send(fail_silently=True)
+            return render(request, 'pedcon_main/contact.html', {'message_first_name': message_first_name})
+    else:
+        form = ContactForm()
+    return render(request, 'pedcon_main/contact.html', {'form': form})
 
 def index(request):
     """The home page for pedcon."""

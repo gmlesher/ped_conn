@@ -1,5 +1,7 @@
-{% extends "pedcon_main/base.html" %}
+{% extends "pedcon_main/base_form.html" %}
 {% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <!-- Loading animation -->
@@ -25,57 +27,68 @@
     </div>
     {% else %}
     <!--Contact form-->
-    <form class="contactForm col-md-6 needs-validation" id="contactForm" method="post" novalidate>
+    <form  action="" method="post" class="contactForm col-md-6" enctype="multipart/form-data" novalidate>
+    <!-- <form class="contactForm col-md-6 needs-validation" id="contactForm" method="post" novalidate> -->
       {% csrf_token %}
       <div>
         <h3>Be In Touch!</h3>
         <p>Please contact us via the form below, by email, or by phone.</p>
       </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="fname">First Name</label>
-          <input type="text" class="form-control" id="fname" placeholder="First Name" name="first_name" required>
-          <div class="invalid-feedback">
-            Please provide a first name
+
+      {% for field in form.visible_fields %}
+
+        {% if field.name == "first_name" %}
+          <div class="form-row">
+            <div class="form-group col-md-6"> 
+              {{ block.super }}
+            </div>
+        {% elif field.name == "last_name" %}
+            <div class="form-group col-md-6"> 
+              {{ block.super }}
+            </div>
           </div>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="lname">Last Name</label>
-          <input type="text" class="form-control" id="lname" placeholder="Last Name" name="last_name" required>
-          <div class="invalid-feedback">
-            Please provide a last name
+        {% endif %}
+
+        {% if field.name == "email" %}
+          <div class="form-row">
+            <div class="form-group col-md-12"> 
+              {{ block.super }}
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
-        <div class="invalid-feedback">
-          Please provide an email
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone</label>
-        <input type="tel" class="form-control" id="phone" placeholder="Phone #" name="phone" required>
-        <div class="invalid-feedback">
-          Please provide a phone number
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="subject">Subject</label>
-        <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject" required>
-        <div class="invalid-feedback">
-          Please provide a subject
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="messagebox">Message</label>
-        <textarea class="form-control" id="messagebox" rows="3" placeholder="Message" name="message" required></textarea>
-        <div class="invalid-feedback">
-          Please provide a message
-        </div>
-      </div>
-      <button type="submit" class="g-recaptcha btn btn-dark" data-sitekey="6LdBmCMaAAAAAECbo6lVp875PIZYer5QXh-U6vK3" data-callback='onSubmit' data-action='submit'>Submit</button>
+        {% endif %}
+
+        {% if field.name == "phone" %}
+          <div class="form-row">
+            <div class="form-group col-md-12"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if field.name == "subject" %}
+          <div class="form-row">
+            <div class="form-group col-md-12"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if field.name == "message" %}
+          <div class="form-row">
+            <div class="form-group col-md-12"> 
+              {{ block.super }}
+            </div>
+          </div>
+        {% endif %}
+
+
+        {% if field.name == "captcha" %}
+          {{ form.captcha }}
+        {% endif %}
+
+        {% endfor %}
+
+      <button type="submit" class="btn btn-dark" value="Submit">Submit</button>
     </form> <!--End contact form-->
     {% endif %}
   
@@ -159,11 +172,6 @@
 
     
   </div>
+
   
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-   function onSubmit(token) {
-     document.getElementById("contactForm").submit();
-   }
- </script>
 {% endblock content %}
