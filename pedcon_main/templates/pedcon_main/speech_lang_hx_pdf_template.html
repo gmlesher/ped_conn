@@ -67,7 +67,7 @@
       <td>Parent Email: {{ object.parent_email|default_if_none:"" }}</td>
     </tr>
     <tr>
-      <td>DOB: {{ object.dob|default_if_none:"" }}</td>
+      <td>DOB: {{ object.dob|date:"n/j/Y"|default_if_none:"" }}</td>
       <td>Who referred you to Pediatric Connections? {{ object.ref_source|default_if_none:"" }}</td>
     </tr>
     <tr>
@@ -124,9 +124,9 @@
 
   <table>
     <tr>
-      <td>Date of ear tubes: {{ object.date_of_tubes|default_if_none:"" }}</td>
+      <td>Date of ear tubes: {{ object.date_of_tubes|date:"n/j/Y"|default_if_none:"" }}</td>
       
-      <td>Last Hearing Exam: {{ object.last_hearing_exam|default_if_none:"" }}</td>
+      <td>Last Hearing Exam: {{ object.last_hearing_exam|date:"n/j/Y"|default_if_none:"" }}</td>
     </tr>
     <tr>
       <td>Tonsillitis: How Often? {{ object.tonsillitis_freq|default_if_none:"" }}</td>

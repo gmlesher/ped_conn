@@ -76,7 +76,7 @@
         <td>Client Name: {{ object.client_first_name|default_if_none:"" }} {{ object.client_last_name|default_if_none:"" }}</td>
       </tr>
       <tr>
-        <td>DOB: {{ object.dob|default_if_none:"" }}</td>
+        <td>DOB: {{ object.dob|date:"n/j/Y"|default_if_none:"" }}</td>
       </tr>
   </table><br>
   <section>
@@ -151,7 +151,7 @@
         <td>{{ object.second_address_2|default_if_none:"" }}</td>
       </tr>
       <tr>
-        <td>Date: {{ object.date|default_if_none:"" }}</td>
+        <td>Date: {{ object.date|date:"n/j/Y"|default_if_none:"" }}</td>
         <td>{{ object.second_city|default_if_none:"" }}, {{ object.second_state|default_if_none:"" }}</td>
         
       </tr>

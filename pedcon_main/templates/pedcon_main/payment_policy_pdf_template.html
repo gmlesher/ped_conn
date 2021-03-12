@@ -160,7 +160,7 @@
       <td class="right">-</td>
     </tr>
     <tr>
-      <td class="left">Date: {{ object.date|default_if_none:"" }}</td>
+      <td class="left">Date: {{ object.date|date:"n/j/Y"|default_if_none:"" }}</td>
       <td class="right">-</td>
     </tr>
 

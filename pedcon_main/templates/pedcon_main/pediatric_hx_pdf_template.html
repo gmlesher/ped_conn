@@ -64,7 +64,7 @@
       <td>Client Name: {{ object.client_first_name|default_if_none:"" }} {{ object.client_last_name|default_if_none:"" }}</td>
     </tr>
     <tr>
-      <td>DOB: {{ object.dob|default_if_none:"" }}</td>
+      <td>DOB: {{ object.dob|date:"n/j/Y"|default_if_none:"" }}</td>
     </tr>
     <tr>
       <td>Gender: {{ object.gender|default_if_none:"" }}</td>

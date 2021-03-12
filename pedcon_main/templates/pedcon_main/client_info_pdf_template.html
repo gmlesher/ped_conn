@@ -140,8 +140,8 @@
         <td>Policy Holder Name: {{ object.sec_pol_hold_first_name|default_if_none:"" }} {{ object.sec_pol_hold_last_name|default_if_none:"" }}</td>
       </tr>
       <tr>
-        <td>Policy Holder DOB: {{object.pol_hold_dob|default_if_none:""}}</td>
-        <td>Policy Holder DOB: {{object.sec_pol_hold_dob|default_if_none:""}}</td>
+        <td>Policy Holder DOB: {{object.pol_hold_dob|date:"n/j/Y"|default_if_none:""}}</td>
+        <td>Policy Holder DOB: {{object.sec_pol_hold_dob|date:"n/j/Y"|default_if_none:""}}</td>
       </tr>
       <tr>
         <td>Policy Holder Employer: {{ object.pol_hold_employer|default_if_none:""}} </td>
