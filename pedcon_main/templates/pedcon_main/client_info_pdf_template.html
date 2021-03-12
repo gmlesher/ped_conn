@@ -69,7 +69,7 @@
         <td>Physician: {{ object.physician|default_if_none:"" }}</td>
       </tr>
       <tr>
-        <td>DOB: {{ object.dob|default_if_none:"" }}</td>
+        <td>DOB: {{ object.dob|date:"n/j/Y"|default_if_none:"" }}</td>
         <td>{{ object.address_2|default_if_none:"" }}</td>
         <td>Prim. Phone Type: {{object.prim_phone_type|default_if_none:""}}</td>
         <td>Phys Fax: {{ object.physician_fax|default_if_none:"" }}</td>
