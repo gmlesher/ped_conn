@@ -633,3 +633,20 @@ class SafeAndSoundInformation(models.Model):
     willingness             = models.CharField(max_length=100, choices=WILLINGNESS, default="abc")
     willingness_comm        = models.TextField(blank=True, null=True, \
                                 verbose_name="Comments")   
+
+class HipaaInformation(models.Model):
+    # User information
+    device_info     = models.CharField(max_length=100, blank=True, null=True)
+    ip_address      = models.GenericIPAddressField(null=True, blank=True)
+    country         = models.CharField(max_length=100, blank=True, null=True)
+    created_at      = models.DateTimeField(auto_now_add=True, editable=False)
+
+    # First Section (client information)
+    first_name      = models.CharField(max_length=100)
+    last_name       = models.CharField(max_length=100)
+    date            = models.DateField(auto_now=False, auto_now_add=False)
+
+    # Signature Field data
+    sig_data_URL    = models.TextField(blank=True)
+    sig_img         = models.ImageField(blank=True, upload_to='sig_images/hipaa_form_sigs')
+    filename        = models.CharField(max_length=255, blank=True, null=True)

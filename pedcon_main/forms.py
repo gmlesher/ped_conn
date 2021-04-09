@@ -431,6 +431,29 @@ class SSPForm(forms.ModelForm):
             field = self.fields.get(field_name)
             if field and isinstance(field , forms.TypedChoiceField):
                 field.choices = field.choices[1:]
+
+class HipaaForm(forms.ModelForm):
+    required_css_class = 'required'
+    captcha = ReCaptchaField(widget=ReCaptchaV3)
+    class Meta:
+        model = HipaaInformation
+        fields = '__all__'
+        labels = {
+        'sig_data_URL': '',
+        }
+        widgets = {
+        'date': forms.DateInput(attrs={'placeholder': 'MM/DD/YYY', 'type': 'date'}),
+        'sig_data_URL': forms.HiddenInput(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix','')
+        super(HipaaForm, self).__init__(*args, **kwargs)
+
+        # adds field name to all error messages
+        for field in self.fields.values():
+            field.error_messages = {'required':'{fieldname} is required'.format(
+                fieldname=field.label)}
     
 class ContactForm(forms.Form):
     required_css_class  = 'required'

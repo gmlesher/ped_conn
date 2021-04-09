@@ -113,7 +113,14 @@ class CreatePdfMixin:
                 with request.urlopen(img_string) as response:
                     d = response.read()
 
-                file_name = f'{obj.client_last_name.lower()}_{obj.client_first_name.lower()}_sig_pf_{pk}.png'
+                """try to get 'client_last_name'. if exception, get 'first_name',  
+                'last_name' in Hipaa form"""
+                try:
+                    file_name = f'{obj.client_last_name.lower()}_{obj.client_first_name.lower()}_sig_pf_{pk}.png'
+                # only Hipaa form has first_name and last_name, so I know the exception will work for that form
+                except:
+                    file_name = f'{obj.last_name.lower()}_{obj.first_name.lower()}_sig_pf_{pk}.png'
+
                 obj.filename = file_name.replace("'","").replace(" ","_")
                 with open(file_name, "wb") as f:
                     f.write(d)

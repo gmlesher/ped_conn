@@ -133,7 +133,7 @@ savePNGButton.addEventListener("click", function (event) {
 // also adds validation message for signature field if empty
 // prevents multiple error messages upon multiple invalid submissions for signature pads
 if (signaturePad) {
-  $('.PracticeForm, .paymentPolicyForm, .cancellationPolicyForm, .roiForm').submit(function(e){
+  $('.PracticeForm, .paymentPolicyForm, .cancellationPolicyForm, .roiForm, .hipaaForm').submit(function(e){
     e.preventDefault();
     var errorExists = false;
     if(signaturePad.isEmpty()){

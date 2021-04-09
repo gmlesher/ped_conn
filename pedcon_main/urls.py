@@ -78,6 +78,8 @@ urlpatterns = [
     path('roi_form/', views.ROIFormView.as_view(), name='roi_form'),
     # SSP form page
     path('ssp_form/', views.SSPFormView.as_view(), name='ssp_form'),
+    # Hipaa form page
+    path('hipaa_form/', views.HipaaFormView.as_view(), name='hipaa_form'),
 
 
 
@@ -101,5 +103,7 @@ urlpatterns = [
     path('speech_lang_hx_pdf_view/<int:pk>/', views.ViewSpeechLangHxPDF.as_view(), name='speech_lang_hx_pdf_view'),
     # Safe and Sound PDF view
     path('ssp_pdf_view/<int:pk>/', views.ViewSSPPDF.as_view(), name='ssp_pdf_view'),
+    # Hipaa PDF view
+    path('hipaa_pdf_view/<int:pk>/', views.ViewHipaaPDF.as_view(), name='hipaa_pdf_view'),
     
 ]

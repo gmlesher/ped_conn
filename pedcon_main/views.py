@@ -146,6 +146,23 @@ class ViewSSPPDF(CreatePdfMixin, EmailPdfMixin, View):
     template = 'pedcon_main/safe_and_sound_pdf_template.html'
 
 
+
+
+# Hipaa form processing (see .utils for Mixin)
+class HipaaFormView(ProcessFormMixin, View):
+    form_class = HipaaForm
+    initial = {'key': 'value'}
+    template_name = 'pedcon_main/hipaa_form.html'
+    to_url = '/hipaa_pdf_view/'
+
+# renders SSP information to PDF & sends email of PDF
+class ViewHipaaPDF(CreatePdfMixin, EmailPdfMixin, View):
+    model = HipaaInformation
+    template = 'pedcon_main/hipaa_pdf_template.html'
+
+
+
+
 # Contact form view. Processes and sends content of contact form
 def contact(request):
     """The contact page for pedcon."""

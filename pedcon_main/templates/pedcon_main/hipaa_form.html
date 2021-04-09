@@ -1,0 +1,164 @@
+{% extends "pedcon_main/base_form.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+<!-- Loading animation -->
+<div class="loaderDiv">
+  {% include 'pedcon_main/loader.html'%}
+  <h5 class="d-flex mx-auto loading_msg">Processing Form
+    <span></span>
+    <span></span>
+    <span></span>
+  </h5>
+</div>
+
+<!--Hipaa form-->
+<form  action="" method="post" class="hipaaForm form" novalidate>
+  {% csrf_token %}
+  <div>
+    <img class="formsLogo d-flex mx-auto" src="{% static 'pedcon_main/images/logo_small.png' %}">
+  </div>
+
+  <div>
+    <h3>HIPAA</h3>
+    <h6 class="text-center"><strong>Privacy and Confidentiality Training</strong></h6>
+    <h6 class="text-center"><strong>Objective: Educate regarding HIPAA and Privacy Policy basics</strong></h6>
+  </div>
+
+  <h5>Introduction</h5>
+
+  <p>The Health Insurance Portability and Accountability Act of 1996 (HIPAA) is a federal law that is best known for allowing individuals to maintain health insurance when they move from job to job. An additional purpose of HIPAA is to provide security and privacy for health information that is transmitted under standards for health care billing.</p>
+
+  <p>Under the HIPAA privacy and security regulations, we are required to ensure the access to patient information is restricted to only those that need the information as part of their job responsibilities (role‐based access), give rights to patients, provide secure storage of patient records, protect against computer hazards that can damage patient data, and to transmit data in a secure manner. Since HIPAA is federal law, it also establishes civil and criminal penalties for privacy violations.</p>
+
+  <h5>Why is Privacy Important?</h5>
+
+  <p>All of us have certain information that we don't want to share with the entire world. When it comes to health care, it's important that we feel comfortable telling a doctor, nurse, or other health care provider everything that is happening to us. Privacy protections ensure that the people who really need our health information, to give us care or to pay for our care, have all the information they need to help us.</p>
+
+  <p>Health care workers have always been respectful of the need for patient privacy; we don't need a new law for that. But two important developments have created the need for privacy laws.</p>
+
+  <p>First, scientists have learned more about our genetic make‐up and causes of disease that we inherit from our family. We want to make sure that genetic information is used appropriately and not used to discriminate against us.</p>
+
+  <p>Secondly, much of our health information is stored on computers. It may be sent by computer to places like laboratories, insurance companies, billing specialists, and other health care administrators. Information on computers is easier to use, but it is also easier to misuse.</p>
+
+  <p>Privacy laws ensure that information used for treatment and payment is exchanged appropriately; they also govern the way our information might be used for purposes other than our own personal health care.</p>
+
+  <h5>Social Networking</h5>
+
+  <h6><strong>Things you need to know:</strong></h6>
+
+  <p>Do not post digital images and messages containing protected health information (PHI). Remember recognizable markings or body parts are PHI.</p>
+
+  <p>Remember that content posted on any social media platform becomes immediately searchable and can be immediately shared.  It immediately leaves your control forever.</p>
+
+  <p>Known or suspected incidents involving use or disclosure of PHI or personal information through social networking are reported to Pediatric Connections OT administration and are investigated.</p>
+
+  <p>Federal law and regulations require breach notification and reporting when a patient’s health information is accessed, used or disclosed in a way that violates the Privacy Rule of HIPAA and poses a significant risk of reputational, financial, or other harm to the individual.</p>
+
+  <h5>Information Covered by the Law?</h5>
+
+  <p>Protected Health Information (PHI) is the key focus of the law. Information is considered to be PHI if it:</p>
+
+  <ul>
+    <li>Relates to past, present or future therapy/care, or health care, or payment for clinic services</li>
+    <li>Identifies the individual, either directly or indirectly</li>
+    <li>PHI is found throughout the clinic, such as charts, billing records, and databases</li>
+    <li>It can be written, verbal, or electronic</li>
+    <li>Also includes information that is exchanged in conversation, by fax, or by email</li> 
+  </ul>
+
+  <h5>How Does HIPAA Affect Pediatric Connections OT?</h5>
+
+  <p>HIPAA affects all of us at Pediatric Connections OT, even if our educational experience doesn't involve direct patient care. We may be exposed to patient information simply because we are in a health care environment.  For example, you may recognize someone sitting in a waiting room, or you might be in an area that maintains patient records. While these exposures to patient information may be unavoidable, and they are not violations of the law, we are obligated to keep this information private and not share it with anyone who doesn't need to know.</p>
+
+  <h5>Penalties for Violations</h5>
+
+  <p>You are liable for privacy and security.</p>
+  <p>You personally can be held criminally liable for knowingly obtaining or disclosing PHI in violation of HIPAA/HITECH.</p>
+  <p>You personally can be sued by a patient claiming the privacy of their personal information was violated.</p>
+
+  <h5>The “Take‐Home” Message</h5>
+
+  <p>The HIPAA Privacy Rule represents the first comprehensive federal protections for patient privacy, and it provides benefits for individuals and for the health care system. Patients will benefit from the rights established by the law and by knowing that their information is safe when it is transmitted electronically.</p>
+
+  <p>The regulations also promote quality health care: as we communicate respect for privacy, patients feel comfortable in sharing the information we need for accurate diagnosis and treatment. Accurate information is vital to our understanding and prevention of disease and the advancement of health for our society.</p>
+
+  <p>Being in a healthcare setting could lead to various exposures of PHI, we are obligated to keep this information private and not share it with anyone who doesn't need to know.</p>
+
+  <section>
+    <p>
+      <strong>
+        You have completed basic safety and confidentiality training. By signing below you agree to the above information and adherence.
+      </strong> 
+    </p>
+  </section>
+
+  {% for field in form.visible_fields %}
+
+    {% if field.name == "first_name" %}
+      <div class="form-row">
+        <div class="form-group col-md-6"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "last_name" %}
+        <div class="form-group col-md-6"> 
+          {{ block.super }}
+        </div>
+    {% elif field.name == "date" %}
+        <div class="form-group col-md-4"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+  {% endfor %}
+
+  {% for field in form.hidden_fields %}
+
+    {% if field.name == "sig_data_URL" %}
+      <div class="form-row">
+        <div class="form-group col-md-12"> 
+          {{ block.super }}
+        </div>
+      </div>
+    {% endif %}
+
+  {% endfor %}
+
+      
+  <label class="required">Signature</label>
+  <div id="signature-pad" class="signature-pad">
+    <div class="signature-pad--body">
+      <canvas id="sigImg"></canvas>
+    </div><br>
+    <div class="signature-pad--footer">
+      <div class="signature-pad--actions">
+        <div>
+          <button type="button" class="btn btn-dark clear" data-action="clear">Clear Signature</button>
+          <button type="button" class="btn btn-dark undo" data-action="undo">Undo</button>
+          <button type="button" class="btn btn-dark save" name="savePNG" data-action="save-png" hidden>Save PNG</button>
+        </div>
+      </div>
+    </div>
+  </div><br>
+
+
+  {% for field in form.visible_fields %}
+
+    {% if field.name == "captcha" %}
+      {{ form.captcha }}
+    {% endif %}
+
+  {% endfor %}      
+
+  <button type="submit" class="btn btn-dark" value="Submit">Submit</button>
+</form>
+
+<script src="{% static 'pedcon_main/js/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'pedcon_main/js/signature_pad.umd.js' %}"></script>
+<script src="{% static 'pedcon_main/js/app.js' %}"></script>
+
+{% endblock content %}
+

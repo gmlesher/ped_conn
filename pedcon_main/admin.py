@@ -160,7 +160,7 @@ model_names.sort()
 
 
 # PDF template names for each associated model
-template_names = ['pedcon_main/practice_pdf_template.html', 'pedcon_main/client_info_pdf_template.html', 'pedcon_main/payment_policy_pdf_template.html', 'pedcon_main/cancellation_pdf_template.html', 'pedcon_main/pediatric_hx_pdf_template.html', 'pedcon_main/adult_hx_pdf_template.html', 'pedcon_main/speech_lang_hx_pdf_template.html', 'pedcon_main/roi_pdf_template.html', 'pedcon_main/safe_and_sound_pdf_template.html']
+template_names = ['pedcon_main/practice_pdf_template.html', 'pedcon_main/client_info_pdf_template.html', 'pedcon_main/payment_policy_pdf_template.html', 'pedcon_main/cancellation_pdf_template.html', 'pedcon_main/pediatric_hx_pdf_template.html', 'pedcon_main/adult_hx_pdf_template.html', 'pedcon_main/speech_lang_hx_pdf_template.html', 'pedcon_main/roi_pdf_template.html', 'pedcon_main/safe_and_sound_pdf_template.html', 'pedcon_main/hipaa_pdf_template.html']
 
 # alphabetizes items in "template_names" list for purpose of matching 
 # with alphabetized "model_names" list so they match in "paired_dict" list below.
