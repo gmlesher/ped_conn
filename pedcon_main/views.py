@@ -254,6 +254,14 @@ def jennifer_vennart(request):
     """The about us Jennifer Vennart page for pedcon."""
     return render(request, 'pedcon_main/jennifer-vennart.html')
 
+def casey_fitzgerald(request):
+    """The about us Casey Fitzgerald page for pedcon."""
+    return render(request, 'pedcon_main/casey-fitzgerald.html')
+
+def kelly_daugherty(request):
+    """The about us Kelly Daugherty page for pedcon."""
+    return render(request, 'pedcon_main/kelly-daugherty.html')
+
 def services(request):
     """The services page for pedcon."""
     return render(request, 'pedcon_main/services.html')

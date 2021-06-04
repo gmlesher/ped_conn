@@ -33,7 +33,6 @@ class PracticeInformation(models.Model):
     filename        = models.CharField(max_length=255, blank=True, null=True)
     
 
-
 class ClientInformation(models.Model):    
     # User information
     device_info         = models.CharField(max_length=100, blank=True, null=True)
@@ -138,8 +137,6 @@ class ClientInformation(models.Model):
                                 blank=True, null=True)
 
     
-
-
 class PaymentPolicyInformation(models.Model):
     # User information
     device_info         = models.CharField(max_length=100, blank=True, null=True)
@@ -173,7 +170,6 @@ class PaymentPolicyInformation(models.Model):
     sig_data_URL    = models.TextField(blank=True)
     sig_img         = models.ImageField(blank=True, upload_to='sig_images/payment_policy_form_sigs')
     filename        = models.CharField(max_length=255, blank=True, null=True)
-
 
 
 class CancellationPolicyInformation(models.Model):
@@ -567,6 +563,7 @@ class ReleaseOfInformation(models.Model):
     sig_img         = models.ImageField(blank=True, upload_to='sig_images/roi_form_sigs')
     filename        = models.CharField(max_length=255, blank=True, null=True)
 
+
 class SafeAndSoundInformation(models.Model):
     # User information
     device_info             = models.CharField(max_length=100, blank=True, null=True)
@@ -633,6 +630,7 @@ class SafeAndSoundInformation(models.Model):
     willingness             = models.CharField(max_length=100, choices=WILLINGNESS, default="abc")
     willingness_comm        = models.TextField(blank=True, null=True, \
                                 verbose_name="Comments")   
+
 
 class HipaaInformation(models.Model):
     # User information

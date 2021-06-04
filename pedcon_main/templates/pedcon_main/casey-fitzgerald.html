@@ -1,0 +1,52 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Casey.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/casey_portrait.jpeg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <dl class="aboutList">
+            <dt>
+              If you could travel anywhere, where would you like to go?
+            </dt>
+            <dd>- I would love to travel anywhere with a mountain view, good hiking trails, and waterfalls.</dd>
+            <dt>
+              What is the best advice you've ever been given?
+            </dt>
+            <dd>- This quote from Corrie Ten Boom was shared with me, and I think of it often. “Is prayer your steering wheel or your spare tire?” </dd>
+            <dt>
+              What do you do for fun?
+            </dt>
+            <dd>-  Visit National Parks, explore creeks and nature with my boys, watch Chiefs football, play frisbee, spike ball, and lawn darts.</dd>
+            <dt>
+              What is your favorite movie or book? 
+            </dt>
+            <dd>-  While you were Sleeping, Sleepless in Seattle, My Big Fat Greek Wedding, or basically any romantic comedy from the 90's or early 2000's.</dd>
+            <dt>
+              What is the best advice you can give your clients? 
+            </dt>
+            <dd>-  Pray for your kids, tell them they are loved, and remember that they are each uniquely and wonderfully made.</dd>
+          </dl>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  
