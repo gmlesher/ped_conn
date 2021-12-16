@@ -59,6 +59,8 @@ urlpatterns = [
     path('casey-fitzgerald', views.casey_fitzgerald, name='casey-fitzgerald'),
     # About Kelly Daugherty page
     path('kelly-daugherty', views.kelly_daugherty, name='kelly-daugherty'),
+    # About Kaylan Campain page
+    path('kaylan-campain', views.kaylan_campain, name='kaylan-campain'),
 
 
 

@@ -1,0 +1,56 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Kaylan.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/kaylan_portrait.jpeg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <dl class="aboutList">
+            <dt>
+              If you could travel anywhere, where would you like to go?
+            </dt>
+            <dd>- I love adventures and delicious food. Thailand is my favorite destination! They have mountains, beaches, the best food and the most delightful people.</dd>
+            <dt>
+              What is the best advice you've ever been given?
+            </dt>
+            <dd>- Serve the orphan within your community so they can be known and fully loved.</dd>
+            <dt>
+              What do you do for fun?
+            </dt>
+            <dd>- Riding bikes with my boys on the trail with our end destination at our favorite restaurant. In the winter, it’s time to get out the fire pit and roast marshmallows.</dd>
+            <dt>
+              What is your favorite movie or book? 
+            </dt>
+            <dd>- I love About Time and Instant Family. Give me a bowl of popcorn and I am down to watch any Rom-Com.</dd>
+            <dt>
+              What is the best advice you can give your clients? 
+            </dt>
+            <dd>- You are doing an amazing job! We see you and are here to celebrate the wins and activate your fullest potential!</dd>
+            <dt>
+              Bonus: Favorite scripture verse
+            </dt>
+            <dd>- “Although the smallest of all the seeds, it eventually grows into the greatest garden plants, becoming a tree of birds to come and build their nests in its branches" Matthew 13:32</dd>
+          </dl>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  
