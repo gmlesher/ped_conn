@@ -1,0 +1,52 @@
+{% extends "pedcon_main/base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is Andrea.</h1>
+  </div>
+
+  <section class="about">
+    <div class="aboutPicture">
+      <img src="{% static 'pedcon_main/images/allison_casey.jpg' %}">
+    </div>
+    <div class="aboutPages">
+      <div>
+        <h3>A little about me...</h3>
+        <p>
+          <dl class="aboutList">
+            <dt>
+              If you could travel anywhere, where would you like to go?
+            </dt>
+            <dd>-  I am not a traveler - I much prefer hosting family and enjoying the blessings I have at home.</dd>
+            <dt>
+              What is the best advice you've ever been given?
+            </dt>
+            <dd>- Don't sweat the small stuff - instead "Cast all your cares on Him for He cares about you." 1 Peter 5:7</dd>
+            <dt>
+              What do you do for fun?
+            </dt>
+            <dd>- I love to bake! Cookies are my favorite because they are fun to decorate and there is always plenty to share. I also like to craft, sew, and make fun projects with my kids. </dd>
+            <dt>
+              What is your favorite movie or book? 
+            </dt>
+            <dd>- Favorite book - "This Present Darkness" by Frank Peretti or anything by A.W.Tozer</dd>
+            <dt>
+              Advice for clients:
+            </dt>
+            <dd>- Every situation is an opportunity to choose joy and know that the Lord is working in every aspect of your life even in the situations that are hard, uncomfortable or that we don't understand.  James 1:2, Psalms 37:23, Romans 8:28</dd>
+          </dl>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="aboutOtherInfo">
+    <a href="{% url 'pedcon_main:about_us' %}"><h3>Return to "About Us"</h3></a>
+  </section>
+
+{% endblock content %}
+
+  
