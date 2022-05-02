@@ -270,6 +270,10 @@ def allison_casey(request):
     """The about us Allison Casey page for pedcon."""
     return render(request, 'pedcon_main/allison-casey.html')
 
+def taylor_sjorgen(request):
+    """The about us Taylor Sjorgen page for pedcon."""
+    return render(request, 'pedcon_main/taylor-sjorgen.html')
+
 def services(request):
     """The services page for pedcon."""
     return render(request, 'pedcon_main/services.html')

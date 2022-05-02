@@ -63,6 +63,8 @@ urlpatterns = [
     path('kaylan-campain', views.kaylan_campain, name='kaylan-campain'),
     # About Allison Casey page
     path('allison-casey', views.allison_casey, name='allison-casey'),
+    # About Taylor Sjorgen page
+    path('taylor-sjorgen', views.taylor_sjorgen, name='taylor-sjorgen'),
 
 
 
