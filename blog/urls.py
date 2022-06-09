@@ -12,5 +12,5 @@ urlpatterns = [
     path('article/<int:pk>/', BlogContentView.as_view(), name='article'),
     # blog categories page.
     path('category/<str:cats>/', CategoryView, name='category'),
-    
+
 ]

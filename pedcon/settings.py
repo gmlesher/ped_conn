@@ -176,12 +176,14 @@ DEFAULT_FILE_STORAGE = 'pedcon.storage_backends.MediaStorage'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/pedcon_main/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'pedcon_main/static'),
 )
+
+STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 

@@ -1,0 +1,55 @@
+{% extends "pedcon_main/base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="pageHeading">
+        <h1>Blog</h1>
+    </div>
+
+    <div class="row mainBlogRow">
+        <div class="col-md-8">
+          <div class="blogRow row">
+                {% for post in blogpages %}
+                    <div class="blogBox">
+                        {% with post=post.specific %}
+                            <a href="{% pageurl post %}">
+                                <div class="blog1">
+                                    {% with post.main_image as main_image %}
+                                        {% if main_image %}
+                                            {% image main_image height-1000 as header_photo %}
+                                            <img class="header_photo mb-2" src="{{ header_photo.url }}">
+                                        {% endif %}
+                                    {% endwith %} 
+                                </div>
+                                <h3 class="blogTitle">{{ post.title }}</h3>
+                            </a>
+                        {% endwith %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+  
+        <div class="col-md-4 mt-2 mx-auto sticky-top blogRight">
+            <img class="mx-auto d-block" style="width: 180px; padding-top:20px;" src="{% static 'pedcon_main/images/logo.png' %}" alt="logo">
+            <h2 class="blogSectionTitle text-white">Blog Categories</h2>
+  
+            <div class="blogCategories text-center">
+                <ul class="list-unstyled">
+                    {% for cat in categories %}
+                        <li><h4><a href="?category={{ cat.slug }}">{{ cat.name }}</a></h4></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'blog/js/blog.js' %}"></script>
+{% endblock %}

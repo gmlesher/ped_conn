@@ -1,26 +1,26 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Post, Category
+from .models import BlogIndexPage, BlogPage
 
 
 class BlogView(ListView):
-    model = Post
-    template_name = 'blog/blog.html'
+    model = BlogIndexPage
+    template_name = 'blog/blog_index_page.html'
     ordering = ['-id']
 
     # list of categories for blog home page "blog categories" list
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories_list'] = Category.objects.all().order_by('name')
+        context['categories_list'] = BlogPage.objects.all().order_by('name')
         return context
 
+
 class BlogContentView(DetailView):
-    model = Post
-    template_name = 'blog/blog_content.html'
+    model = BlogPage
+    template_name = 'blog/blog_page.html'
+
 
 def CategoryView(request, cats):
-    category_posts = Post.objects.filter(slug=cats)
-    context = {'cats':cats, 'category_posts':category_posts}  
+    category_posts = BlogIndexPage.objects.filter(slug=cats)
+    context = {'cats': cats, 'category_posts': category_posts}
     return render(request, 'blog/categories.html', context)
-
-
