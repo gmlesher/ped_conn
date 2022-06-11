@@ -21,6 +21,7 @@
   </head>
   
   <body>
+    {% wagtailuserbar %}
     
     <header class="header">
       
@@ -48,8 +49,7 @@
               <a class="nav-link" href="{% url 'pedcon_main:services' %}">Services</a><hr class="d-block d-lg-none d-xl-none">
             </li>
             <li class="nav-item">
-              {% comment %} {% wagtailuserbar %} {% endcomment %}
-              <a class="nav-link">Blog</a><hr class="d-block d-lg-none d-xl-none">
+              <a class="nav-link" href="/blog/">Blog</a><hr class="d-block d-lg-none d-xl-none">
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'pedcon_main:forms' %}">Forms</a><hr class="d-block d-lg-none d-xl-none">
