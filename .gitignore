@@ -1,5 +1,5 @@
-staticfiles/
-static/
+# staticfiles/
+# static/
 env/
 __pycache__/
 *.sqlite3
