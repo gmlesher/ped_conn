@@ -68,7 +68,6 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
-    'pedcon.middleware.basic_auth_middleware.BasicAuthMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
     # Simplified static file serving. (For Heroku)
@@ -80,7 +79,10 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware', 
+
+    # My custom middleware
+    'pedcon.middleware.basic_auth_middleware.BasicAuthMiddleware'
 ]
 
 ROOT_URLCONF = 'pedcon.urls'
