@@ -17,6 +17,9 @@ import os
 import django_heroku
 import dj_database_url
 
+BASICAUTH_USERNAME = os.environ.get('BASICAUTH_USERNAME')
+BASICAUTH_PASSWORD = os.environ.get('BASICAUTH_PASSWORD')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -65,6 +68,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
+    'pedcon.middleware.basic_auth_middleware.BasicAuthMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
     # Simplified static file serving. (For Heroku)
@@ -76,7 +80,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'pedcon.urls'
@@ -280,7 +284,7 @@ CKEDITOR_CONFIGS = {
 #     },
 # }
 
-# heku settings.
+# heroku settings.
 django_heroku.settings(locals())
 
 if os.environ.get('DEBUG') == 'TRUE':
