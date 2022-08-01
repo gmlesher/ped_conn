@@ -21,8 +21,8 @@ class BasicAuthMiddleware(object):
     # this middleware from the list.
     # TODO: This should probably be based off of the QA env once we hit
     # production
-    if settings.DEBUG:
-        raise MiddlewareNotUsed
+    # if settings.DEBUG:
+    #     raise MiddlewareNotUsed
 
     def _unauthed(self):
         response = HttpResponse(AUTH_TEMPLATE, content_type="text/html")
