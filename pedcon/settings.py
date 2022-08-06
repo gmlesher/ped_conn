@@ -272,6 +272,8 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 # LOGGING = {
 #     'version': 1,
 #     'disable_existing_loggers': False,
