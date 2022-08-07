@@ -32,7 +32,6 @@ urlpatterns = [
     # Wagtail urls
     path('cms/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
-    path('pages/', include(wagtail_urls)),
     path('blog/', include(wagtail_urls)),
 
 ]
