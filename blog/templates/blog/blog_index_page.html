@@ -1,0 +1,76 @@
+{% extends "pedcon_main/base.html" %} 
+{% load static wagtailcore_tags wagtailimages_tags %} 
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}" />
+{% endblock %} {% block content %}
+
+<div class="pageHeading">
+  {% comment %} {% for category in blogpages.category%} {% endcomment %}
+  {% if category_name %}
+    <h1>{{ category_name }}</h1>
+  {% else %}
+    <h1>{{ page.title }}</h1>
+  {% endif %}
+</div>
+
+
+
+<div class="row mainBlogRow">
+  <div class="col-md-9">
+    {% if not blogpages %}
+      <div class="d-flex flex-column align-items-center justify-content-center" style="min-height:75%;">
+        <h2 class="mb-4">Blog posts for this category do not exist yet</h2>
+        <div class="text-center m-3">
+          <a class="btn btn-dark success_btn m-2" href="/blog/">Back to Blog</a>
+          <a class="btn btn-dark success_btn m-2" href="{% url 'pedcon_main:index' %}">Go to Home Page</a><br><br>
+        </div>
+      </div>
+    {% endif %}
+    <div class="blogRow row"> 
+      {% for post in blogpages %}
+        <div class="col-xl-4 col-lg-6">
+          <div class="blogBox">
+            {% with post=post.specific %}
+              <a href="{% pageurl post %}">
+                <div class="blog1">
+                  {% with post.main_image as main_image %} 
+                    {% if main_image %} 
+                      {% image main_image height-1000 as header_photo %}
+                      <img class="header_photo mb-2" src="{{ header_photo.url }}" />
+                    {% endif %} 
+                  {% endwith %}
+                </div>
+                <h3 class="blogTitle">{{ post.title }}</h3>
+              </a>
+            {% endwith %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="col-md-3 mt-2 mb-2 mx-auto sticky-top blogRight">
+    <img
+      class="mx-auto d-block"
+      style="width: 180px; padding-top: 20px"
+      src="{% static 'pedcon_main/images/logo.png' %}"
+      alt="logo"
+    />
+    <h2 class="blogSectionTitle text-white">Blog Categories</h2>
+
+    <div class="blogCategories text-center">
+      <ul class="list-unstyled">
+        {% for cat in categories %}
+        <li>
+          <h4><a href="?category={{ cat.slug }}">{{ cat.name }}</a></h4>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block extra_js %}
+<script src="{% static 'blog/js/blog.js' %}"></script>
+{% endblock %}
