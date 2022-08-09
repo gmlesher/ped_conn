@@ -31,7 +31,6 @@ draftjs-exporter==2.1.7
 et-xmlfile==1.1.0
 future==0.18.2
 geoip2==4.1.0
-git+https://github.com/gmlesher/django-recaptcha.git
 gunicorn==20.0.4
 html5lib==1.1
 idna==2.10
