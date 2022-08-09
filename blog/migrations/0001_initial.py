@@ -12,7 +12,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
@@ -21,20 +20,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Post',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date_created', models.DateField(auto_now_add=True)),
-                ('title', models.CharField(max_length=255)),
-                ('date', models.DateField(default=datetime.date.today)),
-                ('post_image', models.ImageField(blank=True, null=True, upload_to='images/')),
-                ('category', models.CharField(choices=[], default='uncategorized', max_length=255)),
-                ('slug', models.SlugField()),
-                ('body', ckeditor.fields.RichTextField()),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
