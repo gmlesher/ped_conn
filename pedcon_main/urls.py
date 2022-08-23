@@ -9,7 +9,7 @@ urlpatterns = [
     # Home Page
     path('', views.index, name='index'),
     # About us
-    path('about_us/', views.about_us, name='about_us'),
+#     path('about_us/', views.about_us, name='about_us'),
     # Services page
     path('services/', views.services, name='services'),
     # Forms page

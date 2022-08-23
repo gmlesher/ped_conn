@@ -1,0 +1,58 @@
+{% extends "pedcon_main/base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'pedcon_main/css/about-us.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+  <!--begin main content-->
+  <div class="pageHeading">
+    <h1>Hi! My name is {{ page.title.split.0 }}.</h1>
+  </div>
+
+  <div class="about row">
+
+    <div class="about-picture col-md-4">
+      {% image page.image fill-500x500 as img %}
+      <img src="{{ img.url }}" alt="{{ page.title }} portait">
+    </div>
+
+    <div class="about-sections col-md-8">
+      {% if page.bio %}
+        <div class="about-bio">
+          <h3>Bio</h3>
+          <p>
+            {{ page.bio }}
+          </p>
+        </div>
+      {% endif %}
+
+      {% if page.about_me %}
+        <div class="about-me">
+          <h3>A little about me...</h3>
+          <p>
+            {{ page.about_me }}
+          </p>
+        </div>
+      {% endif %}
+
+      {% if page.other %}
+        <div class="about-awards">
+          <h3>Other</h3>
+          <p>
+            {{ page.other }}
+          </p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="aboutOtherInfo">
+    <a href="/about-us/"><h3>Return to "About Us"</h3></a>
+  </div>
+
+{% endblock content %}
+
+  

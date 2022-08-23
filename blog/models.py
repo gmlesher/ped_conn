@@ -1,5 +1,6 @@
 from django.db import models
 from django import forms
+from django.utils.text import slugify
 
 from modelcluster.fields import ParentalKey
 
@@ -182,6 +183,9 @@ class BlogCategory(models.Model):
     def __str__(self):
         return self.name
 
+    def clean(self):
+        super().clean()
+        self.slug = slugify(self.name)
     class Meta:
         verbose_name = "Blog Category"
         verbose_name_plural = 'Blog Categories'

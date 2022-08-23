@@ -6,6 +6,14 @@ from django.urls import reverse, reverse_lazy
 import os
 import urllib
 
+# Wagtail
+from wagtail.models import Page
+from wagtail.fields import StreamField
+from wagtail import blocks
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, StreamFieldPanel
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.images.edit_handlers import ImageChooserPanel
+
 from localflavor.us.models import USStateField
 from multiselectfield import MultiSelectField
 
@@ -648,3 +656,63 @@ class HipaaInformation(models.Model):
     sig_data_URL    = models.TextField(blank=True)
     sig_img         = models.ImageField(blank=True, upload_to='sig_images/hipaa_form_sigs')
     filename        = models.CharField(max_length=255, blank=True, null=True)
+
+class AboutPage(Page):
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="+",
+    )
+    occupation = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone_regex = RegexValidator(
+        regex=r'^\d{3}-\d{3}-\d{4}$', 
+        message="Phone number must be entered in the format: '999-999-9999'. Up to 12 digits allowed."
+        )
+    phone = models.CharField(validators=[phone_regex], 
+        max_length=12, 
+        blank=True,
+        default="913-257-5808"
+        )
+    phone_ext = models.CharField(max_length=4, blank=True)
+    bio = StreamField([
+        ('paragraph', blocks.RichTextBlock()),
+    ], blank=True)
+    about_me = StreamField([
+        ('heading', blocks.CharBlock(form_classname="full title")),
+        ('paragraph', blocks.RichTextBlock()),
+    ])
+    other = StreamField([
+        ('heading', blocks.CharBlock(form_classname="full title")),
+        ('paragraph', blocks.RichTextBlock()),
+        ('image', ImageChooserBlock()),
+    ], blank=True)
+
+    content_panels = Page.content_panels + [
+        ImageChooserPanel('image'),
+        MultiFieldPanel([
+            FieldPanel('occupation'),
+            FieldPanel('email'),
+            FieldPanel('phone'),
+            FieldPanel('phone_ext'),
+
+        ], heading="Personal information"),
+        StreamFieldPanel('bio'),
+        StreamFieldPanel('about_me'),
+        StreamFieldPanel('other'),
+    ]
+
+    def __init__(self, *args, **kwargs):
+        super(AboutPage, self).__init__(*args, **kwargs)
+        self._meta.get_field('title').verbose_name = 'Name'
+
+class AboutIndexPage(Page):
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        aboutpages = AboutPage.objects.live().public()
+        context["aboutpages"] = aboutpages
+
+        return context

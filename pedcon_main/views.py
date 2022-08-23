@@ -207,9 +207,9 @@ def index(request):
     return render(request, 'pedcon_main/index.html')
 
 
-def about_us(request):
-    """The about us page for pedcon."""
-    return render(request, 'pedcon_main/about_us.html')
+# def about_us(request):
+#     """The about us page for pedcon."""
+#     return render(request, 'pedcon_main/about_us.html')
 
 
 def about_us_deana(request):

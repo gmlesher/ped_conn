@@ -1,0 +1,384 @@
+/* ABOUT US PAGE */
+#about_us_description {
+    margin: 20px;
+    padding: 15px;
+    text-align: left;
+    color: #343a40;
+  }
+  .aboutClick {
+    padding-bottom: 15px;
+    text-align: center;
+    color: #5ebf9c;
+  }
+  .staffContainer {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #staff-tiles {
+    height: 250px;
+    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+    border: 2px solid white;
+    background-color: #343a40;
+    overflow: hidden;
+  }
+  #staff-tiles span {
+    font-family: Georgia italic;
+    font-style: italic;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    text-align: center;
+    font-size: 1.6em;
+    background-color: #5ebf9c;
+    color: #fff;
+  }
+  #staff-tiles #title {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: 1.2em;
+    color: #fff;
+  }
+  #staff-photo > img {
+    width: 200px;
+    height: 200px;
+    margin: 25px 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #5ebf9c;
+    top: 50px;
+    left: 50px;
+  }
+  #staff-tiles #email a {
+    text-decoration: none;
+    position: absolute;
+    top: 110px;
+    right: 0;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: 1.1em;
+    color: #5ebf9c;
+  }
+  #staff-tiles #email a:hover {
+    color: #15ade2;
+  }
+  #staff-tiles #phone_num a {
+    text-decoration: none;
+    position: absolute;
+    top: 175px;
+    right: 0;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: 1.1em;
+    color: #5ebf9c;
+  }
+  #staff-tiles #phone_num a:hover {
+    color: #15ade2;
+  }
+  #staff-tiles #voicemail {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: 0.9em;
+    color: #fff;
+  }
+  #staff-tiles:hover {
+    box-shadow: 0 1px 5px 1px #5ebf9c;
+  }
+  /* END ABOUT US PAGE */
+  
+  /* INDIVIDUAL ABOUT ME PAGE */
+  .aboutLisa {
+    height: 200vh;
+    display: flex;
+  }
+  .aboutDeana {
+    height: 300vh;
+    display: flex;
+  }
+  .about {
+    height: 100vh;
+    display: flex;
+  }
+  .aboutPicture {
+    margin: 0 !important;
+    background-color: #343a40;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: center;
+    object-position: cover;
+    position: sticky;
+    top: 0;
+  }
+  .aboutPicture img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .aboutPages {
+    color: white;
+    width: 50%;
+  }
+  .aboutPages div {
+    padding-top: 30px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: scroll;
+  }
+  .aboutPages div > p {
+    margin-top: 50px;
+    width: 80%;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 0;
+  }
+  .aboutList {
+    width: 80%;
+  }
+  .aboutList > dt {
+    font-size: 1.25em;
+  }
+  .aboutList > dd {
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  .aboutPages div:nth-child(1) {
+    background-color: #15ade2;
+  }
+  .aboutPages div:nth-child(2) {
+    background-color: #5ebf9c;
+  }
+  .aboutPages div:nth-child(3) {
+    background-color: #343a40;
+  }
+  .aboutOtherInfo {
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      to bottom,
+      rgba(94, 191, 156, 0.5),
+      rgba(21, 173, 226, 0.5)
+    );
+  }
+  .aboutOtherInfo a {
+    text-decoration: none;
+    color: white;
+  }
+  .aboutOtherInfo a:hover {
+    color: #343a40;
+  }
+  .deanaAward {
+    width: 45%;
+  }
+  .deanaAward img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .deanaFamily {
+    width: 45%;
+  }
+  .deanaFamily img {
+    max-width: 100%;
+    max-height: 100%;
+    padding-bottom: 30px;
+  }
+  .awardsh5 {
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .lesherh5 {
+    padding-top: 30px;
+    text-align: center;
+  }
+  #quoteImg {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    height: 65%;
+    width: auto;
+  }
+  /* END INDIVIDUAL ABOUT ME PAGE */
+
+  /********** Large devices only **********/
+@media (min-width: 1200px) {
+    /* ABOUT US PAGE */
+    #staff-photo > img {
+      margin: 25px 35px;
+    }
+    #staff-tiles #title {
+      font-size: 1.1em;
+    }
+    #staff-tiles #email a {
+      font-size: 0.85em;
+      color: #5ebf9c;
+    }
+    #staff-tiles #phone_num a {
+      font-size: 1.3em;
+    }
+    #staff-tiles #voicemail {
+      font-size: 1.1em;
+    }
+    #staff-tiles .last-staff-tile > img {
+      margin: 25px 175px;
+    }
+    /* END ABOUT US PAGE */
+  }
+
+  /********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* ABOUT US PAGE */
+    #staff-photo > img {
+      margin: 25px 130px;
+    }
+    /* END ABOUT US PAGE */
+  }
+
+  /********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+    /* INDIVIDUAL ABOUT ME PAGE */
+    .about {
+      height: auto;
+      display: block;
+    }
+    .aboutDeana {
+      height: auto;
+      display: block;
+    }
+    .aboutLisa {
+      height: auto;
+      display: block;
+    }
+    .aboutPicture {
+      padding-top: 15px;
+      height: 50vh;
+      width: 100%;
+      display: block;
+      text-align: center;
+      position: static;
+    }
+    .aboutPages {
+      width: 100%;
+    }
+    .aboutPages div > p {
+      margin-top: 50px;
+      width: 80%;
+      font-size: 15px;
+      line-height: 30px;
+      overflow: scroll;
+    }
+    .deanaAward {
+      width: 20%;
+    }
+    .deanaFamily {
+      width: 30%;
+    }
+    /* END INDIVIDUAL ABOUT ME PAGE */
+  }
+
+  /********** Extra small devices only **********/
+@media (min-width: 480px) and (max-width: 767px) {
+    /* INDIVIDUAL ABOUT ME PAGE */
+    .about {
+      height: auto; /**/
+      display: block; /**/
+    }
+    .aboutDeana {
+      height: auto;
+      display: block;
+    }
+    .aboutLisa {
+      height: auto;
+      display: block;
+    }
+    .aboutPicture {
+      padding-top: 15px;
+      height: 50vh;
+      width: 100%;
+      display: block;
+      text-align: center;
+      position: static;
+    }
+    .aboutPages {
+      width: 100%;
+    }
+    .aboutPages div > p {
+      font-size: 18px;
+      line-height: 25px;
+    }
+    .deanaAward {
+      width: 25%;
+    }
+    .deanaFamily {
+      width: 40%;
+    }
+    /* END INDIVIDUAL ABOUT ME PAGE */
+  }
+
+  /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+    /* INDIVIDUAL ABOUT ME PAGE */
+    .aboutName h1 {
+      font-size: 20px;
+    }
+    .about {
+      height: auto;
+      display: block;
+    }
+    .aboutDeana {
+      height: auto;
+      display: block;
+    }
+    .aboutLisa {
+      height: auto;
+      display: block;
+    }
+    .aboutPicture {
+      padding-top: 15px;
+      height: 50vh;
+      width: 100%;
+      display: block;
+      text-align: center;
+      position: static;
+    }
+    .aboutPages {
+      width: 100%;
+    }
+    .aboutPages div > p {
+      font-size: 14px;
+      line-height: 20px;
+      overflow: scroll;
+    }
+    .deanaAward {
+      width: 50%;
+    }
+    .deanaFamily {
+      width: 50%;
+    }
+    .aboutOtherInfo h3 {
+      font-size: 20px;
+    }
+    /* END INDIVIDUAL ABOUT ME PAGE */ 
+  }
