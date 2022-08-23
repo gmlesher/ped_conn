@@ -28,6 +28,8 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     # Privacy policy page
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
+    # Clinic policy page
+    path('clinic_policy/', views.clinic_policy, name='clinic_policy'),
     # Success page
     path('success/', views.success, name='success'),
 
