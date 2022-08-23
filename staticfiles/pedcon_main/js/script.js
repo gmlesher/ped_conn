@@ -31,7 +31,7 @@ if (ua.indexOf('safari') != -1) {
   if (ua.indexOf('chrome') > -1) {
      // Chrome
   } else {
-    $(".bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4").css("backgroundAttachment", "scroll") // Safari
+    $(".bgimg-1, .bgimg-2, .bgimg-4").css("backgroundAttachment", "scroll") // Safari
   }
 };
 
