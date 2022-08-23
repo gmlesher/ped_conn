@@ -11,6 +11,8 @@ from django.core.mail import EmailMessage  # for sending email in contact page
 from django.core import validators
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
+from django.http import FileResponse, Http404
+
 
 
 # # Practice form processing (see .utils for Mixin)
@@ -321,6 +323,12 @@ def privacy_policy(request):
     """The privacy policy page for pedcon."""
     return render(request, 'pedcon_main/privacy_policy.html')
 
+def clinic_policy(request):
+    """Opens clinic policy in browser"""
+    try:
+        return FileResponse(open('pedcon_main/static/pedcon_main/files/clinic-policy.pdf', 'rb'), content_type='application/pdf')
+    except FileNotFoundError:
+        raise Http404()
 
 def success(request):
     """The success page for pedcon."""
