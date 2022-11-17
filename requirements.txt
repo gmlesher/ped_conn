@@ -53,6 +53,7 @@ reportlab==3.5.56
 requests==2.25.0
 s3transfer==0.3.4
 sendgrid==6.5.0
+sentry-sdk==1.11.0
 six==1.15.0
 soupsieve==2.3.2.post1
 sqlparse==0.4.1
@@ -61,7 +62,7 @@ tablib==3.2.1
 telepath==0.2
 typing-extensions==3.7.4.3
 ua-parser==0.10.0
-urllib3==1.26.2
+urllib3==1.26.12
 user-agents==2.2.0
 wagtail==3.0
 webencodings==0.5.1
