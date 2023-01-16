@@ -286,6 +286,13 @@ def taylor_sjorgen(request):
     """The about us Taylor Sjorgen page for pedcon."""
     return render(request, 'pedcon_main/taylor-sjorgen.html')
 
+def danielle_allison(request):
+    """The about us Danielle Allison page for pedcon."""
+    return render(request, 'pedcon_main/danielle-allison.html')
+    
+def lindsey_phillips(request):
+    """The about us Lindsey Phillips page for pedcon."""
+    return render(request, 'pedcon_main/lindsey-phillips.html')
 
 def services(request):
     """The services page for pedcon."""
