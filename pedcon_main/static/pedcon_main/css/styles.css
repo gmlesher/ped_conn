@@ -3,7 +3,7 @@ body {
   font-size: 16px;
   color: black;
   background-color: #e0e0e0;
-  font-family: 'Oxygen', sans-serif;
+  font-family: "Oxygen", sans-serif;
   box-sizing: border-box;
 }
 
@@ -17,7 +17,7 @@ body {
   width: 70%;
 }
 label.required::after {
-  content: '*';
+  content: "*";
   color: red;
 }
 span.asteriskField {
@@ -34,11 +34,13 @@ span.asteriskField {
   padding-top: 15px;
   color: #5ebf9c;
 }
-form button.btn { /* All forms have these styles on buttons */
+form button.btn {
+  /* All forms have these styles on buttons */
   border: none;
   background-color: #5ebf9c;
 }
-form button.btn:hover { /* All forms have these styles on buttons */
+form button.btn:hover {
+  /* All forms have these styles on buttons */
   background-color: #15ade2;
 }
 .formsLogo {
@@ -66,10 +68,7 @@ blockquote:before {
 }
 blockquote:after {
   content: close-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-left: 0.25em;
-  vertical-align: -0.5em;
+  visibility: hidden;
 }
 /* All Signature Fields */
 .signature-pad--body canvas {
@@ -80,17 +79,17 @@ blockquote:after {
 }
 /*Google reCAPTCHA*/
 /*Highlight text*/
-#textHighlight  mark {
-  background-color: #FFFF00;
+#textHighlight mark {
+  background-color: #ffff00;
 }
 .marker {
-  background-color: #FFFF00;
+  background-color: #ffff00;
 }
 /* Loading animation */
 .loaderDiv {
-  background: rgba(255,255,255,.75);
+  background: rgba(255, 255, 255, 0.75);
   position: fixed;
-  top:0;
+  top: 0;
   height: 100%;
   width: 100%;
   z-index: 2;
@@ -151,23 +150,28 @@ blockquote:after {
   border-radius: 0;
   border: 0;
 }
-#header-items li { /* navbar header items padding btwn words. no wrap. */
+#header-items li {
+  /* navbar header items padding btwn words. no wrap. */
   white-space: nowrap;
   padding-right: 10px;
   padding-left: 10px;
 }
-#header-items li > a { /* navbar header items*/
+#header-items li > a {
+  /* navbar header items*/
   color: #5ebf9c;
   text-align: center;
 }
-#header-items li > a:hover { /* navbar header items*/
+#header-items li > a:hover {
+  /* navbar header items*/
   text-decoration: none;
   color: #15ade2;
 }
-#header-items li > div > a { /* dropdown menu items */
+#header-items li > div > a {
+  /* dropdown menu items */
   color: #5ebf9c;
 }
-#header-items li > div > a:hover { /* dropdown menu items */
+#header-items li > div > a:hover {
+  /* dropdown menu items */
   text-decoration: none;
   color: #15ade2;
 }
@@ -177,11 +181,12 @@ blockquote:after {
 #toggler {
   border: 2px solid #5ebf9c;
 }
-#toggler:hover, #toggler:focus {
+#toggler:hover,
+#toggler:focus {
   outline: none;
   background-color: #15ade2;
 }
-.dropdown-menu { 
+.dropdown-menu {
   background-color: #343a40;
   border-color: #5ebf9c;
 }
@@ -246,7 +251,7 @@ blockquote:after {
   height: 50vh;
   display: flex;
   background-color: #343a40;
-  margin: 0 !important;  
+  margin: 0 !important;
 }
 .identify_img {
   margin: 0 !important;
@@ -431,17 +436,17 @@ blockquote:after {
 .carousel-inner img.photo_1 {
   height: 500px;
   object-fit: cover;
-  object-position: 50% 15%; 
+  object-position: 50% 15%;
 }
 .carousel-inner img.photo_2 {
   height: 500px;
   object-fit: cover;
-  object-position: 80% 60%; 
+  object-position: 80% 60%;
 }
 .carousel-inner img.photo_3 {
   height: 500px;
   object-fit: cover;
-  object-position: 40% 40%; 
+  object-position: 40% 40%;
 }
 .carousel-caption {
   bottom: 40px;
@@ -462,7 +467,11 @@ blockquote:after {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, rgba(21, 173, 226, 0.5),rgba(94, 191, 156, 0.5));
+  background: linear-gradient(
+    to bottom,
+    rgba(21, 173, 226, 0.5),
+    rgba(94, 191, 156, 0.5)
+  );
   background-size: cover;
   color: white;
 }
@@ -470,7 +479,7 @@ blockquote:after {
 
 /* ABOUT US PAGE */
 #about_us_description {
-  margin:20px;
+  margin: 20px;
   padding: 15px;
   text-align: left;
   color: #343a40;
@@ -481,7 +490,7 @@ blockquote:after {
   color: #5ebf9c;
 }
 .staffContainer {
-  padding:15px;
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -562,7 +571,7 @@ blockquote:after {
   width: 50%;
   margin: auto;
   text-align: center;
-  font-size: .9em;
+  font-size: 0.9em;
   color: #fff;
 }
 #staff-tiles:hover {
@@ -573,11 +582,11 @@ blockquote:after {
 /* INDIVIDUAL ABOUT ME PAGE */
 .aboutLisa {
   height: 200vh;
-  display:flex;
+  display: flex;
 }
 .aboutDeana {
   height: 300vh;
-  display:flex;
+  display: flex;
 }
 .about {
   height: 100vh;
@@ -644,7 +653,11 @@ blockquote:after {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, rgba(94, 191, 156, 0.5), rgba(21, 173, 226, 0.5));
+  background: linear-gradient(
+    to bottom,
+    rgba(94, 191, 156, 0.5),
+    rgba(21, 173, 226, 0.5)
+  );
 }
 .aboutOtherInfo a {
   text-decoration: none;
@@ -652,7 +665,6 @@ blockquote:after {
 }
 .aboutOtherInfo a:hover {
   color: #343a40;
-
 }
 .deanaAward {
   width: 45%;
@@ -692,6 +704,7 @@ blockquote:after {
 /* SERVICES PAGE */
 .bgimg-1,
 .bgimg-2,
+.bgimg-3,
 .bgimg-4 {
   position: relative;
   opacity: 0.8;
@@ -706,11 +719,15 @@ blockquote:after {
   height: 100vh;
 }
 .bgimg-2 {
-  background-image: url('../images/baby_foot.jpg');
+  background-image: url("../images/baby_foot.jpg");
+  height: 75vh;
+}
+.bgimg-3 {
+  background-image: url("../images/red_shirt_kid.jpg");
   height: 75vh;
 }
 .bgimg-4 {
-  background-image: url('../images/rings.jpg');
+  background-image: url("../images/rings.jpg");
   height: 75vh;
 }
 .caption {
@@ -736,7 +753,7 @@ blockquote:after {
   height: 50px;
   width: auto;
 }
-.arrow img{
+.arrow img {
   margin: 0px 0 0 -20px;
   position: absolute;
   left: 50%;
@@ -783,7 +800,8 @@ blockquote:after {
   font: 20px;
   color: #15ade2;
 }
-.below-img1, .below-img2 {
+.below-img1,
+.below-img2 {
   color: #343a40;
   background-color: white;
   text-align: center;
@@ -813,7 +831,6 @@ blockquote:after {
 }
 .three-text > p {
   padding: 15px;
-
 }
 .three_img {
   margin-right: 80px;
@@ -854,7 +871,7 @@ blockquote:after {
   background-color: #343a40;
 }
 .bg_tv_shape h2 {
-  padding-top:30px;
+  padding-top: 30px;
   text-align: center;
   color: white;
 }
@@ -880,148 +897,6 @@ blockquote:after {
 }
 /* END SERVICES PAGE */
 
-/* BLOG PAGE */
-.blogSectionTitle {
-  padding: 30px;
-  text-align: center;
-  font-family: Georgia;
-}
-.blogRight {
-  background-color: #343a40;
-  height: 500px;
-  border-radius: 20px;
-}
-.mainBlogRow {
-  margin:0;
-  padding-right: 30px;
-}
-.blogRow {
-  margin: 10px;
-  text-align: center;
-  font-family: Georgia;
-}
-.blogBox a {
-  text-decoration: none;
-}
-.blogCat {
-  text-align: left;
-  margin-top: 5px;
-  margin-left: 10px;
-  color: #5ebf9c;
-}
-.blogCat:hover {
-  color: #15ade2;
-}
-.blogCategories a {
-  text-decoration: none;
-  font-family: Georgia;
-  text-align: left;
-  margin-top: 5px;
-  margin-left: 10px;
-  color: #5ebf9c;
-}
-.blogCategories a:hover {
-  color: #15ade2;
-}
-.blog1, .blog2, .blog3 {
-  color: white;
-  position: relative;
-  width: 100%;
-  height: 300px;
-  margin: 0;
-  border: 2px solid white;
-  border-radius: 10px;
-}
-.blog1:hover, .blog2:hover, .blog3:hover {
-  box-shadow: 3px 5px #88898b;
-  transform: translate(-.5%, -.5%);
-  opacity: 0.9;
-}
-.blog1 p, .blog2 p, .blog3 p {
-  background-color: rgba(52, 58, 64, 0.8);
-  border-radius: 10px;
-  text-align: center;
-  margin-left: 0px;
-  margin-bottom: 0;
-  padding: 15px;
-  bottom:0;
-  position: absolute;
-}
-.blog1 img, .blog2 img, .blog3 img {
-  width: 100%;
-  height: 296px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-.blogTitle {
-  color: black;
-  margin-top: 5px;
-  text-align: left;
-  padding-bottom: 50px;
-}
-.blogTitle:hover {
-  color: #15ade2;
-}
-/* END BLOG PAGE */
-
-/* BLOG CONTENT PAGES */
-.blogContainer {
-  display: flex;
-  align-items: flex-start;
-  font-family: Georgia;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 30px;
-  max-width: 1200px;
-}
-.blogContainer a {
-  text-decoration: none;
-  color: #5ebf9c;
-}
-.blogContainer a:hover {
-  color: #15ade2;
-}
-.socialMediaSidebar {
-  top: 100px;
-  position: sticky;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.socialMediaSidebar a {
-  text-align: center;
-  padding: 2px;
-}
-.socialMediaSidebar img {
-  width: 30px;
-  height: 30px;
-}
-.socialMediaSidebar img:hover {
-  opacity: 0.5;
-}
-.mainArticle {
-  display: block;
-}
-.blogImg {
-  display: flex;
-  justify-content: center;
-}
-.blogImg img {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: auto;
-  height: 300px;
-  object-fit: cover;
-}
-.blogRecommTitle {
-  font-family: Georgia;
-  text-align: center;
-}
-.blogRecomm {
-  padding: 30px;
-}
-/* END BLOG CONTENT PAGES */
-
 /* FORMS PAGE */
 .formsImg {
   background-color: white;
@@ -1032,18 +907,20 @@ blockquote:after {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 75%;
-  /*z-index: -1*/; /* z-index must be here for links to be clicked. otherwise, image covers links and they are un-clickable */
+  /*z-index: -1*/ /* z-index must be here for links to be clicked. otherwise, image covers links and they are un-clickable */
 }
 .formLinksMopContainer {
   color: white;
 }
-.formLinks, .mop {
+.formLinks,
+.mop {
   padding: 20px;
 }
 .formLinks {
   background-color: #343a40;
 }
-.formLinks h5, .mop h5 {
+.formLinks h5,
+.mop h5 {
   padding-top: 30px;
 }
 .formLinks h3 {
@@ -1063,11 +940,11 @@ blockquote:after {
 .mop {
   background-color: #5ebf9c;
 }
-.mop h3, .mop h5 {
+.mop h3,
+.mop h5 {
   color: #343a40;
 }
 /* END FORMS PAGE */
-
 
 /* ROI FORM PAGE */
 .roiForm section {
@@ -1206,18 +1083,20 @@ blockquote:after {
   font-size: 1.8em;
   color: #5ebf9c;
 }
-.itemContent img, .itemContent img {
+.itemContent img,
+.itemContent img {
   padding-top: 30px;
   margin-left: auto;
   margin-right: auto;
   max-width: 70%;
-  max-height: 70%;  
+  max-height: 70%;
 }
 .itemContent {
   padding-top: 30px;
   padding-bottom: 30px;
 }
-.itemContent p, .itemContent p {
+.itemContent p,
+.itemContent p {
   margin-left: 30px;
   margin-right: 30px;
   padding-top: 30px;
@@ -1228,7 +1107,8 @@ blockquote:after {
 .contact {
   padding: 30px;
 }
-.contact h3, .contact h5 {
+.contact h3,
+.contact h5 {
   text-align: center;
   color: #5ebf9c;
 }
@@ -1236,14 +1116,14 @@ blockquote:after {
   text-align: center;
 }
 .contactInfo {
- text-align: center;
+  text-align: center;
 }
 .contactInfo a {
   text-decoration: none;
   font-style: italic;
   color: #5ebf9c;
 }
-.contactInfo svg{
+.contactInfo svg {
   color: #343a40;
 }
 .contactInfo a:hover {
@@ -1257,7 +1137,7 @@ blockquote:after {
   height: 40px;
 }
 .contactSocialMediaImages a:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 .maps h3 {
   color: #5ebf9c;
@@ -1265,7 +1145,8 @@ blockquote:after {
 .map {
   text-align: center;
 }
-.stilwell, .jm {
+.stilwell,
+.jm {
   padding-bottom: 10px;
 }
 .map iframe {
@@ -1343,7 +1224,7 @@ blockquote:after {
   font-style: italic;
   color: #5ebf9c;
 }
-#contact-info svg{
+#contact-info svg {
   color: #343a40;
 }
 #contact-info a:hover {
@@ -1354,11 +1235,11 @@ blockquote:after {
   height: 50px;
 }
 #social-media-images a:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 #copyright {
   margin-top: 15px;
-  font-size: .8em;
+  font-size: 0.8em;
   text-align: center;
   color: #343a40;
 }
@@ -1371,7 +1252,7 @@ blockquote:after {
 }
 #privacy-policy {
   margin-top: 15px;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 #privacy-policy a {
   color: #5ebf9c;
@@ -1381,8 +1262,6 @@ blockquote:after {
   color: #15ade2;
 }
 /* END FOOTER */
-
-
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
@@ -1399,7 +1278,7 @@ blockquote:after {
     font-size: 1.1em;
   }
   #staff-tiles #email a {
-    font-size: .85em;
+    font-size: 0.85em;
     color: #5ebf9c;
   }
   #staff-tiles #phone_num a {
@@ -1414,8 +1293,9 @@ blockquote:after {
   /* END ABOUT US PAGE */
 
   /* FOOTER */
-  .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
-  border-right: 1px solid white;
+  .panel-footer section:nth-child(1),
+  .panel-footer section:nth-child(2) {
+    border-right: 1px solid white;
   }
   /* END FOOTER*/
 }
@@ -1423,7 +1303,7 @@ blockquote:after {
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
   /* Home Page */
-  .overlay img{
+  .overlay img {
     width: 150px;
     height: 150px;
     margin: 65px 70px;
@@ -1456,9 +1336,10 @@ blockquote:after {
   }
   /* END SERVICES PAGE */
 
-    /* FOOTER */
-  .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
-  border-right: 1px solid white;
+  /* FOOTER */
+  .panel-footer section:nth-child(1),
+  .panel-footer section:nth-child(2) {
+    border-right: 1px solid white;
   }
   /* END FOOTER*/
 }
@@ -1475,17 +1356,25 @@ blockquote:after {
   .color-overlay {
     display: none;
   }
-  .identify_text h3, .lightbulb_text h3, .empower_text h3, .wwd_text h3 {
+  .identify_text h3,
+  .lightbulb_text h3,
+  .empower_text h3,
+  .wwd_text h3 {
     font-size: 3.4em;
   }
   .contactText h4 {
-    font-size: 2.0em;
+    font-size: 2em;
   }
-  .identify_text p, .lightbulb_text p, .empower_text p, .wwd_text p {
+  .identify_text p,
+  .lightbulb_text p,
+  .empower_text p,
+  .wwd_text p {
     font-size: 0.9em;
     line-height: 20px;
   }
-  .identify_img img, .lightbulb_img img, .empower_img img {
+  .identify_img img,
+  .lightbulb_img img,
+  .empower_img img {
     transform: scale(0.3);
   }
   /* End Home Page */
@@ -1506,21 +1395,21 @@ blockquote:after {
 
   /* INDIVIDUAL ABOUT ME PAGE */
   .about {
-    height: auto; 
-    display: block; 
+    height: auto;
+    display: block;
   }
   .aboutDeana {
-    height: auto; 
-    display: block; 
+    height: auto;
+    display: block;
   }
   .aboutLisa {
-    height: auto; 
-    display: block; 
+    height: auto;
+    display: block;
   }
   .aboutPicture {
     padding-top: 15px;
     height: 50vh;
-    width: 100%; 
+    width: 100%;
     display: block;
     text-align: center;
     position: static;
@@ -1533,7 +1422,7 @@ blockquote:after {
     width: 80%;
     font-size: 15px;
     line-height: 30px;
-    overflow: scroll; 
+    overflow: scroll;
   }
   .deanaAward {
     width: 20%;
@@ -1542,7 +1431,7 @@ blockquote:after {
     width: 30%;
   }
   /* END INDIVIDUAL ABOUT ME PAGE */
-  
+
   /* FAQ PAGE */
   .faqInfo {
     max-width: 75%;
@@ -1553,8 +1442,9 @@ blockquote:after {
   /* END FAQ PAGE */
 
   /* FOOTER */
-  .panel-footer section:nth-child(1), .panel-footer section:nth-child(2) {
-  border-right: 1px solid white;
+  .panel-footer section:nth-child(1),
+  .panel-footer section:nth-child(2) {
+    border-right: 1px solid white;
   }
   /* END FOOTER*/
 }
@@ -1571,16 +1461,24 @@ blockquote:after {
   .color-overlay {
     display: none;
   }
-  .identify_text h3, .lightbulb_text h3, .empower_text h3, .wwd_text h3 {
+  .identify_text h3,
+  .lightbulb_text h3,
+  .empower_text h3,
+  .wwd_text h3 {
     font-size: 2.5em;
   }
   .contactText h4 {
     font-size: 1.5em;
   }
-  .identify_img img, .lightbulb_img img, .empower_img img {
+  .identify_img img,
+  .lightbulb_img img,
+  .empower_img img {
     transform: scale(0.3);
   }
-  .identify_text p, .lightbulb_text p, .empower_text p, .wwd_text p {
+  .identify_text p,
+  .lightbulb_text p,
+  .empower_text p,
+  .wwd_text p {
     font-size: 0.8em;
     line-height: 20px;
   }
@@ -1599,16 +1497,16 @@ blockquote:after {
     margin: 45px 45px;
   }
   #staff-tiles #email a {
-    font-size: .7em;
+    font-size: 0.7em;
   }
   #staff-tiles #phone_num a {
-    font-size: .9em;
+    font-size: 0.9em;
   }
   #staff-tiles #phone_num a:hover {
     color: #15ade2;
   }
   #staff-tiles #voicemail {
-    font-size: .7em;
+    font-size: 0.7em;
   }
   /* END ABOUT US PAGE */
 
@@ -1621,13 +1519,13 @@ blockquote:after {
     width: 70%;
   }
   #social-media-images img {
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
   }
   /* End Footer */
 
   /* Home Page */
-  .overlay img{
+  .overlay img {
     width: 130px;
     height: 130px;
     margin: 75px 40px;
@@ -1662,17 +1560,17 @@ blockquote:after {
     display: block; /**/
   }
   .aboutDeana {
-    height: auto; 
-    display: block; 
+    height: auto;
+    display: block;
   }
   .aboutLisa {
-    height: auto; 
-    display: block; 
+    height: auto;
+    display: block;
   }
   .aboutPicture {
     padding-top: 15px;
     height: 50vh;
-    width: 100%; 
+    width: 100%;
     display: block;
     text-align: center;
     position: static;
@@ -1692,20 +1590,6 @@ blockquote:after {
   }
   /* END INDIVIDUAL ABOUT ME PAGE */
 
-  /* BLOG PAGE */
-  .mainBlogRow {
-    padding: 10%;
-  }
-  /* END BLOG PAGE */
-
-  /* BLOG CONTENT PAGE */
-  .socialMediaSidebar {
-    padding-bottom: 15px;
-    position: static;
-    display: block;
-  }
-  /* END BLOG CONTENT PAGE */
-
   /* FORMS PAGE*/
   .formsImg {
     height: 50vh;
@@ -1713,7 +1597,8 @@ blockquote:after {
   .formLinksMopContainer {
     text-align: center;
   }
-  .formLinks ul, .mop ul {
+  .formLinks ul,
+  .mop ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -1735,7 +1620,6 @@ blockquote:after {
   }
   /* END CONTACT PAGE*/
 }
-
 
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
@@ -1762,7 +1646,7 @@ blockquote:after {
     font-size: 1.6em;
   }
   /* END PAGE HEADINGS*/
-  
+
   /* Home page */
   body {
     font-size: 4vw;
@@ -1776,19 +1660,27 @@ blockquote:after {
   .color-overlay {
     display: none;
   }
-  .identify_text h3, .lightbulb_text h3, .empower_text h3, .wwd_text h3 {
+  .identify_text h3,
+  .lightbulb_text h3,
+  .empower_text h3,
+  .wwd_text h3 {
     font-size: 1.5em;
   }
   .contactText h4 {
     font-size: 1.5em;
   }
-  .identify_img img, .lightbulb_img img, .empower_img img  {
+  .identify_img img,
+  .lightbulb_img img,
+  .empower_img img {
     transform: scale(0.2);
   }
-  .identify_text p, .lightbulb_text p, .empower_text p, .wwd_text p {
-    font-size: .8em;
+  .identify_text p,
+  .lightbulb_text p,
+  .empower_text p,
+  .wwd_text p {
+    font-size: 0.8em;
   }
-  .overlay img{
+  .overlay img {
     width: 120px;
     height: 120px;
     margin: 75px 40px;
@@ -1801,10 +1693,10 @@ blockquote:after {
   .what-we-do-tile p {
     font-size: 1em;
   }
-  .jumbotron  div {
-  color: white;
-  margin-left: 10%;
-  margin-right: 10%;
+  .jumbotron div {
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
   }
   .col-xxs-12 {
     position: relative;
@@ -1845,7 +1737,7 @@ blockquote:after {
   }
   #staff-tiles #voicemail {
     width: 100%;
-    font-size: .9em;
+    font-size: 0.9em;
   }
   /* END ABOUT US PAGE */
 
@@ -1854,21 +1746,21 @@ blockquote:after {
     font-size: 20px;
   }
   .about {
-    height: auto; 
-    display: block; 
+    height: auto;
+    display: block;
   }
   .aboutDeana {
-    height: auto; 
-    display: block; 
+    height: auto;
+    display: block;
   }
   .aboutLisa {
-    height: auto; 
-    display: block; 
+    height: auto;
+    display: block;
   }
   .aboutPicture {
     padding-top: 15px;
     height: 50vh;
-    width: 100%; 
+    width: 100%;
     display: block;
     text-align: center;
     position: static;
@@ -1890,7 +1782,7 @@ blockquote:after {
   .aboutOtherInfo h3 {
     font-size: 20px;
   }
-  /* END INDIVIDUAL ABOUT ME PAGE */  
+  /* END INDIVIDUAL ABOUT ME PAGE */
 
   /* SERVICES PAGE */
   .three_img {
@@ -1904,6 +1796,9 @@ blockquote:after {
   .bgimg-2 {
     background-position: 80%;
   }
+  .bgimg-3 {
+    background-position: 40%;
+  }
   .bgimg-4 {
     background-position: 30%;
   }
@@ -1912,7 +1807,7 @@ blockquote:after {
     letter-spacing: 0;
     text-transform: uppercase;
     font-size: 20px;
-    color: #15ade2;;
+    color: #15ade2;
   }
   #services_carousel {
     display: none;
@@ -1922,26 +1817,6 @@ blockquote:after {
   }
   /* END SERVICES PAGE */
 
-  /* BLOG PAGE */
-  .mainBlogRow {
-    padding: 10%;
-  }
-  /* END BLOG PAGE */
-
-  /* BLOG CONTENT PAGE */
-  .socialMediaSidebar {
-    padding-bottom: 15px;
-    position: static;
-    display: block;
-  }
-  .blogImg img {
-    transform: scale(0.7)
-  }
-  .headline h1 {
-    font-size: 2.5em;
-  }
-  /* END BLOG CONTENT PAGE */
-
   /* FORMS PAGE*/
   .formsImg {
     height: 50vh;
@@ -1949,7 +1824,8 @@ blockquote:after {
   .formLinksMopContainer {
     text-align: center;
   }
-  .formLinks ul, .mop ul {
+  .formLinks ul,
+  .mop ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -1973,12 +1849,12 @@ blockquote:after {
 
   /* FOOTER */
   .panel-footer section {
-  margin-bottom: 0 30px;
-  text-align: center;
+    margin-bottom: 0 30px;
+    text-align: center;
   }
   #social-media-images img {
-  width: 30px;
-  height: 30px;
-}
+    width: 30px;
+    height: 30px;
+  }
   /*END FOOTER*/
 }

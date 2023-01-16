@@ -1,0 +1,91 @@
+{% extends "pedcon_main/base.html" %}
+{% load static custom_template_tags wagtailcore_tags wagtailembeds_tags wagtailimages_tags %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+
+     <!-- Social media icons -->
+    <div class="blogContainer row">
+      <div class="socialMediaSidebar col-md-1">
+        <a href="https://www.facebook.com/pediatricconnections" target="_blank"><img src="{% static 'pedcon_main/images/facebook_icon.png' %}"></a>
+        <a href="https://www.pinterest.com/pedconnectionso/" target="_blank"><img src="{% static 'pedcon_main/images/pinterest_icon.png' %}"></a> 
+        <a href="https://www.instagram.com/pediatricconnectionsot/" target="_blank"><img src="{% static 'pedcon_main/images/instagram_icon.png' %}"></a> 
+        <a href="https://www.youtube.com/channel/UC3h0muLW7GSxBr_DdtaLOCg" target="_blank"><img src="{% static 'pedcon_main/images/youtube_icon.png' %}"></a>
+      </div>
+      <div class="mainArticle col-md-11">
+        <div class="headline">
+            <h1>{{ page.title }}</h1>
+        </div>
+        <div class="tagContainer">
+            {% with categories=page.categories.all %}
+                {% if categories %}
+                <ul class="list-inline mb-0">
+                    {% for category in categories %}
+                      {% if forloop.last %}
+                        <li class="list-inline-item m-0">
+                          <a href="{{ self.get_parent.url }}?category={{ category.slug }}">
+                              <h6 class="tag-{{category.slug}}">{{ category.name }}</h6>
+                          </a>
+                        </li>
+                      {% else %}
+                        <li class="list-inline-item m-0">
+                          <a href="{{ self.get_parent.url }}?category={{ category.slug }}">
+                              <h6 class="tag-{{category.slug}}">{{ category.name }}</h6>
+                          </a>
+                        </li> |
+                      {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+        <div class="blogAuthor">
+            {% for author in self.blog_authors.all %}
+              {% image author.author.image fill-500x500 as author_img %}
+              {% if author.author.image %}
+                <a href=""><img class="authorImage" src="{{ author_img.url }}" alt="{{ author.author.name }}"></a>
+                <span>
+                  <small><a href=""><small>{{ author.author.name }}</small></a></small>
+                </span>
+              {% else %}
+              <small>By: <a href=""><small>{{ author.author.name }}</small></a></small>
+              {% endif %}
+            {% endfor %}
+        </div>
+        <div class="blogDate">
+            <small>{{ page.date|date:"F jS, Y" }}</small>
+
+        </div>
+        <div class="blogText">
+          <div class="mainPostImage py-3">
+            {% for item in page.gallery_image.all %}
+              {% image item.image original %}
+            {% endfor %}
+          </div>
+
+            {% for block in page.body %}
+                {% if block.block_type == 'heading' %}
+                  <h2>{{ block.value }}</h2>
+                {% elif block.block_type == 'embed' %}
+                <section class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" width="640" height="360" src="{{ block.value.url|embedurl }}?rel=0" allowfullscreen></iframe>
+                </section>
+                {% else %}
+                <section class="block-{{ block.block_type }}">
+                    {% include_block block %}
+                </section>
+                {% endif %}
+            {% endfor %}
+
+        </div>  
+      </div> 
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'blog/js/blog.js' %}"></script>
+{% endblock %}

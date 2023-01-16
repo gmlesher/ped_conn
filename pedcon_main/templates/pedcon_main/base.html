@@ -1,4 +1,4 @@
-{% load static %}
+{% load static wagtailuserbar wagtailcore_tags %}
 <html>
   <head>
     <meta charset="utf-8">
@@ -13,67 +13,76 @@
     <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="{% static 'pedcon_main/images/favicon.png' %}"/>
+    
+    {% block extra_css %}
+      {# Override this in templates to add extra stylesheets #}
+    {% endblock %}
+
   </head>
-<body>
-  <header class="header">
-    <nav id="header-nav" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
-
-        <!--Navbar header-->
-      <a href="{% url 'pedcon_main:index' %}" class="navbar-brand d-flex w-25 mr-auto" id="logo"><img style="width: 170px" src="{% static 'pedcon_main/images/logo.png' %}" alt="logo">
-      </a>
-
-      <!--Build collapsible button for small screen size-->
-      <button id="toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-items" aria-controls="header-items" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  
+  <body>
+    {% wagtailuserbar %}
+    
+    <header class="header">
       
-      <!--Populate collapsible button with information-->
-      <div class="navbar-collapse collapse w-50" id="header-items">
-        <ul class="navbar-nav w-100 justify-content-center">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'pedcon_main:index' %}">Home <span class="sr-only">(current)</span></a><hr class="d-block d-lg-none d-xl-none">
-          </li>
-          <li class="nav-item">
-            <a class="nav-link aboutus" href="{% url 'pedcon_main:about_us' %}">About Us</a><hr class="d-block d-lg-none d-xl-none">
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'pedcon_main:services' %}">Services</a><hr class="d-block d-lg-none d-xl-none">
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:blog' %}">Blog</a><hr class="d-block d-lg-none d-xl-none">
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'pedcon_main:forms' %}">Forms</a><hr class="d-block d-lg-none d-xl-none">
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Resources
-            </a><hr class="d-block d-lg-none d-xl-none">
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'pedcon_main:faq' %}">FAQ</a>
-              <a class="dropdown-item" href="{% url 'pedcon_main:local_professionals' %}">Local Professionals</a>
-              <a class="dropdown-item" href="{% url 'pedcon_main:helpful_links' %}">Helpful Links</a>
-              <a class="dropdown-item" href="{% url 'pedcon_main:recommended_products' %}">Recommended Products</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'pedcon_main:contact' %}">Contact</a><hr class="d-block d-lg-none d-xl-none">
-          </li>
-        </ul>
+      <nav id="header-nav" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
 
-        <!--Hidden search bar in header (for now)-->
-        <!--<form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>-->
-      </div><!-- .collapse .navbar-collapse -->
-      <div class="w-25 d-none d-lg-block">
+          <!--Navbar header-->
+        <a href="{% url 'pedcon_main:index' %}" class="navbar-brand d-flex w-25 mr-auto" id="logo"><img style="width: 170px" src="{% static 'pedcon_main/images/logo.png' %}" alt="logo">
+        </a>
+
+        <!--Build collapsible button for small screen size-->
+        <button id="toggler" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-items" aria-controls="header-items" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         
-      </div>
-    </nav><!-- #header-nav -->
-  </header>
+        <!--Populate collapsible button with information-->
+        <div class="navbar-collapse collapse w-50" id="header-items">
+          <ul class="navbar-nav w-100 justify-content-center">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'pedcon_main:index' %}">Home <span class="sr-only">(current)</span></a><hr class="d-block d-lg-none d-xl-none">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link aboutus" href="{% url 'pedcon_main:about_us' %}">About Us</a><hr class="d-block d-lg-none d-xl-none">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'pedcon_main:services' %}">Services</a><hr class="d-block d-lg-none d-xl-none">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">Blog</a><hr class="d-block d-lg-none d-xl-none">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'pedcon_main:forms' %}">Forms</a><hr class="d-block d-lg-none d-xl-none">
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Resources
+              </a><hr class="d-block d-lg-none d-xl-none">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'pedcon_main:faq' %}">FAQ</a>
+                <a class="dropdown-item" href="{% url 'pedcon_main:local_professionals' %}">Local Professionals</a>
+                <a class="dropdown-item" href="{% url 'pedcon_main:helpful_links' %}">Helpful Links</a>
+                <a class="dropdown-item" href="{% url 'pedcon_main:recommended_products' %}">Recommended Products</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'pedcon_main:contact' %}">Contact</a><hr class="d-block d-lg-none d-xl-none">
+            </li>
+          </ul>
 
-  {% block content %} {% endblock content %}
+          <!--Hidden search bar in header (for now)-->
+          <!--<form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>-->
+        </div><!-- .collapse .navbar-collapse -->
+        <div class="w-25 d-none d-lg-block">
+          
+        </div>
+      </nav><!-- #header-nav -->
+    </header>
+
+    {% block content %} {% endblock content %}
 
     <footer class="panel-footer footer">
       <div class="container">
@@ -115,20 +124,19 @@
           <a href="https://www.instagram.com/pediatricconnectionsot/" target="_blank"><img src="{% static 'pedcon_main/images/instagram_icon.png' %}"></a> 
           <a href="https://www.youtube.com/channel/UC3h0muLW7GSxBr_DdtaLOCg" target="_blank"><img src="{% static 'pedcon_main/images/youtube_icon.png' %}"></a>  
         </div>
-        <div class="row justify-content-around w-25">
-          <div id="privacy-policy" class="col-6">
-            <a href="{% url 'pedcon_main:clinic_policy' %}">Clinic Policy</a>
-          </div>
-          <div id="privacy-policy" class="col-6">
-            <a href="{% url 'pedcon_main:privacy_policy' %}">Privacy Policy</a>
-          </div>
-        </div>
+        <div id="copyright" class="text-center">
+          <!-- &copy; Copyright Pediatric Connections {% now "Y" %}.<br> -->
+        <div id="privacy-policy" class="text-center"><a href="{% url 'pedcon_main:privacy_policy' %}">Privacy Policy</a></div>
       </div>
     </footer>
 
-  <script src="{% static 'pedcon_main/js/jquery-3.5.1.min.js' %}"></script>
-  <script src="{% static 'pedcon_main/js/script.js' %}"></script>
-  <script src="{% static 'pedcon_main/js/bootstrap.min.js' %}"></script> 
+    <script src="{% static 'pedcon_main/js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'pedcon_main/js/script.js' %}"></script>
+    <script src="{% static 'pedcon_main/js/bootstrap.min.js' %}"></script> 
 
-</body>
+    {% block extra_js %}
+        {# Override this in templates to add extra javascript #}
+    {% endblock %}
+
+  </body>
 </html>
