@@ -527,4 +527,4 @@
     return SignaturePad;
 
 })));
-//# sourceMappingURL=signature_pad.umd.js.e1d485bb2043.map
+//# sourceMappingURL=signature_pad.umd.js.map
